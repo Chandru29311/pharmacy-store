@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clinical Services & Compounding — Apothecary & Natural Healing</title>
+  
+  <!-- Best Fonts: Plus Jakarta Sans, Outfit & Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Core Stylesheets -->
+  <!-- AOS (Animate On Scroll) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Top Dark Teal Navbar (Sticky Navbar) -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <!-- Left: Logo & Brand Name -->
+      <a href="index.html" class="brand-logo-link" aria-label="Stackly Home">
+        <img src="assets/white.webp" alt="Stackly Pharmacy Logo" class="brand-logo-img">
+      </a>
+
+      <!-- Center: Navigation Links -->
+      <nav class="nav-menu-center">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="About.html" class="nav-link">About</a>
+        <a href="Shop.html" class="nav-link">Shop</a>
+        <a href="Services.html" class="nav-link active">Services</a>
+        <a href="Blog.html" class="nav-link">Blog</a>
+        <a href="Contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <!-- Right: Search, Cart & Login Actions -->
+      <div class="nav-actions-right">
+        <a href="404.html" class="nav-icon-btn nav-search-trigger" title="Search" aria-label="Search">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </a>
+
+        <button class="nav-icon-btn cart-drawer-trigger" title="Shopping Cart" aria-label="Shopping Cart">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span class="cart-count-badge">0</span>
+        </button>
+
+        <a href="Login.html" class="btn-nav-login-pill">LOGIN</a>
+
+        <!-- Mobile Hamburger Button -->
+        <button class="hamburger-btn" id="hamburger-btn" aria-label="Toggle Navigation">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Off-Canvas Menu Drawer -->
+  <div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
+  <aside class="mobile-menu-drawer" id="mobile-menu">
+    <div class="mobile-menu-header">
+      <a href="index.html" class="brand-logo-link" aria-label="Stackly Home">
+        <img src="assets/white.webp" alt="Stackly Pharmacy Logo" class="brand-logo-img">
+      </a>
+      <button class="mobile-menu-close-btn" id="mobile-menu-close">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+    <nav class="mobile-nav-links">
+      <a href="index.html" class="mobile-nav-item">Home</a>
+      <a href="About.html" class="mobile-nav-item">About</a>
+      <a href="Shop.html" class="mobile-nav-item">Shop</a>
+      <a href="Services.html" class="mobile-nav-item active">Services</a>
+      <a href="Blog.html" class="mobile-nav-item">Blog</a>
+      <a href="Contact.html" class="mobile-nav-item">Contact</a>
+    </nav>
+    <div class="mobile-menu-footer">
+      <a href="Login.html" class="btn btn-teal btn-pill w-100 mobile-login-btn">Login</a>
+    </div>
+  </aside>
+
+  <!-- Interactive Slide-in Cart Drawer -->
+  <div class="cart-overlay" id="cart-overlay"></div>
+  <div class="cart-drawer" id="cart-drawer">
+    <div class="cart-drawer-header">
+      <h3 class="cart-drawer-title">Apothecary Basket <span id="cart-drawer-count">(0)</span></h3>
+      <button class="nav-icon-btn" id="cart-drawer-close" style="color: var(--color-text-dark);">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+    <div class="cart-drawer-items" id="cart-drawer-items">
+      <!-- Populated via CartManager in js/main.js -->
+    </div>
+    <div class="cart-drawer-footer">
+      <div class="cart-drawer-subtotal">
+        <span>Order Subtotal</span>
+        <span class="cart-drawer-total" id="cart-drawer-total">₹0</span>
+      </div>
+      <p class="cart-drawer-tax-note">Taxes & shipping calculated during checkout</p>
+      <a href="404.html" class="btn btn-teal btn-pill w-100 cart-checkout-btn" id="cart-checkout-btn">Proceed to Safe Checkout</a>
+    </div>
+  </div>
+
+  <!-- SECTION 1: FIGMA HERO BANNER -->
+  <section class="services-figma-hero">
+    <div class="container services-figma-hero-content">
+      <span class="services-figma-hero-eyebrow">Integrated Healthcare Services</span>
+      <h1 class="services-figma-hero-title">Comprehensive Care for Your Vibrant Life</h1>
+      <p class="services-figma-hero-desc">
+        From precision prescription compounding to holistic herbal consultations, discover personalized healthcare designed around your unique biological needs.
+      </p>
+      <div class="services-figma-hero-buttons">
+        <a href="Contact.html" class="btn btn-teal btn-pill" style="padding: 0.95rem 2.2rem; font-size: 0.95rem; font-weight: 600;">Book a Consultation</a>
+        <a href="404.html" class="btn btn-outline-white btn-pill" style="padding: 0.95rem 2.2rem; font-size: 0.95rem; font-weight: 600;">View Pricing</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2: DIGITAL PRESCRIPTION MANAGEMENT -->
+  <section class="services-digital-section">
+    <div class="container">
+      <div class="services-digital-grid">
+        <div class="digital-media-box" data-aos="fade-right">
+          <img src="assets/about-pharmacist-digital.webp" alt="Certified pharmacist examining customized prescription formulation">
+          <div class="digital-certified-badge">
+            <div class="digital-badge-icon">
+              <i class="fa-solid fa-shield-heart"></i>
+            </div>
+            <div>
+              <div class="digital-badge-title">100% Certified</div>
+              <div class="digital-badge-sub">Doctor of Pharmacy Oversight</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="digital-content-area">
+          <span class="digital-eyebrow">Prescription Care</span>
+          <h2 class="digital-title">Digital Prescription Management</h2>
+          <p class="digital-desc">
+            Streamline your medications with direct digital transfers, automatic refills, and real-time pharmacist verification.
+          </p>
+
+          <div class="digital-features-list">
+            <!-- Feature 1 -->
+            <div class="digital-feature-row">
+              <div class="digital-feature-icon">
+                <i class="fa-solid fa-cloud-arrow-up"></i>
+              </div>
+              <div>
+                <h4 class="digital-feature-heading">Instant Digital Uploads</h4>
+                <p class="digital-feature-text">
+                  Upload paper scripts or have your physician e-prescribe directly into our cleanroom dispensing system.
+                </p>
+              </div>
+            </div>
+
+            <!-- Feature 2 -->
+            <div class="digital-feature-row">
+              <div class="digital-feature-icon">
+                <i class="fa-solid fa-arrows-rotate"></i>
+              </div>
+              <div>
+                <h4 class="digital-feature-heading">Smart Auto-Refills</h4>
+                <p class="digital-feature-text">
+                  Predictive refill scheduling synchronized with your dosage cycle so you never miss a vital dose.
+                </p>
+              </div>
+            </div>
+
+            <!-- Feature 3 -->
+            <div class="digital-feature-row">
+              <div class="digital-feature-icon">
+                <i class="fa-solid fa-user-doctor"></i>
+              </div>
+              <div>
+                <h4 class="digital-feature-heading">Pharmacist Review</h4>
+                <p class="digital-feature-text">
+                  Every script is thoroughly analyzed for contraindications, botanical synergies, and dosage optimizations.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: BESPOKE CLEANROOM COMPOUNDING -->
+  <section class="services-compounding-section">
+    <div class="container">
+      <div class="compounding-header">
+        <span class="compounding-eyebrow">Personalized Formulations</span>
+        <h2 class="compounding-title">Bespoke Cleanroom Compounding</h2>
+        <p class="compounding-subtitle">
+          Tailored pharmacotherapy designed around your unique biology when commercial strengths, forms, or ingredients do not fit your clinical requirements.
+        </p>
+      </div>
+
+      <div class="compounding-cards-grid">
+        <!-- Compounding Card 1 -->
+        <div class="compounding-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="compounding-icon-box">
+            <i class="fa-solid fa-mortar-pestle"></i>
+          </div>
+          <h3 class="compounding-card-title">Bio-Identical Hormones & Botanicals</h3>
+          <p class="compounding-card-desc">
+            Custom micro-dosed plant-derived estrogens, progesterones, and adaptogenic phyto-compounds tailored to monthly hormonal profiles.
+          </p>
+          <div class="compounding-card-badge">
+            <i class="fa-solid fa-dna"></i> Pharmacist Micro-Dosed
+          </div>
+        </div>
+
+        <!-- Compounding Card 2 -->
+        <div class="compounding-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="compounding-icon-box">
+            <i class="fa-solid fa-capsules"></i>
+          </div>
+          <h3 class="compounding-card-title">Allergen-Free & Custom Suspensions</h3>
+          <p class="compounding-card-desc">
+            Elimination of gluten, lactose, artificial dyes, and alcohol. Available in specialized liquid drops, sublingual troches, and rapid-dissolve tablets.
+          </p>
+          <div class="compounding-card-badge">
+            <i class="fa-solid fa-shield-halved"></i> 100% Allergen-Free
+          </div>
+        </div>
+
+        <!-- Compounding Card 3 -->
+        <div class="compounding-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="compounding-icon-box">
+            <i class="fa-solid fa-pump-medical"></i>
+          </div>
+          <h3 class="compounding-card-title">Specialty Dermatological Topicals</h3>
+          <p class="compounding-card-desc">
+            Bio-fermented barrier repair ointments, sterile liposomal transdermal serums, and medical-grade botanical compounds for sensitive skin.
+          </p>
+          <div class="compounding-card-badge">
+            <i class="fa-solid fa-flask"></i> Liposomal Delivery
+          </div>
+        </div>
+
+        <!-- Compounding Card 4 -->
+        <div class="compounding-card" data-aos="fade-up" data-aos-delay="400">
+          <div class="compounding-icon-box">
+            <i class="fa-solid fa-paw"></i>
+          </div>
+          <h3 class="compounding-card-title">Veterinary Botanical Formulations</h3>
+          <p class="compounding-card-desc">
+            Custom palatable pastes, natural calming tinctures, and specialized dosing formulas created specifically for your companion animals.
+          </p>
+          <div class="compounding-card-badge">
+            <i class="fa-solid fa-heart-pulse"></i> Pet-Safe Phytotherapy
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4: EXPERT GUIDANCE, ANYWHERE -->
+  <section class="services-guidance-section">
+    <div class="container">
+      <div class="guidance-header">
+        <span class="guidance-eyebrow">Virtual Care</span>
+        <h2 class="guidance-title">Expert Guidance, Anywhere</h2>
+        <p class="guidance-subtitle">
+          Connect with specialized clinicians, naturopathic doctors, and compounding pharmacists from the comfort of home.
+        </p>
+      </div>
+
+      <div class="guidance-cards-grid">
+        <!-- Card 1 -->
+        <div class="guidance-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="guidance-icon-wrap">
+            <i class="fa-solid fa-video"></i>
+          </div>
+          <h3 class="guidance-card-title">Clinical Medication Review</h3>
+          <p class="guidance-card-desc">
+            One-on-one virtual review of all your current prescriptions, supplements, and herb-drug interactions.
+          </p>
+          <a href="404.html" class="guidance-card-link">Book Review <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="guidance-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="guidance-icon-wrap">
+            <i class="fa-solid fa-leaf"></i>
+          </div>
+          <h3 class="guidance-card-title">Live Wellness Coaching</h3>
+          <p class="guidance-card-desc">
+            Personalized lifestyle, circadian, and adaptogenic protocols designed for sustained vitality.
+          </p>
+          <a href="404.html" class="guidance-card-link">Start Coaching <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="guidance-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="guidance-icon-wrap">
+            <i class="fa-solid fa-comments"></i>
+          </div>
+          <h3 class="guidance-card-title">24/7 Triage Advice</h3>
+          <p class="guidance-card-desc">
+            Direct encrypted messaging with our dispensing pharmacists for urgent dosage and side-effect queries.
+          </p>
+          <a href="404.html" class="guidance-card-link">Message Us <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4: HOLISTIC WELLNESS ECOSYSTEM -->
+  <section class="services-ecosystem-section">
+    <div class="container">
+      <div class="ecosystem-grid">
+        <div>
+          <span class="ecosystem-eyebrow">Holistic Pathways</span>
+          <h2 class="ecosystem-title">Holistic Wellness Ecosystem</h2>
+          <p class="ecosystem-desc">
+            True healing combines precision pharmacology with restorative environments and natural biochemical balance.
+          </p>
+
+          <div class="ecosystem-pills-list">
+            <!-- Pill 1 -->
+            <div class="ecosystem-pill-item" data-aos="fade-up" data-aos-delay="100">
+              <div class="ecosystem-pill-icon">
+                <i class="fa-solid fa-spa"></i>
+              </div>
+              <div>
+                <h4 class="ecosystem-pill-heading">Personalized Herbal Dispensary</h4>
+                <p class="ecosystem-pill-text">
+                  Custom-blended tinctures, teas, and adaptogenic extracts formulated for your unique health profile.
+                </p>
+              </div>
+            </div>
+
+            <!-- Pill 2 -->
+            <div class="ecosystem-pill-item" data-aos="fade-up" data-aos-delay="200">
+              <div class="ecosystem-pill-icon">
+                <i class="fa-solid fa-hand-holding-medical"></i>
+              </div>
+              <div>
+                <h4 class="ecosystem-pill-heading">Clinical Body-Mind Integration</h4>
+                <p class="ecosystem-pill-text">
+                  Breathwork, sleep architecture guidance, and circadian alignment alongside medical therapies.
+                </p>
+              </div>
+            </div>
+
+            <!-- Pill 3 -->
+            <div class="ecosystem-pill-item" data-aos="fade-up" data-aos-delay="300">
+              <div class="ecosystem-pill-icon">
+                <i class="fa-solid fa-flask-vial"></i>
+              </div>
+              <div>
+                <h4 class="ecosystem-pill-heading">Precision Nutrient Formulations</h4>
+                <p class="ecosystem-pill-text">
+                  High-bioavailability liposomal vitamins, chelated minerals, and medicinal mushroom compounds.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ecosystem-media-wrap" data-aos="fade-up" data-aos-delay="200">
+          <img src="assets/about-zen-sanctuary.webp" alt="Sanctuary restorative meditation space with yoga mat and natural daylight">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 6: STRUCTURED THERAPEUTIC CARE PATHWAYS -->
+  <section class="services-pathways-section">
+    <div class="container">
+      <div class="pathways-header">
+        <span class="pathways-eyebrow">Systemic Wellness Programs</span>
+        <h2 class="pathways-title">Structured Therapeutic Care Pathways</h2>
+        <p class="pathways-subtitle">
+          Clinician-guided, recurring healthcare protocols pairing pharmaceutical oversight with targeted botanical therapeutics for long-term clinical outcomes.
+        </p>
+      </div>
+
+      <div class="pathways-cards-grid">
+        <!-- Pathway 1 -->
+        <div class="pathway-card" data-aos="fade-up" data-aos-delay="100">
+          <span class="pathway-duration-badge">90-DAY PROTOCOL</span>
+          <h3 class="pathway-card-title">Metabolic & Endocrine Balance</h3>
+          <p class="pathway-card-desc">
+            Comprehensive blood glucose stabilization, adrenal cortisol modulation, and customized Berberine-Chromium botanical compounding.
+          </p>
+          <ul class="pathway-features-list">
+            <li class="pathway-feature-item"><i class="fa-solid fa-circle-check"></i> Baseline Biomarker Testing</li>
+            <li class="pathway-feature-item"><i class="fa-solid fa-circle-check"></i> Monthly Prescription Compounding</li>
+            <li class="pathway-feature-item"><i class="fa-solid fa-circle-check"></i> Bi-Weekly Pharmacist Reviews</li>
+          </ul>
+          <a href="404.html" class="pathway-enroll-btn">Explore Pathway <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <!-- Pathway 2 -->
+        <div class="pathway-card" data-aos="fade-up" data-aos-delay="200">
+          <span class="pathway-duration-badge">60-DAY PROTOCOL</span>
+          <h3 class="pathway-card-title">Gut Microbiome & Mucosal Repair</h3>
+          <p class="pathway-card-desc">
+            Post-antibiotic microbial re-seeding, gut-barrier tight junction healing, and spore-based probiotic and deglycyrrhizinated botanical elixirs.
+          </p>
+          <ul class="pathway-features-list">
+            <li class="pathway-feature-item"><i class="fa-solid fa-circle-check"></i> Complete GI Microbial Profile</li>
+            <li class="pathway-feature-item"><i class="fa-solid fa-circle-check"></i> Targeted Mucosal Formulations</li>
+            <li class="pathway-feature-item"><i class="fa-solid fa-circle-check"></i> Dietary Synergy Consultation</li>
+          </ul>
+          <a href="404.html" class="pathway-enroll-btn">Explore Pathway <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <!-- Pathway 3 -->
+        <div class="pathway-card" data-aos="fade-up" data-aos-delay="300">
+          <span class="pathway-duration-badge">45-DAY PROTOCOL</span>
+          <h3 class="pathway-card-title">Circadian Sleep & Neuro-Vitality</h3>
+          <p class="pathway-card-desc">
+            Non-sedative GABA receptor upregulation, restorative sleep architecture optimization, and clinical passionflower-apigenin nocturnal drops.
+          </p>
+          <ul class="pathway-features-list">
+            <li class="pathway-feature-item"><i class="fa-solid fa-circle-check"></i> Cortisol Rhythm Assessment</li>
+            <li class="pathway-feature-item"><i class="fa-solid fa-circle-check"></i> Tailored Neuro-Calm Tinctures</li>
+            <li class="pathway-feature-item"><i class="fa-solid fa-circle-check"></i> Sleep Architecture Check-In</li>
+          </ul>
+          <a href="404.html" class="pathway-enroll-btn">Explore Pathway <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <!-- Pathway 4 -->
+        <div class="pathway-card" data-aos="fade-up" data-aos-delay="400">
+          <span class="pathway-duration-badge">120-DAY PROTOCOL</span>
+          <h3 class="pathway-card-title">Chronic Mobility & Cellular Vitality</h3>
+          <p class="pathway-card-desc">
+            Downregulation of systemic inflammatory cascades, mitochondrial antioxidant replenishment, and liposomal curcumin-boswellic compounding.
+          </p>
+          <ul class="pathway-features-list">
+            <li class="pathway-feature-item"><i class="fa-solid fa-circle-check"></i> hs-CRP Inflammatory Panel</li>
+            <li class="pathway-feature-item"><i class="fa-solid fa-circle-check"></i> Cleanroom Liposomal Suspensions</li>
+            <li class="pathway-feature-item"><i class="fa-solid fa-circle-check"></i> Dedicated Care Coordinator</li>
+          </ul>
+          <a href="404.html" class="pathway-enroll-btn">Explore Pathway <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 7: ADVANCED DIAGNOSTICS -->
+  <section class="services-diagnostics-section">
+    <div class="container">
+      <div class="diagnostics-header">
+        <h2 class="diagnostics-title">Advanced Diagnostics</h2>
+        <p class="diagnostics-subtitle">
+          Data-driven clinical biomarker testing guiding precision natural medicine and pharmaceutical compounding.
+        </p>
+      </div>
+
+      <div class="diagnostics-grid">
+        <!-- Col 1 -->
+        <div class="diagnostics-col" data-aos="fade-up" data-aos-delay="100">
+          <div class="diagnostics-icon-circle">
+            <i class="fa-solid fa-droplet"></i>
+          </div>
+          <h4 class="diagnostics-col-title">Comprehensive Blood Panel</h4>
+          <p class="diagnostics-col-desc">
+            Full endocrine, metabolic, lipid, and inflammatory biomarker analysis.
+          </p>
+        </div>
+
+        <!-- Col 2 -->
+        <div class="diagnostics-col" data-aos="fade-up" data-aos-delay="200">
+          <div class="diagnostics-icon-circle">
+            <i class="fa-solid fa-dna"></i>
+          </div>
+          <h4 class="diagnostics-col-title">Nutrigenomic Testing</h4>
+          <p class="diagnostics-col-desc">
+            Genetic pathway mapping for methylation, detox, and drug metabolism.
+          </p>
+        </div>
+
+        <!-- Col 3 -->
+        <div class="diagnostics-col" data-aos="fade-up" data-aos-delay="300">
+          <div class="diagnostics-icon-circle">
+            <i class="fa-solid fa-shield-virus"></i>
+          </div>
+          <h4 class="diagnostics-col-title">Immune & Allergy Profiles</h4>
+          <p class="diagnostics-col-desc">
+            Deep antibody profiling, histamine intolerance, and autoimmune markers.
+          </p>
+        </div>
+
+        <!-- Col 4 -->
+        <div class="diagnostics-col" data-aos="fade-up" data-aos-delay="400">
+          <div class="diagnostics-icon-circle">
+            <i class="fa-solid fa-microscope"></i>
+          </div>
+          <h4 class="diagnostics-col-title">GI Microbiome Analysis</h4>
+          <p class="diagnostics-col-desc">
+            Metagenomic sequencing of gut flora diversity and mucosal health.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 8: EXPRESS DOORSTEP LOGISTICS -->
+  <section class="services-logistics-section">
+    <div class="container">
+      <div class="logistics-card-container" data-aos="zoom-in">
+        <div class="logistics-grid">
+          <div>
+            <span class="logistics-eyebrow">Rapid Delivery Network</span>
+            <h2 class="logistics-title">Express Doorstep Logistics</h2>
+            <p class="logistics-desc">
+              Fast, temperature-monitored pharmaceutical delivery directly to your home or office.
+            </p>
+
+            <div class="logistics-features-grid">
+              <div class="logistics-feature-item">
+                <i class="fa-solid fa-truck-fast"></i>
+                <span>Same-Day Local Dispatch</span>
+              </div>
+              <div class="logistics-feature-item">
+                <i class="fa-solid fa-snowflake"></i>
+                <span>Validated Cold-Chain Transit</span>
+              </div>
+              <div class="logistics-feature-item">
+                <i class="fa-solid fa-box-archive"></i>
+                <span>Tamper-Evident Eco Packaging</span>
+              </div>
+              <div class="logistics-feature-item">
+                <i class="fa-solid fa-location-crosshairs"></i>
+                <span>Real-Time GPS Tracking</span>
+              </div>
+            </div>
+
+            <a href="404.html" class="logistics-cta-btn">
+              Learn More Shipping <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+
+          <div class="logistics-media-wrap">
+            <img src="assets/about-delivery-van.webp" alt="Express pharmacy delivery logistics van on city street">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMMON FOOTER (Dark Teal with 4 Columns - No List Dots) -->
+  <footer class="main-footer">
+    <div class="container">
+      <div class="footer-columns-grid">
+        <!-- Col 1: Brand & Bio -->
+        <div>
+          <a href="index.html" class="brand-logo-link footer-brand-logo" aria-label="Stackly Home">
+            <img src="assets/white.webp" alt="Stackly Pharmacy Logo" class="brand-logo-img">
+          </a>
+          <p class="footer-bio-text">
+            Bridging time-honored herbal traditions with modern clinical precision for your holistic healing journey.
+          </p>
+          <div class="footer-social-links">
+            <a href="404.html" class="footer-social-icon"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="404.html" class="footer-social-icon"><i class="fa-brands fa-instagram"></i></a>
+            <a href="404.html" class="footer-social-icon"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="404.html" class="footer-social-icon"><i class="fa-brands fa-linkedin-in"></i></a>
+          </div>
+        </div>
+
+        <!-- Col 2: Quick Links -->
+        <div>
+          <h4 class="footer-col-heading">Quick Links</h4>
+          <ul class="footer-nav-list">
+            <li class="footer-nav-item"><a href="index.html">Home</a></li>
+            <li class="footer-nav-item"><a href="About.html">About</a></li>
+            <li class="footer-nav-item"><a href="Shop.html">Shop</a></li>
+            <li class="footer-nav-item"><a href="Services.html">Services</a></li>
+            <li class="footer-nav-item"><a href="Blog.html">Blog</a></li>
+            <li class="footer-nav-item"><a href="Contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Specialties -->
+        <div>
+          <h4 class="footer-col-heading">Specialties</h4>
+          <ul class="footer-nav-list">
+            <li class="footer-nav-item"><a href="404.html">Prescription Dispensing</a></li>
+            <li class="footer-nav-item"><a href="404.html">Herbal Compounding</a></li>
+            <li class="footer-nav-item"><a href="404.html">Diagnostic Testing</a></li>
+            <li class="footer-nav-item"><a href="404.html">Chronic Care Pathways</a></li>
+            <li class="footer-nav-item"><a href="404.html">Cold-Chain Delivery</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Visit Us -->
+        <div>
+          <h4 class="footer-col-heading">Visit Us</h4>
+          <div class="footer-contact-items">
+            <div class="footer-contact-item">
+              <i class="fa-solid fa-location-dot"></i>
+              <span>MMR Complex, Chinna Thirupathi, near Chinna Muniyappan Kovil, Salem, Tamil Nadu 636008</span>
+            </div>
+            <div class="footer-contact-item">
+              <i class="fa-solid fa-phone"></i>
+              <span>+91 9876543210</span>
+            </div>
+            <div class="footer-contact-item">
+              <i class="fa-solid fa-envelope"></i>
+              <span>info@stackly.com</span>
+            </div>
+            <div class="footer-contact-item">
+              <i class="fa-solid fa-clock"></i>
+              <span>Mon - Sat: 8:00 AM - 8:00 PM</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        © 2026 Apothecary & Natural Healing. All rights reserved. Licensed Healthcare Dispenser.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="js/inventory.js"></script>
+  <script src="js/orders.js"></script>
+  <script src="js/notifications.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

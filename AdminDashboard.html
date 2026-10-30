@@ -1,0 +1,1258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Overview | Aura Pharmacy Administration</title>
+  
+  <!-- Google Fonts: Cormorant Garamond & Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/admin-dashboard.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body class="dashboard-body">
+
+  <div class="dashboard-layout">
+    <!-- Off-Canvas Mobile Overlay -->
+    <div class="dashboard-overlay" id="dashboard-overlay"></div>
+
+    <!-- ADMIN SIDEBAR (Section 34 & 35) -->
+    <aside class="dashboard-sidebar">
+      <div class="sidebar-brand-box">
+        <a href="AdminDashboard.html" class="sidebar-brand-link" title="Return to Website Home">
+          <img src="assets/white.webp" alt="Stackly Logo" class="sidebar-brand-img">
+          <div>
+            <div class="sidebar-brand-sub">Central Pharmacy</div>
+          </div>
+        </a>
+        <button class="sidebar-close-btn" id="sidebar-close-btn" aria-label="Close menu">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <!-- Navigation Links (5 Direct Menus - No Dropdowns) -->
+      <nav class="sidebar-nav-container">
+        <a href="#admin-section-dashboard" class="sidebar-nav-link active" data-target="admin-section-dashboard">
+          <i class="fa-solid fa-chart-pie"></i> Dashboard
+        </a>
+        <a href="#admin-section-products" class="sidebar-nav-link" data-target="admin-section-products">
+          <i class="fa-solid fa-pills"></i> Products
+        </a>
+        <a href="#admin-section-orders" class="sidebar-nav-link" data-target="admin-section-orders">
+          <i class="fa-solid fa-truck-ramp-box"></i> Orders
+        </a>
+        <a href="#admin-section-customers" class="sidebar-nav-link" data-target="admin-section-customers">
+          <i class="fa-solid fa-hospital-user"></i> Customers
+        </a>
+        <a href="#admin-section-settings" class="sidebar-nav-link" data-target="admin-section-settings">
+          <i class="fa-solid fa-sliders"></i> Settings
+        </a>
+      </nav>
+
+      <!-- Logout Action -->
+      <div class="sidebar-footer">
+        <div class="user-profile-badge sidebar-user-badge">
+          <div class="user-avatar-circle session-user-avatar-text">A</div>
+          <div class="user-meta">
+            <span class="user-name-bold"><span class="session-user-name">admin@dispensary.com</span></span>
+            <span class="user-role-label">Admin</span>
+          </div>
+        </div>
+        <button class="btn-sidebar-logout btn-logout-action">
+          <i class="fa-solid fa-arrow-right-from-bracket"></i> Logout
+        </button>
+      </div>
+    </aside>
+
+    <!-- MAIN CONTENT AREA -->
+    <div class="dashboard-main-wrapper">
+      <!-- Admin Header (Section 36) -->
+      <header class="dashboard-header">
+        <div class="header-left-col">
+          <button class="sidebar-toggle-btn" id="sidebar-toggle-btn" aria-label="Toggle menu">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+          <div class="header-title-box">
+            <h3>Admin Overview</h3>
+          </div>
+        </div>
+
+        <!-- Right Profile: J / Jack Harrison -->
+        <div class="header-right-col">
+          <!-- <a href="Shop.html" class="btn btn-outline btn-sm" style="display: inline-flex;">
+            <i class="fa-solid fa-bag-shopping"></i> Shop Front
+          </a> -->
+          <div class="user-profile-badge">
+            <div class="user-avatar-circle session-user-avatar-text">A</div>
+            <div class="user-meta">
+              <span class="user-name-bold">Welcome, <span class="session-user-name">admin@dispensary.com</span></span>
+              <span class="user-role-label">Admin</span>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Dashboard Body Content Area -->
+      <main class="dashboard-content-area" id="admin-overview">
+
+      <!-- ===================================================================
+           SECTION 1: DASHBOARD (Dedicated Admin Overview View)
+           =================================================================== -->
+      <section class="admin-dashboard-section active-section" id="admin-section-dashboard">
+        <!-- Section Header -->
+        <div class="admin-page-header">
+          <div>
+            <span class="text-accent font-semibold" style="font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase;">
+              Central Dispensary Telemetry
+            </span>
+            <h1 class="admin-page-title">Admin Overview & Operations</h1>
+            <p class="admin-page-subtitle">
+              Real-time pharmacy inventory telemetry, clinical sales tracking, and fulfillment operations.
+            </p>
+          </div>
+          <div class="admin-header-actions">
+            <button class="btn btn-outline btn-sm" onclick="window.location.href='404.html'">
+              <i class="fa-solid fa-file-export"></i> Export Report
+            </button>
+            <button class="btn btn-primary btn-sm" onclick="window.location.href='404.html'">
+              <i class="fa-solid fa-bullhorn"></i> Broadcast Alert
+            </button>
+          </div>
+        </div>
+
+        <!-- 4 Statistics / KPI Cards -->
+        <div class="kpi-cards-grid">
+          <div class="kpi-card">
+            <div>
+              <span class="kpi-label">TOTAL PRODUCTS</span>
+              <div class="kpi-val" id="admin-kpi-products">128</div>
+              <div class="kpi-growth"><i class="fa-solid fa-arrow-up"></i> +12 this month</div>
+            </div>
+            <div class="kpi-icon-box">
+              <i class="fa-solid fa-capsules"></i>
+            </div>
+          </div>
+
+          <div class="kpi-card">
+            <div>
+              <span class="kpi-label">PENDING ORDERS</span>
+              <div class="kpi-val" id="admin-kpi-orders">24</div>
+              <div class="kpi-growth" style="color: var(--color-accent);"><i class="fa-solid fa-circle-exclamation"></i> 8 require attention</div>
+            </div>
+            <div class="kpi-icon-box">
+              <i class="fa-solid fa-receipt"></i>
+            </div>
+          </div>
+
+          <div class="kpi-card">
+            <div>
+              <span class="kpi-label">TOTAL REVENUE</span>
+              <div class="kpi-val" id="admin-kpi-revenue">₹8.42L</div>
+              <div class="kpi-growth"><i class="fa-solid fa-arrow-trend-up"></i> +18.6% vs last quarter</div>
+            </div>
+            <div class="kpi-icon-box">
+              <i class="fa-solid fa-indian-rupee-sign"></i>
+            </div>
+          </div>
+
+          <div class="kpi-card">
+            <div>
+              <span class="kpi-label">COLD-CHAIN INTEGRITY</span>
+              <div class="kpi-val text-accent" style="font-size: 1.8rem; color: #16a34a;">100%</div>
+              <div class="kpi-growth" style="color: #16a34a;"><i class="fa-solid fa-snowflake"></i> 12 sensors nominal (4.2°C)</div>
+            </div>
+            <div class="kpi-icon-box">
+              <i class="fa-solid fa-temperature-arrow-down"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sales Analytics Chart Box -->
+        <div class="sales-chart-card" id="sales-section" style="margin-bottom: 2rem;">
+          <div class="chart-header-row">
+            <div class="chart-title-area">
+              <span class="text-accent" style="font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 700;">Revenue Telemetry</span>
+              <h4>Sales Performance</h4>
+            </div>
+            <div class="chart-controls-row">
+              <button class="chart-time-btn" data-period="7d">7 DAYS</button>
+              <button class="chart-time-btn active" data-period="30d">30 DAYS</button>
+              <button class="chart-time-btn" data-period="3m">3 MONTHS</button>
+              <button class="chart-time-btn" data-period="1y">1 YEAR</button>
+            </div>
+          </div>
+          <!-- SVG Interactive Chart Container -->
+          <div id="admin-sales-chart-wrapper"></div>
+        </div>
+
+        <!-- 2-Column Row: Top Selling Products & Inventory Alerts -->
+        <div class="admin-two-col-grid" style="margin-bottom: 2rem;">
+          <!-- Top Selling Products -->
+          <div class="dashboard-table-card" id="top-products-section">
+            <div class="table-header-row">
+              <h4 class="table-header-title">TOP SELLING PRODUCTS</h4>
+              <span class="text-muted" style="font-size: 0.78rem;">By volume</span>
+            </div>
+            <div id="admin-top-products-list">
+              <!-- Rendered via js/admin-dashboard.js -->
+            </div>
+          </div>
+
+          <!-- Inventory Alerts -->
+          <div class="inventory-alerts-card" id="inventory-section">
+            <div class="table-header-row" style="margin-bottom: 0.75rem;">
+              <h4 class="table-header-title">Inventory Alerts</h4>
+              <span class="badge badge-warning">Attention Needed</span>
+            </div>
+            <p class="text-muted" style="font-size: 0.82rem; margin-bottom: 1rem;">
+              Products flagged below safe pharmaceutical reserve buffers.
+            </p>
+            <div id="admin-inventory-alerts-list">
+              <!-- Rendered via js/admin-dashboard.js -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Operational Dispatch & Batch Verification Table -->
+        <div class="dashboard-table-card" style="margin-bottom: 2rem;">
+          <div class="table-header-row">
+            <div>
+              <h4 class="table-header-title">Clinical Batch Verification & Quality Inspection</h4>
+              <p class="text-muted" style="font-size: 0.85rem; margin-top: 0.2rem;">
+                Pharmaceutical lots certified for clinical dispensary release.
+              </p>
+            </div>
+            <span class="badge badge-gold"><i class="fa-solid fa-stamp"></i> Quality Certified</span>
+          </div>
+          <div class="admin-data-table-wrapper">
+            <table class="admin-data-table">
+              <thead>
+                <tr>
+                  <th>Batch ID</th>
+                  <th>Medication & Formulation</th>
+                  <th>Warehouse Bay</th>
+                  <th>Cold-Chain Temp</th>
+                  <th>Inspector Pharmacist</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong class="font-mono text-accent">#BTC-2026-901</strong></td>
+                  <td>Atorvastatin Liposomal 20mg (30 Tablets)</td>
+                  <td>Vault Bay A-2</td>
+                  <td><span style="color: #16a34a; font-weight: 600;">4.2°C Nominal</span></td>
+                  <td>Dr. Evelyn Vance, PharmD</td>
+                  <td><span class="admin-badge admin-badge-success"><i class="fa-solid fa-check"></i> Approved</span></td>
+                  <td>
+                    <button class="btn btn-outline btn-sm" style="padding: 0.25rem 0.6rem; font-size: 0.75rem;" onclick="window.location.href='404.html'">Inspect</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong class="font-mono text-accent">#BTC-2026-894</strong></td>
+                  <td>Metformin ER 500mg Extended Release (60 Tabs)</td>
+                  <td>Climate Bay B-1</td>
+                  <td><span style="color: #16a34a; font-weight: 600;">4.1°C Nominal</span></td>
+                  <td>Dr. Robert Vance, MD</td>
+                  <td><span class="admin-badge admin-badge-success"><i class="fa-solid fa-check"></i> Approved</span></td>
+                  <td>
+                    <button class="btn btn-outline btn-sm" style="padding: 0.25rem 0.6rem; font-size: 0.75rem;" onclick="window.location.href='404.html'">Inspect</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong class="font-mono text-accent">#BTC-2026-880</strong></td>
+                  <td>Vitamin C Liposomal 500mg + Zinc Complex</td>
+                  <td>Cold Storage C-3</td>
+                  <td><span style="color: #16a34a; font-weight: 600;">4.3°C Nominal</span></td>
+                  <td>Priya Nair, QA Lead</td>
+                  <td><span class="admin-badge admin-badge-info"><i class="fa-solid fa-truck"></i> In Transit</span></td>
+                  <td>
+                    <button class="btn btn-outline btn-sm" style="padding: 0.25rem 0.6rem; font-size: 0.75rem;" onclick="window.location.href='404.html'">Inspect</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Pharmacy Notifications Card -->
+        <div class="dashboard-table-card">
+          <div class="table-header-row">
+            <h4 class="table-header-title">Pharmacy System Notifications</h4>
+            <button class="btn-refresh-table" id="admin-refresh-notifs" title="Check notifications">
+              <i class="fa-solid fa-rotate"></i> ↻ REFRESH
+            </button>
+          </div>
+          <div id="admin-notifications-list">
+            <!-- Rendered via js/admin-dashboard.js -->
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           SECTION 2: PRODUCTS (Dedicated Products Inventory View)
+           =================================================================== -->
+      <section class="admin-dashboard-section" id="admin-section-products">
+        <!-- Section Header -->
+        <div class="admin-page-header">
+          <div>
+            <span class="text-accent font-semibold" style="font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase;">
+              Therapeutic Catalog & Inventory
+            </span>
+            <h1 class="admin-page-title">Pharmacy Product Inventory & Formulary</h1>
+            <p class="admin-page-subtitle">
+              Manage therapeutic drug catalog, batch expiration dates, dosage formulations, and pricing.
+            </p>
+          </div>
+          <div class="admin-header-actions">
+            <button class="btn btn-outline btn-sm" onclick="window.location.href='404.html'">
+              <i class="fa-solid fa-file-import"></i> Import CSV
+            </button>
+            <button class="btn btn-primary btn-sm" onclick="window.location.href='404.html'">
+              <i class="fa-solid fa-plus"></i> Add New Product
+            </button>
+          </div>
+        </div>
+
+        <!-- 4 Statistics / KPI Cards -->
+        <div class="kpi-cards-grid">
+          <div class="kpi-card">
+            <div>
+              <span class="kpi-label">TOTAL CATALOG SKUS</span>
+              <div class="kpi-val" style="font-size: 1.8rem;">128 Items</div>
+              <div class="text-muted" style="font-size: 0.8rem; margin-top: 0.2rem;">94 Prescription &bull; 34 OTC</div>
+            </div>
+            <div class="kpi-icon-box">
+              <i class="fa-solid fa-pills"></i>
+            </div>
+          </div>
+
+          <div class="kpi-card">
+            <div>
+              <span class="kpi-label">LOW STOCK ALERTS</span>
+              <div class="kpi-val text-accent" style="font-size: 1.8rem; color: #b45309;">4 SKUs</div>
+              <div class="kpi-growth" style="color: #b45309;"><i class="fa-solid fa-triangle-exclamation"></i> Below 5 unit safety threshold</div>
+            </div>
+            <div class="kpi-icon-box">
+              <i class="fa-solid fa-boxes-stacked"></i>
+            </div>
+          </div>
+
+          <div class="kpi-card">
+            <div>
+              <span class="kpi-label">OUT OF STOCK</span>
+              <div class="kpi-val" style="font-size: 1.8rem; color: #dc2626;">1 SKU</div>
+              <div class="text-muted" style="font-size: 0.8rem; margin-top: 0.2rem;">Purchase order placed</div>
+            </div>
+            <div class="kpi-icon-box">
+              <i class="fa-solid fa-circle-xmark"></i>
+            </div>
+          </div>
+
+          <div class="kpi-card">
+            <div>
+              <span class="kpi-label">INVENTORY VALUATION</span>
+              <div class="kpi-val" style="font-size: 1.8rem;">₹24.85L</div>
+              <div class="kpi-growth" style="color: #16a34a;"><i class="fa-solid fa-vault"></i> Wholesale dispensary asset</div>
+            </div>
+            <div class="kpi-icon-box">
+              <i class="fa-solid fa-warehouse"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive SVG Chart: Formulary Category Allocation -->
+        <div class="admin-analytics-box">
+          <div class="admin-analytics-header">
+            <div class="admin-analytics-title">
+              <h4>Inventory Formulary & Category Distribution</h4>
+              <p>Active pharmaceutical stock valuation segmented by therapeutic class and clinical urgency.</p>
+            </div>
+            <div style="display: flex; gap: 1rem; font-size: 0.78rem; color: #888888; flex-wrap: wrap;">
+              <span><span style="display: inline-block; width: 9px; height: 9px; border-radius: 50%; background: #B08D57; margin-right: 4px;"></span> Prescription Rx (40%)</span>
+              <span><span style="display: inline-block; width: 9px; height: 9px; border-radius: 50%; background: #16a34a; margin-right: 4px;"></span> Bio-Vitamins (30%)</span>
+              <span><span style="display: inline-block; width: 9px; height: 9px; border-radius: 50%; background: #2563eb; margin-right: 4px;"></span> Tinctures (18%)</span>
+              <span><span style="display: inline-block; width: 9px; height: 9px; border-radius: 50%; background: #d97706; margin-right: 4px;"></span> Diagnostics (12%)</span>
+            </div>
+          </div>
+          <div style="width: 100%; overflow-x: auto;">
+            <svg viewBox="0 0 760 160" preserveAspectRatio="none" style="height: 140px; min-width: 540px;">
+              <text x="50" y="26" font-size="11" font-weight="600" fill="#E5E7EB">Prescription Maintenance Rx (Cardiovascular, Diabetes, Endocrine) - ₹9.94L</text>
+              <rect x="50" y="34" width="670" height="12" fill="#262626" rx="6"></rect>
+              <rect x="50" y="34" width="268" height="12" fill="#B08D57" rx="6"></rect>
+
+              <text x="50" y="66" font-size="11" font-weight="600" fill="#E5E7EB">Bio-Active Liposomal Vitamins & Nutritional Supplements - ₹7.45L</text>
+              <rect x="50" y="74" width="670" height="12" fill="#262626" rx="6"></rect>
+              <rect x="50" y="74" width="201" height="12" fill="#16a34a" rx="6"></rect>
+
+              <text x="50" y="106" font-size="11" font-weight="600" fill="#E5E7EB">Herbal Sleep & Botanical Wellness Tinctures - ₹4.47L</text>
+              <rect x="50" y="114" width="670" height="12" fill="#262626" rx="6"></rect>
+              <rect x="50" y="114" width="120" height="12" fill="#2563eb" rx="6"></rect>
+
+              <text x="50" y="146" font-size="11" font-weight="600" fill="#E5E7EB">Clinical Diagnostic Devices & Digital Telemetry Monitors - ₹2.98L</text>
+              <rect x="50" y="152" width="670" height="8" fill="#262626" rx="4"></rect>
+              <rect x="50" y="152" width="80" height="8" fill="#d97706" rx="4"></rect>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Product Filters Toolbar -->
+        <div class="admin-toolbar-strip">
+          <div class="admin-search-box">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" class="admin-search-input" placeholder="Search product name, SKU, NDC code...">
+          </div>
+          <div class="admin-filter-tabs">
+            <button class="admin-tab-btn active">All Products (128)</button>
+            <a href="404.html" class="admin-tab-btn">Prescription Rx (94)</a>
+            <a href="404.html" class="admin-tab-btn">Bio-Vitamins (22)</a>
+            <a href="404.html" class="admin-tab-btn">Low Stock (4)</a>
+          </div>
+        </div>
+
+        <!-- Product Inventory Master Table -->
+        <div class="dashboard-table-card">
+          <div class="table-header-row">
+            <div>
+              <h4 class="table-header-title">Master Product Inventory & Stock Ledger</h4>
+              <p class="text-muted" style="font-size: 0.85rem; margin-top: 0.2rem;">
+                Real-time dispensary inventory synchronized with Central POS and e-Prescribing network.
+              </p>
+            </div>
+            <button class="btn btn-outline btn-sm" onclick="window.location.href='404.html'">
+              <i class="fa-solid fa-download"></i> Export Inventory
+            </button>
+          </div>
+          <div class="admin-data-table-wrapper">
+            <table class="admin-data-table">
+              <thead>
+                <tr>
+                  <th>SKU Code</th>
+                  <th>Product & Formulation</th>
+                  <th>Therapeutic Category</th>
+                  <th>Price</th>
+                  <th>Current Stock</th>
+                  <th>Safety Reserve</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong class="font-mono text-accent">#MED-01</strong></td>
+                  <td>
+                    <div class="table-product-cell">
+                      <img src="assets/vitamins-01.webp" alt="Vitamin C 500mg Zinc Complex" class="table-thumb" loading="lazy">
+                      <div>
+                        <div class="table-product-name">Vitamin C 500mg Zinc Complex</div>
+                        <small class="text-muted">30 Tablets &bull; Batch #VC-880</small>
+                      </div>
+                    </div>
+                  </td>
+                  <td>Bio-Vitamins</td>
+                  <td><strong>₹499</strong></td>
+                  <td><span class="text-accent font-bold" style="color: #b45309;">3 Units</span></td>
+                  <td>15 Units</td>
+                  <td><span class="admin-badge admin-badge-warning"><i class="fa-solid fa-triangle-exclamation"></i> Low Stock</span></td>
+                  <td>
+                    <button class="btn btn-outline btn-sm" style="padding: 0.2rem 0.55rem; font-size: 0.72rem;" onclick="window.location.href='404.html'">Restock</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong class="font-mono text-accent">#MED-02</strong></td>
+                  <td>
+                    <div class="table-product-cell">
+                      <img src="assets/medicine-02.webp" alt="Omega-3 Wild Fish Oil 1000mg" class="table-thumb" loading="lazy">
+                      <div>
+                        <div class="table-product-name">Omega-3 Wild Fish Oil 1000mg</div>
+                        <small class="text-muted">60 Softgels &bull; Batch #OM-912</small>
+                      </div>
+                    </div>
+                  </td>
+                  <td>Nutrition</td>
+                  <td><strong>₹899</strong></td>
+                  <td><span class="text-accent font-bold" style="color: #b45309;">2 Units</span></td>
+                  <td>10 Units</td>
+                  <td><span class="admin-badge admin-badge-warning"><i class="fa-solid fa-triangle-exclamation"></i> Low Stock</span></td>
+                  <td>
+                    <button class="btn btn-outline btn-sm" style="padding: 0.2rem 0.55rem; font-size: 0.72rem;" onclick="window.location.href='404.html'">Restock</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong class="font-mono text-accent">#MED-03</strong></td>
+                  <td>
+                    <div class="table-product-cell">
+                      <img src="assets/vitamins-02.webp" alt="Complete Daily Multivitamin" class="table-thumb" loading="lazy">
+                      <div>
+                        <div class="table-product-name">Complete Daily Multivitamin</div>
+                        <small class="text-muted">30 Tablets &bull; Batch #MV-740</small>
+                      </div>
+                    </div>
+                  </td>
+                  <td>Wellness</td>
+                  <td><strong>₹649</strong></td>
+                  <td><span class="font-bold" style="color: #dc2626;">0 Units</span></td>
+                  <td>20 Units</td>
+                  <td><span class="admin-badge admin-badge-danger"><i class="fa-solid fa-circle-xmark"></i> Out of Stock</span></td>
+                  <td>
+                    <button class="btn btn-outline btn-sm" style="padding: 0.2rem 0.55rem; font-size: 0.72rem;" onclick="window.location.href='404.html'">Restock</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong class="font-mono text-accent">#MED-04</strong></td>
+                  <td>
+                    <div class="table-product-cell">
+                      <img src="assets/medicine-01.webp" alt="Atorvastatin Liposomal 20mg" class="table-thumb" loading="lazy">
+                      <div>
+                        <div class="table-product-name">Atorvastatin Liposomal 20mg</div>
+                        <small class="text-muted">30 Tablets &bull; Batch #AT-204</small>
+                      </div>
+                    </div>
+                  </td>
+                  <td>Prescription Rx</td>
+                  <td><strong>₹680</strong></td>
+                  <td><span class="font-bold" style="color: #16a34a;">85 Units</span></td>
+                  <td>25 Units</td>
+                  <td><span class="admin-badge admin-badge-success"><i class="fa-solid fa-check"></i> In Stock</span></td>
+                  <td>
+                    <button class="btn btn-outline btn-sm" style="padding: 0.2rem 0.55rem; font-size: 0.72rem;" onclick="window.location.href='404.html'">Edit</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong class="font-mono text-accent">#MED-05</strong></td>
+                  <td>
+                    <div class="table-product-cell">
+                      <img src="assets/medicine-03.webp" alt="Metformin ER 500mg Extended Release" class="table-thumb" loading="lazy">
+                      <div>
+                        <div class="table-product-name">Metformin ER 500mg Extended Release</div>
+                        <small class="text-muted">60 Tablets &bull; Batch #MF-502</small>
+                      </div>
+                    </div>
+                  </td>
+                  <td>Prescription Rx</td>
+                  <td><strong>₹440</strong></td>
+                  <td><span class="font-bold" style="color: #16a34a;">120 Units</span></td>
+                  <td>30 Units</td>
+                  <td><span class="admin-badge admin-badge-success"><i class="fa-solid fa-check"></i> In Stock</span></td>
+                  <td>
+                    <button class="btn btn-outline btn-sm" style="padding: 0.2rem 0.55rem; font-size: 0.72rem;" onclick="window.location.href='404.html'">Edit</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong class="font-mono text-accent">#MED-06</strong></td>
+                  <td>
+                    <div class="table-product-cell">
+                      <img src="assets/personal-care-01.webp" alt="Pure Natural Hydrating Facial Cleanser" class="table-thumb" loading="lazy">
+                      <div>
+                        <div class="table-product-name">Pure Natural Hydrating Facial Cleanser</div>
+                        <small class="text-muted">200ml Bottle &bull; Batch #PC-118</small>
+                      </div>
+                    </div>
+                  </td>
+                  <td>Personal Care</td>
+                  <td><strong>₹529</strong></td>
+                  <td><span class="font-bold" style="color: #16a34a;">42 Units</span></td>
+                  <td>10 Units</td>
+                  <td><span class="admin-badge admin-badge-success"><i class="fa-solid fa-check"></i> In Stock</span></td>
+                  <td>
+                    <button class="btn btn-outline btn-sm" style="padding: 0.2rem 0.55rem; font-size: 0.72rem;" onclick="window.location.href='404.html'">Edit</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           SECTION 3: ORDERS (Dedicated Orders & Fulfillment View)
+           =================================================================== -->
+      <section class="admin-dashboard-section" id="admin-section-orders">
+        <!-- Section Header -->
+        <div class="admin-page-header">
+          <div>
+            <span class="text-accent font-semibold" style="font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase;">
+              Clinical Dispense & Dispatch
+            </span>
+            <h1 class="admin-page-title">Order Fulfillment & Prescription Processing</h1>
+            <p class="admin-page-subtitle">
+              Review incoming orders, verify digital doctor prescriptions, and manage express courier dispatch.
+            </p>
+          </div>
+          <div class="admin-header-actions">
+            <button class="btn btn-outline btn-sm" onclick="window.location.href='404.html'">
+              <i class="fa-solid fa-print"></i> Print Manifests
+            </button>
+            <button class="btn btn-primary btn-sm" id="admin-refresh-orders" title="Synchronize order ledger">
+              <i class="fa-solid fa-arrows-rotate"></i> Sync Orders
+            </button>
+          </div>
+        </div>
+
+        <!-- 4 Statistics / KPI Cards -->
+        <div class="kpi-cards-grid">
+          <div class="kpi-card">
+            <div>
+              <span class="kpi-label">MONTHLY ORDERS</span>
+              <div class="kpi-val" style="font-size: 1.8rem;">612 Orders</div>
+              <div class="kpi-growth" style="color: #16a34a;"><i class="fa-solid fa-arrow-trend-up"></i> +14% month-over-month</div>
+            </div>
+            <div class="kpi-icon-box">
+              <i class="fa-solid fa-truck-ramp-box"></i>
+            </div>
+          </div>
+
+          <div class="kpi-card">
+            <div>
+              <span class="kpi-label">PRESCRIPTIONS CHECKED</span>
+              <div class="kpi-val text-accent" style="font-size: 1.8rem;">418 Orders</div>
+              <div class="text-muted" style="font-size: 0.8rem; margin-top: 0.2rem;">Doctor signed & verified</div>
+            </div>
+            <div class="kpi-icon-box">
+              <i class="fa-solid fa-file-prescription"></i>
+            </div>
+          </div>
+
+          <div class="kpi-card">
+            <div>
+              <span class="kpi-label">ACTIVE ROUTES</span>
+              <div class="kpi-val" style="font-size: 1.8rem;">16 Couriers</div>
+              <div class="kpi-growth"><i class="fa-solid fa-motorcycle"></i> BlueDart PharmaSafe Fleet</div>
+            </div>
+            <div class="kpi-icon-box">
+              <i class="fa-solid fa-route"></i>
+            </div>
+          </div>
+
+          <div class="kpi-card">
+            <div>
+              <span class="kpi-label">AVG DISPATCH SPEED</span>
+              <div class="kpi-val" style="font-size: 1.8rem;">18 Mins</div>
+              <div class="kpi-growth" style="color: #16a34a;"><i class="fa-solid fa-bolt"></i> Order to parcel seal</div>
+            </div>
+            <div class="kpi-icon-box">
+              <i class="fa-solid fa-stopwatch"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive SVG Chart: Weekly Fulfillment Velocity -->
+        <div class="admin-analytics-box">
+          <div class="admin-analytics-header">
+            <div class="admin-analytics-title">
+              <h4>Fulfillment Velocity & Weekly Turnaround Times</h4>
+              <p>Daily processed order volume and average pharmacy packing time across Monday - Sunday.</p>
+            </div>
+            <div style="display: flex; gap: 1rem; font-size: 0.78rem; color: #888888; flex-wrap: wrap;">
+              <span><span style="display: inline-block; width: 9px; height: 9px; border-radius: 50%; background: #B08D57; margin-right: 4px;"></span> Orders Packed (Units)</span>
+              <span><span style="display: inline-block; width: 9px; height: 9px; border-radius: 50%; background: #16a34a; margin-right: 4px;"></span> Dispatch Target [15-20m]</span>
+            </div>
+          </div>
+          <div style="width: 100%; overflow-x: auto;">
+            <svg viewBox="0 0 760 180" preserveAspectRatio="none" style="height: 160px; min-width: 540px;">
+              <line x1="50" y1="20" x2="720" y2="20" stroke="#262626" stroke-dasharray="3,3"></line>
+              <line x1="50" y1="70" x2="720" y2="70" stroke="#262626" stroke-dasharray="3,3"></line>
+              <line x1="50" y1="120" x2="720" y2="120" stroke="#262626" stroke-dasharray="3,3"></line>
+              <text x="12" y="25" font-size="11" fill="#888">150</text>
+              <text x="12" y="75" font-size="11" fill="#888">100</text>
+              <text x="12" y="125" font-size="11" fill="#888">50</text>
+              <!-- Mon -->
+              <g><rect x="85" y="65" width="34" height="65" fill="#B08D57" rx="4"></rect><text x="94" y="55" font-size="10" font-weight="600" fill="#B08D57">85</text><text x="92" y="150" font-size="11" fill="#888">Mon</text></g>
+              <!-- Tue -->
+              <g><rect x="185" y="45" width="34" height="85" fill="#B08D57" rx="4"></rect><text x="190" y="35" font-size="10" font-weight="600" fill="#B08D57">110</text><text x="193" y="150" font-size="11" fill="#888">Tue</text></g>
+              <!-- Wed -->
+              <g><rect x="285" y="55" width="34" height="75" fill="#B08D57" rx="4"></rect><text x="293" y="45" font-size="10" font-weight="600" fill="#B08D57">95</text><text x="291" y="150" font-size="11" fill="#888">Wed</text></g>
+              <!-- Thu -->
+              <g><rect x="385" y="35" width="34" height="95" fill="#B08D57" rx="4"></rect><text x="390" y="25" font-size="10" font-weight="600" fill="#B08D57">125</text><text x="393" y="150" font-size="11" fill="#888">Thu</text></g>
+              <!-- Fri -->
+              <g><rect x="485" y="25" width="34" height="105" fill="#B08D57" rx="4"></rect><text x="490" y="16" font-size="10" font-weight="600" fill="#B08D57">140</text><text x="494" y="150" font-size="11" fill="#888">Fri</text></g>
+              <!-- Sat -->
+              <g><rect x="585" y="60" width="34" height="70" fill="#B08D57" rx="4"></rect><text x="593" y="50" font-size="10" font-weight="600" fill="#B08D57">90</text><text x="592" y="150" font-size="11" fill="#888">Sat</text></g>
+              <!-- Sun -->
+              <g><rect x="680" y="80" width="34" height="50" fill="#B08D57" rx="4"></rect><text x="688" y="70" font-size="10" font-weight="600" fill="#B08D57">65</text><text x="687" y="150" font-size="11" fill="#888">Sun</text></g>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Orders Status Filter Toolbar -->
+        <div class="admin-toolbar-strip">
+          <div class="admin-search-box">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" class="admin-search-input" placeholder="Search by Order ID, patient name, doctor...">
+          </div>
+          <div class="admin-filter-tabs">
+            <button class="admin-tab-btn active">All Orders (612)</button>
+            <a href="404.html" class="admin-tab-btn">Pending Review (24)</a>
+            <a href="404.html" class="admin-tab-btn">Packed (48)</a>
+            <a href="404.html" class="admin-tab-btn">In Transit (82)</a>
+            <a href="404.html" class="admin-tab-btn">Delivered (458)</a>
+          </div>
+        </div>
+
+        <!-- Live Orders Dynamic Table Card -->
+        <div class="dashboard-table-card" style="margin-bottom: 2rem;">
+          <div class="table-header-row">
+            <div>
+              <h4 class="table-header-title">Incoming & Active Orders Queue</h4>
+              <p class="text-muted" style="font-size: 0.85rem; margin-top: 0.2rem;">
+                Connected to Central POS and Prescription Verification Database.
+              </p>
+            </div>
+            <span class="badge badge-gold">Live Syncing</span>
+          </div>
+          <div class="table-responsive-wrapper">
+            <table class="dashboard-table">
+              <thead>
+                <tr>
+                  <th>Order ID</th>
+                  <th>Item / Patient</th>
+                  <th>Price</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="admin-recent-orders-tbody">
+                <!-- Dynamic Rows populated via js/admin-dashboard.js -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Cold-Chain Logistics & Courier Manifests Table -->
+        <div class="dashboard-table-card">
+          <div class="table-header-row">
+            <div>
+              <h4 class="table-header-title">Active Logistics Manifests & Courier Dispatches</h4>
+              <p class="text-muted" style="font-size: 0.85rem; margin-top: 0.2rem;">
+                Bulk cold-chain carrier handoffs with integrated temperature telemetry.
+              </p>
+            </div>
+            <span class="badge badge-gold"><i class="fa-solid fa-plane-departure"></i> Active Air & Road Fleet</span>
+          </div>
+          <div class="admin-data-table-wrapper">
+            <table class="admin-data-table">
+              <thead>
+                <tr>
+                  <th>Manifest #</th>
+                  <th>Logistics Carrier</th>
+                  <th>Vehicle / Route</th>
+                  <th>Destination</th>
+                  <th>Parcels</th>
+                  <th>Cold-Chain Status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong class="font-mono text-accent">#MNF-8812</strong></td>
+                  <td>BlueDart PharmaSafe Air</td>
+                  <td>Flight 6E-204 (BLR-DEL)</td>
+                  <td>New Delhi NCR</td>
+                  <td>38 Cold Parcels</td>
+                  <td><span class="admin-badge admin-badge-success"><i class="fa-solid fa-snowflake"></i> 4.2°C Safe</span></td>
+                  <td>
+                    <button class="btn btn-outline btn-sm" style="padding: 0.25rem 0.6rem; font-size: 0.75rem;" onclick="window.location.href='404.html'">Tracking</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong class="font-mono text-accent">#MNF-8809</strong></td>
+                  <td>BlueDart PharmaSafe Van</td>
+                  <td>Van #KA-04-E-4819</td>
+                  <td>Bengaluru South</td>
+                  <td>14 Cold Parcels</td>
+                  <td><span class="admin-badge admin-badge-success"><i class="fa-solid fa-snowflake"></i> 4.1°C Safe</span></td>
+                  <td>
+                    <button class="btn btn-outline btn-sm" style="padding: 0.25rem 0.6rem; font-size: 0.75rem;" onclick="window.location.href='404.html'">Tracking</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong class="font-mono text-accent">#MNF-8798</strong></td>
+                  <td>MedExpress Ground Fleet</td>
+                  <td>Van #KA-05-M-1120</td>
+                  <td>Bengaluru East</td>
+                  <td>22 Cold Parcels</td>
+                  <td><span class="admin-badge admin-badge-success"><i class="fa-solid fa-snowflake"></i> 4.3°C Safe</span></td>
+                  <td>
+                    <button class="btn btn-outline btn-sm" style="padding: 0.25rem 0.6rem; font-size: 0.75rem;" onclick="window.location.href='404.html'">Tracking</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           SECTION 4: CUSTOMERS (Dedicated Patient Accounts View)
+           =================================================================== -->
+      <section class="admin-dashboard-section" id="admin-section-customers">
+        <!-- Section Header -->
+        <div class="admin-page-header">
+          <div>
+            <span class="text-accent font-semibold" style="font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase;">
+              Clinical Client Profiles & Directory
+            </span>
+            <h1 class="admin-page-title">Patient Accounts & Clinical Client Roster</h1>
+            <p class="admin-page-subtitle">
+              Directory of registered dispensary patients, prescription histories, loyalty tiers, and clinical compliance.
+            </p>
+          </div>
+          <div class="admin-header-actions">
+            <button class="btn btn-outline btn-sm" onclick="window.location.href='404.html'">
+              <i class="fa-solid fa-file-csv"></i> Export Patient Directory
+            </button>
+            <button class="btn btn-primary btn-sm" onclick="window.location.href='404.html'">
+              <i class="fa-solid fa-user-plus"></i> Register Patient
+            </button>
+          </div>
+        </div>
+
+        <!-- 4 Statistics / KPI Cards -->
+        <div class="kpi-cards-grid">
+          <div class="kpi-card">
+            <div>
+              <span class="kpi-label">TOTAL REGISTERED PATIENTS</span>
+              <div class="kpi-val" style="font-size: 1.8rem;">1,840 Patients</div>
+              <div class="kpi-growth"><i class="fa-solid fa-user-check"></i> 480 Active this month</div>
+            </div>
+            <div class="kpi-icon-box">
+              <i class="fa-solid fa-hospital-user"></i>
+            </div>
+          </div>
+
+          <div class="kpi-card">
+            <div>
+              <span class="kpi-label">PRESCRIPTIONS ON FILE</span>
+              <div class="kpi-val text-accent" style="font-size: 1.8rem;">2,390 Regimens</div>
+              <div class="text-muted" style="font-size: 0.8rem; margin-top: 0.2rem;">Encrypted in Digital Rx Vault</div>
+            </div>
+            <div class="kpi-icon-box">
+              <i class="fa-solid fa-file-medical"></i>
+            </div>
+          </div>
+
+          <div class="kpi-card">
+            <div>
+              <span class="kpi-label">AURA LOYALTY VIP</span>
+              <div class="kpi-val" style="font-size: 1.8rem;">642 Members</div>
+              <div class="kpi-growth" style="color: #16a34a;"><i class="fa-solid fa-crown"></i> Priority Fulfillment Tier</div>
+            </div>
+            <div class="kpi-icon-box">
+              <i class="fa-solid fa-award"></i>
+            </div>
+          </div>
+
+          <div class="kpi-card">
+            <div>
+              <span class="kpi-label">ADHERENCE RATE</span>
+              <div class="kpi-val" style="font-size: 1.8rem;">91.4% Rate</div>
+              <div class="kpi-growth" style="color: #16a34a;"><i class="fa-solid fa-circle-check"></i> Regular refill compliance</div>
+            </div>
+            <div class="kpi-icon-box">
+              <i class="fa-solid fa-heart-pulse"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive SVG Chart: Patient Growth & Refill Cadence -->
+        <div class="admin-analytics-box">
+          <div class="admin-analytics-header">
+            <div class="admin-analytics-title">
+              <h4>Patient Roster Growth & Medication Refill Retention</h4>
+              <p>Monthly new patient onboarding alongside continuous digital refill renewals.</p>
+            </div>
+            <div style="display: flex; gap: 1rem; font-size: 0.78rem; color: #888888; flex-wrap: wrap;">
+              <span><span style="display: inline-block; width: 9px; height: 9px; border-radius: 50%; background: #B08D57; margin-right: 4px;"></span> Total Active Patients</span>
+              <span><span style="display: inline-block; width: 9px; height: 9px; border-radius: 50%; background: #16a34a; margin-right: 4px;"></span> Auto-Refill Cadence (88%+)</span>
+            </div>
+          </div>
+          <div style="width: 100%; overflow-x: auto;">
+            <svg viewBox="0 0 760 170" preserveAspectRatio="none" style="height: 150px; min-width: 540px;">
+              <line x1="50" y1="20" x2="720" y2="20" stroke="#262626" stroke-dasharray="3,3"></line>
+              <line x1="50" y1="65" x2="720" y2="65" stroke="#262626" stroke-dasharray="3,3"></line>
+              <line x1="50" y1="110" x2="720" y2="110" stroke="#262626" stroke-dasharray="3,3"></line>
+              <text x="12" y="25" font-size="11" fill="#888">2,000</text>
+              <text x="12" y="70" font-size="11" fill="#888">1,200</text>
+              <text x="12" y="115" font-size="11" fill="#888">500</text>
+              <!-- Growth Line -->
+              <polyline points="70,110 190,95 310,80 430,65 550,45 670,30" fill="none" stroke="#B08D57" stroke-width="3" stroke-linecap="round"></polyline>
+              <g><circle cx="70" cy="110" r="5" fill="#141414" stroke="#B08D57" stroke-width="2.5"></circle><text x="58" y="98" font-size="10" font-weight="600" fill="#B08D57">1,120</text><text x="60" y="145" font-size="11" fill="#888">May</text></g>
+              <g><circle cx="190" cy="95" r="5" fill="#141414" stroke="#B08D57" stroke-width="2.5"></circle><text x="178" y="83" font-size="10" font-weight="600" fill="#B08D57">1,280</text><text x="180" y="145" font-size="11" fill="#888">Jun</text></g>
+              <g><circle cx="310" cy="80" r="5" fill="#141414" stroke="#B08D57" stroke-width="2.5"></circle><text x="298" y="68" font-size="10" font-weight="600" fill="#B08D57">1,410</text><text x="303" y="145" font-size="11" fill="#888">Jul</text></g>
+              <g><circle cx="430" cy="65" r="5" fill="#141414" stroke="#B08D57" stroke-width="2.5"></circle><text x="418" y="53" font-size="10" font-weight="600" fill="#B08D57">1,560</text><text x="422" y="145" font-size="11" fill="#888">Aug</text></g>
+              <g><circle cx="550" cy="45" r="5" fill="#141414" stroke="#B08D57" stroke-width="2.5"></circle><text x="538" y="33" font-size="10" font-weight="600" fill="#B08D57">1,720</text><text x="543" y="145" font-size="11" fill="#888">Sep</text></g>
+              <g><circle cx="670" cy="30" r="5" fill="#141414" stroke="#B08D57" stroke-width="2.5"></circle><text x="658" y="18" font-size="10" font-weight="600" fill="#B08D57">1,840</text><text x="663" y="145" font-size="11" fill="#888">Oct</text></g>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Customer Filters Toolbar -->
+        <div class="admin-toolbar-strip">
+          <div class="admin-search-box">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" class="admin-search-input" placeholder="Search by patient name, phone, city, email...">
+          </div>
+          <div class="admin-filter-tabs">
+            <button class="admin-tab-btn active">All Patients (1,840)</button>
+            <a href="404.html" class="admin-tab-btn">Aura VIP (642)</a>
+            <a href="404.html" class="admin-tab-btn">Active Prescriptions (920)</a>
+            <a href="404.html" class="admin-tab-btn">New This Month (84)</a>
+          </div>
+        </div>
+
+        <!-- Master Patient Roster Table -->
+        <div class="dashboard-table-card">
+          <div class="table-header-row">
+            <div>
+              <h4 class="table-header-title">Master Patient Clinical Roster & Compliance</h4>
+              <p class="text-muted" style="font-size: 0.85rem; margin-top: 0.2rem;">
+                Encrypted clinical profiles with verified digital prescription links.
+              </p>
+            </div>
+            <span class="badge badge-gold"><i class="fa-solid fa-shield-halved"></i> HIPAA Verified</span>
+          </div>
+          <div class="admin-data-table-wrapper">
+            <table class="admin-data-table">
+              <thead>
+                <tr>
+                  <th>Patient ID</th>
+                  <th>Patient Name & Contact</th>
+                  <th>Active Prescriptions</th>
+                  <th>Lifetime Orders</th>
+                  <th>Adherence Rate</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong class="font-mono text-accent">#PAT-001</strong></td>
+                  <td>
+                    <div>
+                      <strong style="font-size: 0.95rem; color: var(--color-dark);">Aravind Kumar</strong>
+                      <div class="text-muted" style="font-size: 0.78rem;">aravind.k@aurapharmacy.com &bull; +91 98401 23456</div>
+                    </div>
+                  </td>
+                  <td>Atorvastatin 20mg, Metformin ER</td>
+                  <td><strong>14 Orders</strong> <small class="text-muted">(₹18,450)</small></td>
+                  <td><span class="admin-badge admin-badge-success">94% High</span></td>
+                  <td><span class="status-pill status-pill-success"><i class="fa-solid fa-circle-check"></i> Verified</span></td>
+                  <td>
+                    <button class="btn btn-outline btn-sm" style="padding: 0.25rem 0.6rem; font-size: 0.75rem;" onclick="window.location.href='404.html'">Dossier</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong class="font-mono text-accent">#PAT-042</strong></td>
+                  <td>
+                    <div>
+                      <strong style="font-size: 0.95rem; color: var(--color-dark);">Priya Sharma</strong>
+                      <div class="text-muted" style="font-size: 0.78rem;">priya.s@gmail.com &bull; +91 98112 33445</div>
+                    </div>
+                  </td>
+                  <td>Thyroxine Sodium 50mcg</td>
+                  <td><strong>8 Orders</strong> <small class="text-muted">(₹9,200)</small></td>
+                  <td><span class="admin-badge admin-badge-success">98% High</span></td>
+                  <td><span class="status-pill status-pill-success"><i class="fa-solid fa-circle-check"></i> Verified</span></td>
+                  <td>
+                    <button class="btn btn-outline btn-sm" style="padding: 0.25rem 0.6rem; font-size: 0.75rem;" onclick="window.location.href='404.html'">Dossier</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong class="font-mono text-accent">#PAT-109</strong></td>
+                  <td>
+                    <div>
+                      <strong style="font-size: 0.95rem; color: var(--color-dark);">Dr. Arun Kumar</strong>
+                      <div class="text-muted" style="font-size: 0.78rem;">arun.k@apollohealth.org &bull; +91 97223 44556</div>
+                    </div>
+                  </td>
+                  <td>Multi-Nutrient IV Complex</td>
+                  <td><strong>22 Orders</strong> <small class="text-muted">(₹42,800)</small></td>
+                  <td><span class="admin-badge admin-badge-success">96% High</span></td>
+                  <td><span class="status-pill status-pill-success"><i class="fa-solid fa-circle-check"></i> Verified</span></td>
+                  <td>
+                    <button class="btn btn-outline btn-sm" style="padding: 0.25rem 0.6rem; font-size: 0.75rem;" onclick="window.location.href='404.html'">Dossier</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong class="font-mono text-accent">#PAT-214</strong></td>
+                  <td>
+                    <div>
+                      <strong style="font-size: 0.95rem; color: var(--color-dark);">Sneha Patel</strong>
+                      <div class="text-muted" style="font-size: 0.78rem;">sneha.p@outlook.com &bull; +91 96334 55667</div>
+                    </div>
+                  </td>
+                  <td>Prenatal Folate + DHA Complex</td>
+                  <td><strong>5 Orders</strong> <small class="text-muted">(₹6,150)</small></td>
+                  <td><span class="admin-badge admin-badge-warning">88% Moderate</span></td>
+                  <td><span class="status-pill status-pill-success"><i class="fa-solid fa-circle-check"></i> Verified</span></td>
+                  <td>
+                    <button class="btn btn-outline btn-sm" style="padding: 0.25rem 0.6rem; font-size: 0.75rem;" onclick="window.location.href='404.html'">Dossier</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong class="font-mono text-accent">#PAT-388</strong></td>
+                  <td>
+                    <div>
+                      <strong style="font-size: 0.95rem; color: var(--color-dark);">Vikram Singh</strong>
+                      <div class="text-muted" style="font-size: 0.78rem;">vikram.s@tcs.com &bull; +91 95445 66778</div>
+                    </div>
+                  </td>
+                  <td>Glimepiride 2mg Tablets</td>
+                  <td><strong>11 Orders</strong> <small class="text-muted">(₹14,300)</small></td>
+                  <td><span class="admin-badge admin-badge-success">92% High</span></td>
+                  <td><span class="status-pill status-pill-success"><i class="fa-solid fa-circle-check"></i> Verified</span></td>
+                  <td>
+                    <button class="btn btn-outline btn-sm" style="padding: 0.25rem 0.6rem; font-size: 0.75rem;" onclick="window.location.href='404.html'">Dossier</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           SECTION 5: SETTINGS (Dedicated Operations & System Configuration)
+           =================================================================== -->
+      <section class="admin-dashboard-section" id="admin-section-settings">
+        <!-- Section Header -->
+        <div class="admin-page-header">
+          <div>
+            <span class="text-accent font-semibold" style="font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase;">
+              Dispensary Architecture & Governance
+            </span>
+            <h1 class="admin-page-title">Dispensary Operations & Settings</h1>
+            <p class="admin-page-subtitle">
+              Configure central pharmacy license parameters, cold-chain thresholds, API integrations, and staff access.
+            </p>
+          </div>
+          <div class="admin-header-actions">
+            <button class="btn btn-outline btn-sm" onclick="window.location.href='404.html'">
+              <i class="fa-solid fa-cloud-arrow-up"></i> System Backup
+            </button>
+            <button class="btn btn-primary btn-sm" onclick="window.location.href='404.html'">
+              <i class="fa-solid fa-floppy-disk"></i> Save Settings
+            </button>
+          </div>
+        </div>
+
+        <!-- 4 Statistics / KPI Cards -->
+        <div class="kpi-cards-grid">
+          <div class="kpi-card">
+            <div>
+              <span class="kpi-label">SYSTEM HEALTH</span>
+              <div class="kpi-val text-accent" style="font-size: 1.8rem; color: #16a34a;">100% Active</div>
+              <div class="kpi-growth" style="color: #16a34a;"><i class="fa-solid fa-server"></i> All IoT & POS nodes active</div>
+            </div>
+            <div class="kpi-icon-box">
+              <i class="fa-solid fa-network-wired"></i>
+            </div>
+          </div>
+
+          <div class="kpi-card">
+            <div>
+              <span class="kpi-label">DRUG LICENSE</span>
+              <div class="kpi-val" style="font-size: 1.8rem;">Form 20B/21B</div>
+              <div class="text-muted" style="font-size: 0.8rem; margin-top: 0.2rem;">Renewed valid through Oct 2029</div>
+            </div>
+            <div class="kpi-icon-box">
+              <i class="fa-solid fa-certificate"></i>
+            </div>
+          </div>
+
+          <div class="kpi-card">
+            <div>
+              <span class="kpi-label">COLD SENSORS</span>
+              <div class="kpi-val" style="font-size: 1.8rem;">12 / 12 Online</div>
+              <div class="kpi-growth" style="color: #16a34a;"><i class="fa-solid fa-snowflake"></i> 0 Excursions recorded</div>
+            </div>
+            <div class="kpi-icon-box">
+              <i class="fa-solid fa-temperature-arrow-down"></i>
+            </div>
+          </div>
+
+          <div class="kpi-card">
+            <div>
+              <span class="kpi-label">ACTIVE STAFF SESSIONS</span>
+              <div class="kpi-val" style="font-size: 1.8rem;">4 Clinicians</div>
+              <div class="text-muted" style="font-size: 0.8rem; margin-top: 0.2rem;">DISHA 2FA Authenticated</div>
+            </div>
+            <div class="kpi-icon-box">
+              <i class="fa-solid fa-user-shield"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive SVG Chart: Server Latency & Cold-Chain IoT Uptime -->
+        <div class="admin-analytics-box">
+          <div class="admin-analytics-header">
+            <div class="admin-analytics-title">
+              <h4>System Response Latency & Central Dispensary API Telemetry</h4>
+              <p>Continuous monitoring of e-prescribing API response speeds (average 22ms) and 99.98% database server uptime.</p>
+            </div>
+            <span class="badge badge-gold"><i class="fa-solid fa-signal"></i> 99.98% Uptime SLA</span>
+          </div>
+          <div style="width: 100%; overflow-x: auto;">
+            <svg viewBox="0 0 760 140" preserveAspectRatio="none" style="height: 125px; min-width: 540px;">
+              <text x="50" y="24" font-size="11" font-weight="600" fill="#E5E7EB">Central Database Uptime & IoT Telemetry Sync (99.98%)</text>
+              <rect x="50" y="32" width="670" height="10" fill="#262626" rx="5"></rect>
+              <rect x="50" y="32" width="670" height="10" fill="#16a34a" rx="5"></rect>
+
+              <text x="50" y="64" font-size="11" font-weight="600" fill="#E5E7EB">e-Prescription Verification Gateway (22ms Latency)</text>
+              <rect x="50" y="72" width="670" height="10" fill="#262626" rx="5"></rect>
+              <rect x="50" y="72" width="640" height="10" fill="#B08D57" rx="5"></rect>
+
+              <text x="50" y="104" font-size="11" font-weight="600" fill="#E5E7EB">Cold-Chain Thermal Alert Broadcasting Relay (Zero Packet Drop)</text>
+              <rect x="50" y="112" width="670" height="10" fill="#262626" rx="5"></rect>
+              <rect x="50" y="112" width="670" height="10" fill="#16a34a" rx="5"></rect>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Dispensary Configuration Forms Grid -->
+        <div class="admin-two-col-grid" style="margin-bottom: 2rem;">
+          <!-- Pharmacy Drug License Parameters -->
+          <div class="dashboard-table-card">
+            <div class="table-header-row">
+              <h4 class="table-header-title">Dispensary Drug License & Regulatory</h4>
+            </div>
+            <form onsubmit="event.preventDefault(); window.location.href='404.html';" class="settings-form-grid" style="grid-template-columns: 1fr; gap: 1rem;">
+              <div class="form-group">
+                <label class="form-label">Pharmacy Name</label>
+                <input type="text" class="settings-input" value="Aura Central Pharmacy & Dispensary Ltd.">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Form 20B / 21B Drug License #</label>
+                <input type="text" class="settings-input" value="KA-BLR-2024-21B-891024">
+              </div>
+              <div class="form-group">
+                <label class="form-label">GSTIN / Tax Identification</label>
+                <input type="text" class="settings-input" value="29AAACA1234F1Z5">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Chief Pharmacist In-Charge</label>
+                <input type="text" class="settings-input" value="Dr. Evelyn Vance, PharmD (Reg #KA-48192)"><br><br>
+              </div>
+              <a href="404.html" type="submit" class="btn btn-primary btn-sm">Update License Info</a>
+            </form>
+          </div>
+
+          <!-- Cold-Chain Telemetry Thresholds -->
+          <div class="dashboard-table-card">
+            <div class="table-header-row">
+              <h4 class="table-header-title">Cold-Chain IoT Sensor Thresholds</h4>
+            </div>
+            <form onsubmit="event.preventDefault(); window.location.href='404.html';" class="settings-form-grid" style="grid-template-columns: 1fr; gap: 1rem;">
+              <div class="form-group">
+                <label class="form-label">Minimum Safe Temperature (°C)</label>
+                <input type="number" step="0.1" class="settings-input" value="2.0">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Maximum Safe Temperature (°C)</label>
+                <input type="number" step="0.1" class="settings-input" value="8.0">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Emergency Thermal Drift Buffer (°C)</label>
+                <input type="number" step="0.1" class="settings-input" value="0.5">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Critical Alert Notification SMS</label>
+                <input type="tel" class="settings-input" value="+91 98401 23456">
+              </div>
+              <button type="submit" class="btn btn-primary btn-sm">Update Sensor Rules</button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Staff Access & Authorization Table -->
+        <div class="dashboard-table-card">
+          <div class="table-header-row">
+            <div>
+              <h4 class="table-header-title">Staff Credentials & Role-Based Access Control</h4>
+              <p class="text-muted" style="font-size: 0.85rem; margin-top: 0.2rem;">
+                Authorized personnel with cryptographic access to the clinical prescription vault.
+              </p>
+            </div>
+            <button class="btn btn-outline btn-sm" onclick="window.location.href='404.html'">
+              <i class="fa-solid fa-user-plus"></i> Add Staff Access
+            </button>
+          </div>
+          <div class="admin-data-table-wrapper">
+            <table class="admin-data-table">
+              <thead>
+                <tr>
+                  <th>Staff Member</th>
+                  <th>Clinical Role</th>
+                  <th>Dispensary Branch</th>
+                  <th>Last Active</th>
+                  <th>Permissions</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><i class="fa-solid fa-user-shield text-accent"></i> <strong>Jack Harrison</strong></td>
+                  <td>System Administrator</td>
+                  <td>Central Dispensary (BLR)</td>
+                  <td><span class="admin-badge admin-badge-success">Active Now</span></td>
+                  <td>Full Root Authority</td>
+                  <td><span class="text-muted" style="font-size: 0.78rem;">Primary Admin</span></td>
+                </tr>
+                <tr>
+                  <td><i class="fa-solid fa-user-doctor text-accent"></i> <strong>Dr. Evelyn Vance, PharmD</strong></td>
+                  <td>Chief Clinical Pharmacist</td>
+                  <td>Central Formulation Bay</td>
+                  <td>10 mins ago</td>
+                  <td>Rx Vault & Dispense Release</td>
+                  <td>
+                    <button class="btn btn-outline btn-sm" style="padding: 0.2rem 0.5rem; font-size: 0.72rem;" onclick="window.location.href='404.html'">Edit</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td><i class="fa-solid fa-truck text-accent"></i> <strong>Ramesh K.</strong></td>
+                  <td>Lead Logistics Supervisor</td>
+                  <td>Dispatch Depot South</td>
+                  <td>1 hour ago</td>
+                  <td>Courier Manifests & Thermal Handover</td>
+                  <td>
+                    <button class="btn btn-outline btn-sm" style="padding: 0.2rem 0.5rem; font-size: 0.72rem;" onclick="window.location.href='404.html'">Edit</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td><i class="fa-solid fa-vial-circle-check text-accent"></i> <strong>Priya Nair</strong></td>
+                  <td>Quality Assurance Officer</td>
+                  <td>Cold-Chain Inspection Bay</td>
+                  <td>3 hours ago</td>
+                  <td>Batch Certification & QA Audit</td>
+                  <td>
+                    <button class="btn btn-outline btn-sm" style="padding: 0.2rem 0.5rem; font-size: 0.72rem;" onclick="window.location.href='404.html'">Edit</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </main>
+    </div>
+  </div>
+
+  <!-- GSAP & Admin Dashboard Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="js/inventory.js"></script>
+  <script src="js/orders.js"></script>
+  <script src="js/notifications.js"></script>
+  <script src="js/dashboard.js"></script>
+  <script src="js/admin-dashboard.js"></script>
+</body>
+</html>

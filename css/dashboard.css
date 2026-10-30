@@ -1,0 +1,679 @@
+/* ==========================================================================
+   DASHBOARD SHARED STYLES (Admin & Client Dashboards)
+   ========================================================================== */
+
+.dashboard-body {
+  background-color: #F8F7F4;
+  min-height: 100vh;
+  color: var(--color-dark);
+}
+
+.dashboard-layout {
+  display: flex;
+  min-height: 100vh;
+  position: relative;
+  align-items: flex-start;
+}
+
+/* Sidebar - Sticky on desktop */
+.dashboard-sidebar {
+  width: 270px;
+  background: linear-gradient(180deg, #16404D 0%, #0F2D37 100%);
+  color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  max-height: 100vh;
+  z-index: 1050;
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  transition: transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+  overflow-y: auto;
+  flex-shrink: 0;
+  align-self: flex-start;
+}
+
+.sidebar-brand-box {
+  padding: 1.75rem 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sidebar-brand-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+}
+
+.sidebar-brand-img {
+  height: 38px;
+  width: auto;
+  max-width: 140px;
+  object-fit: contain;
+  display: block;
+  background-color: transparent;
+  padding: 0;
+  border: none;
+  box-shadow: none;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.sidebar-brand-link:hover .sidebar-brand-img {
+  transform: translateY(-1px) scale(1.02);
+  filter: drop-shadow(0 2px 8px rgba(122, 214, 239, 0.4));
+}
+
+.sidebar-brand-text {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  letter-spacing: 0.05em;
+  line-height: 1.1;
+}
+
+.sidebar-brand-sub {
+  font-size: 0.65rem;
+  color: #7AD6EF;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.sidebar-close-btn {
+  display: none;
+  font-size: 1.25rem;
+  color: #ADC8D2;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.sidebar-close-btn:hover {
+  color: #FFFFFF;
+}
+
+.sidebar-nav-container {
+  padding: 1.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.nav-group-title {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #7AD6EF;
+  opacity: 0.85;
+  padding: 0.5rem 0.75rem;
+}
+
+.sidebar-nav-link {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.75rem 0.95rem;
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: #D3ECF3;
+  border-radius: 12px;
+  transition: all 0.25s ease;
+  text-decoration: none;
+}
+
+.sidebar-nav-link i {
+  font-size: 1.1rem;
+  width: 22px;
+  text-align: center;
+  color: #7AD6EF;
+  transition: color 0.25s ease;
+}
+
+.sidebar-nav-link:hover {
+  background-color: rgba(122, 214, 239, 0.12);
+  color: #FFFFFF;
+}
+
+.sidebar-nav-link:hover i {
+  color: #FFFFFF;
+}
+
+.sidebar-nav-link.active {
+  background-color: #205A6B;
+  color: #FFFFFF;
+  font-weight: 600;
+  border-left: 3px solid #7AD6EF;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+}
+
+.sidebar-nav-link.active i {
+  color: #7AD6EF;
+}
+
+.sidebar-footer {
+  padding: 1.25rem 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-user-badge {
+  margin-bottom: 0.85rem;
+  padding: 0.25rem 0.15rem;
+}
+
+.dashboard-sidebar .user-profile-badge .user-avatar-circle {
+  background-color: rgba(122, 214, 239, 0.15);
+  color: #7AD6EF;
+  border-color: #7AD6EF;
+  width: 38px;
+  height: 38px;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.dashboard-sidebar .user-profile-badge .user-meta {
+  min-width: 0;
+  flex: 1;
+}
+
+.dashboard-sidebar .user-profile-badge .user-name-bold {
+  color: #FFFFFF;
+  font-size: 0.82rem;
+  white-space: normal;
+  word-break: break-all;
+  overflow-wrap: anywhere;
+  line-height: 1.35;
+  display: block;
+}
+
+.dashboard-sidebar .user-profile-badge .user-role-label {
+  color: #7AD6EF;
+  font-size: 0.7rem;
+}
+
+.btn-sidebar-logout {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 0.75rem 0.85rem;
+  color: #FFA4A4;
+  background: rgba(255, 107, 107, 0.1);
+  border: 1px solid rgba(255, 107, 107, 0.2);
+  cursor: pointer;
+  font-size: 0.88rem;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  transition: all 0.25s ease;
+}
+
+.btn-sidebar-logout:hover {
+  background-color: #E53935;
+  color: #FFFFFF;
+}
+
+/* Dashboard Main Wrapper */
+.dashboard-main-wrapper {
+  margin-left: 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+/* Dashboard Header Bar */
+.dashboard-header {
+  height: 80px;
+  background-color: #FFFFFF;
+  border-bottom: 1px solid var(--color-light-border);
+  padding: 0 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+.header-left-col {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.sidebar-toggle-btn {
+  display: none;
+  font-size: 1.3rem;
+  color: var(--color-dark);
+}
+
+.header-title-box h3 {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--color-dark);
+}
+
+.header-right-col {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.user-profile-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.user-avatar-circle {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background-color: var(--color-dark);
+  color: var(--color-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border: 2px solid var(--color-accent);
+}
+
+.user-meta {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-name-bold {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--color-dark);
+  line-height: 1.2;
+}
+
+.user-role-label {
+  font-size: 0.72rem;
+  color: var(--color-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* Dashboard Main Content */
+.dashboard-content-area {
+  padding: 2.5rem;
+}
+
+/* KPI Cards */
+.kpi-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+  margin-bottom: 2.5rem;
+}
+
+.kpi-card {
+  background-color: #FFFFFF;
+  border: 1px solid var(--color-light-border);
+  border-radius: var(--radius-sm);
+  padding: 1.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition-smooth);
+}
+
+.kpi-card:hover {
+  border-color: var(--color-accent);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.kpi-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: 0.4rem;
+}
+
+.kpi-val {
+  font-size: 2.3rem;
+  font-weight: 700;
+  color: var(--color-dark);
+  line-height: 1.1;
+  font-family: var(--font-display);
+}
+
+.kpi-growth {
+  font-size: 0.8rem;
+  margin-top: 0.4rem;
+  color: #2E7D32;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.kpi-icon-box {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background-color: var(--color-accent-light);
+  color: var(--color-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+}
+
+/* Dashboard Tables */
+.dashboard-table-card {
+  background-color: #FFFFFF;
+  border: 1px solid var(--color-light-border);
+  border-radius: var(--radius-sm);
+  padding: 1.75rem;
+  margin-bottom: 2.5rem;
+}
+
+.table-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+
+.table-header-title {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--color-dark);
+}
+
+.btn-refresh-table {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.table-responsive-wrapper {
+  overflow-x: auto;
+  width: 100%;
+}
+
+.dashboard-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.dashboard-table th {
+  padding: 0.85rem 1rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  border-bottom: 1px solid var(--color-light-border);
+  background-color: #FAF9F6;
+}
+
+.dashboard-table td {
+  padding: 1rem;
+  font-size: 0.9rem;
+  border-bottom: 1px solid #F0EFEB;
+  vertical-align: middle;
+}
+
+.table-product-cell {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.table-thumb {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  object-fit: cover;
+}
+
+.table-product-name {
+  font-weight: 600;
+  color: var(--color-dark);
+}
+
+/* Status Badges */
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-full);
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.status-badge-processing {
+  background-color: rgba(176, 141, 87, 0.15);
+  color: var(--color-accent);
+}
+
+.status-badge-shipped {
+  background-color: rgba(33, 150, 243, 0.12);
+  color: #1976D2;
+}
+
+.status-badge-delivered {
+  background-color: rgba(46, 125, 50, 0.12);
+  color: #2E7D32;
+}
+
+/* Overlay for Mobile Sidebar */
+.dashboard-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(17, 17, 17, 0.65);
+  backdrop-filter: blur(4px);
+  z-index: 1040;
+  opacity: 0;
+  pointer-events: none;
+  transition: var(--transition-smooth);
+}
+
+.dashboard-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ==========================================================================
+   DASHBOARD BUTTONS (Styled with Box Border & Index Page Color Palette)
+   ========================================================================== */
+.dashboard-layout .btn,
+.dashboard-body .btn,
+.dashboard-layout button.btn,
+.dashboard-body button.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.55rem 1.25rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  border: 2px solid #16404D !important;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 2px 6px rgba(22, 64, 77, 0.12);
+}
+
+.dashboard-layout .btn:hover,
+.dashboard-body .btn:hover,
+.dashboard-layout button.btn:hover,
+.dashboard-body button.btn:hover {
+  transform: translateY(-1px);
+}
+
+/* Primary Action Buttons with Index Page Deep Botanical Teal Border & Glow */
+.dashboard-layout .btn-primary,
+.dashboard-body .btn-primary {
+  background-color: #16404D !important;
+  color: #FFFFFF !important;
+  border: 2px solid #7AD6EF !important;
+  box-shadow: 0 3px 10px rgba(22, 64, 77, 0.25), 0 0 0 1px rgba(122, 214, 239, 0.35) !important;
+}
+
+.dashboard-layout .btn-primary:hover,
+.dashboard-body .btn-primary:hover {
+  background-color: #205A6B !important;
+  color: #FFFFFF !important;
+  border-color: #DDA853 !important;
+  box-shadow: 0 5px 15px rgba(32, 132, 163, 0.35), 0 0 0 1px #DDA853 !important;
+}
+
+/* Outline Buttons with Index Page Box Border */
+.dashboard-layout .btn-outline,
+.dashboard-body .btn-outline {
+  background-color: #FFFFFF !important;
+  color: #16404D !important;
+  border: 2px solid #16404D !important;
+  box-shadow: 0 2px 6px rgba(22, 64, 77, 0.1) !important;
+}
+
+.dashboard-layout .btn-outline:hover,
+.dashboard-body .btn-outline:hover {
+  background-color: #16404D !important;
+  color: #FFFFFF !important;
+  border-color: #7AD6EF !important;
+  box-shadow: 0 4px 12px rgba(22, 64, 77, 0.25) !important;
+}
+
+/* Small Button Modifier */
+.dashboard-layout .btn-sm,
+.dashboard-body .btn-sm {
+  padding: 0.35rem 0.85rem;
+  font-size: 0.78rem;
+  border-width: 2px !important;
+}
+
+/* Chart Time Toggle Buttons with Index Palette Box Border */
+.chart-time-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border: 2px solid #16404D !important;
+  background: #FFFFFF !important;
+  color: #16404D !important;
+  padding: 0.35rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 4px rgba(22, 64, 77, 0.08);
+  box-sizing: border-box;
+}
+
+.chart-time-btn.active,
+.chart-time-btn:hover {
+  background: #16404D !important;
+  border-color: #7AD6EF !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 3px 10px rgba(22, 64, 77, 0.25) !important;
+}
+
+/* Admin Tab Buttons with Index Palette Box Border */
+.admin-tab-btn {
+  border: 2px solid #16404D !important;
+  background: #FFFFFF !important;
+  color: #16404D !important;
+  padding: 0.45rem 0.85rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 3px rgba(22, 64, 77, 0.08);
+}
+
+.admin-tab-btn.active,
+.admin-tab-btn:hover {
+  background: #16404D !important;
+  color: #FFFFFF !important;
+  border-color: #7AD6EF !important;
+  box-shadow: 0 3px 10px rgba(22, 64, 77, 0.25) !important;
+}
+
+/* Filter Tab Buttons with Index Palette Box Border */
+.filter-tab-btn {
+  border: 2px solid #16404D !important;
+  background: #FFFFFF !important;
+  color: #16404D !important;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 3px rgba(22, 64, 77, 0.08);
+}
+
+.filter-tab-btn.active,
+.filter-tab-btn:hover {
+  background: #16404D !important;
+  color: #FFFFFF !important;
+  border-color: #7AD6EF !important;
+  box-shadow: 0 3px 10px rgba(22, 64, 77, 0.25) !important;
+}
+
+/* Settings Nav Tab Buttons with Index Palette Box Border */
+.settings-nav-btn {
+  border: 2px solid #16404D !important;
+  background: #F4F7F9 !important;
+  color: #16404D !important;
+  margin-right: 0.35rem;
+  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.settings-nav-btn.active,
+.settings-nav-btn:hover {
+  border-color: #7AD6EF !important;
+  background: #16404D !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 -2px 8px rgba(22, 64, 77, 0.15) !important;
+}
+
+/* Table Refresh Buttons with Index Palette Box Border */
+.btn-refresh-table {
+  border: 2px solid #16404D !important;
+  background: #FFFFFF !important;
+  color: #16404D !important;
+  padding: 0.4rem 0.85rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 6px rgba(22, 64, 77, 0.12) !important;
+}
+
+.btn-refresh-table:hover {
+  background: #16404D !important;
+  color: #FFFFFF !important;
+  border-color: #7AD6EF !important;
+  box-shadow: 0 4px 12px rgba(22, 64, 77, 0.25) !important;
+}

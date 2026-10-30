@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us — Tradition Meets Innovation | Aura Apothecary</title>
+  
+  <!-- Best Fonts: Plus Jakarta Sans, Outfit, Poppins & Cormorant Garamond -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Core Stylesheets -->
+  <!-- AOS (Animate On Scroll) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Top Dark Teal Navbar (Sticky Navbar) -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <!-- Left: Logo & Brand Name -->
+      <a href="index.html" class="brand-logo-link" aria-label="Stackly Home">
+        <img src="assets/white.webp" alt="Stackly Pharmacy Logo" class="brand-logo-img">
+      </a>
+
+      <!-- Center: Navigation Links -->
+      <nav class="nav-menu-center">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="About.html" class="nav-link active">About</a>
+        <a href="Shop.html" class="nav-link">Shop</a>
+        <a href="Services.html" class="nav-link">Services</a>
+        <a href="Blog.html" class="nav-link">Blog</a>
+        <a href="Contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <!-- Right: Search, Cart & Login Actions -->
+      <div class="nav-actions-right">
+        <a href="404.html" class="nav-icon-btn nav-search-trigger" title="Search" aria-label="Search">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </a>
+
+        <button class="nav-icon-btn cart-drawer-trigger" title="Shopping Cart" aria-label="Shopping Cart">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span class="cart-count-badge">0</span>
+        </button>
+
+        <a href="Login.html" class="btn-nav-login-pill">LOGIN</a>
+
+        <!-- Mobile Hamburger Button -->
+        <button class="hamburger-btn" id="hamburger-btn" aria-label="Toggle Navigation">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Off-Canvas Menu Drawer -->
+  <div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
+  <aside class="mobile-menu-drawer" id="mobile-menu">
+    <div class="mobile-menu-header">
+      <a href="index.html" class="brand-logo-link" aria-label="Stackly Home">
+        <img src="assets/white.webp" alt="Stackly Pharmacy Logo" class="brand-logo-img">
+      </a>
+      <button class="mobile-menu-close-btn" id="mobile-menu-close">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+    <nav class="mobile-nav-links">
+      <a href="index.html" class="mobile-nav-item">Home</a>
+      <a href="About.html" class="mobile-nav-item active">About</a>
+      <a href="Shop.html" class="mobile-nav-item">Shop</a>
+      <a href="Services.html" class="mobile-nav-item">Services</a>
+      <a href="Blog.html" class="mobile-nav-item">Blog</a>
+      <a href="Contact.html" class="mobile-nav-item">Contact</a>
+    </nav>
+    <div class="mobile-menu-footer">
+      <a href="Login.html" class="btn btn-teal btn-pill w-100 mobile-login-btn">Login</a>
+    </div>
+  </aside>
+
+  <!-- Interactive Slide-in Cart Drawer -->
+  <div class="cart-overlay" id="cart-overlay"></div>
+  <div class="cart-drawer" id="cart-drawer">
+    <div class="cart-drawer-header">
+      <h3 class="cart-drawer-title">Apothecary Basket <span id="cart-drawer-count">(0)</span></h3>
+      <button class="nav-icon-btn" id="cart-drawer-close" style="color: var(--color-text-dark);">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+    <div class="cart-drawer-items" id="cart-drawer-items">
+      <!-- Populated via CartManager in js/main.js -->
+    </div>
+    <div class="cart-drawer-footer">
+      <div class="cart-drawer-subtotal">
+        <span>Order Subtotal</span>
+        <span class="cart-drawer-total" id="cart-drawer-total">₹0</span>
+      </div>
+      <p class="cart-drawer-tax-note">Taxes & shipping calculated during checkout</p>
+      <a href="404.html" class="btn btn-teal btn-pill w-100 cart-checkout-btn" id="cart-checkout-btn">Proceed to Safe Checkout</a>
+    </div>
+  </div>
+
+  <!-- SECTION 1: FIGMA HERO BANNER -->
+  <section class="about-figma-hero">
+    <div class="container about-figma-hero-content">
+      <span class="about-figma-hero-eyebrow">Our Mission</span>
+      <h1 class="about-figma-hero-title">Tradition Meets Innovation</h1>
+      <p class="about-figma-hero-desc">
+        Bridging ancient botanical wisdom with modern pharmaceutical precision to deliver trusted, personalized healthcare.
+      </p>
+    </div>
+  </section>
+
+  <!-- SECTION 2: JOURNEY ("A Journey From The Jungle to The Laboratory") -->
+  <section class="about-journey-section">
+    <div class="container">
+      <div class="about-journey-grid">
+        <div class="about-journey-text">
+          <span class="about-journey-eyebrow">Our Story</span>
+          <h2 class="about-journey-title">A Journey From The Jungle to The Laboratory</h2>
+          <p>
+            Aura Apothecary started with a simple belief: nature holds the ultimate pharmacopeia. Founded in 2018, we set out to bridge the gap between ancient botanical medicine and modern clinical rigor.
+          </p>
+          <p>
+            Our journey began deep in the Western Ghats and tropical rainforests, documenting indigenous healing plants and sustainable wildcrafting practices. We partnered with generational herbalists who understand the subtle rhythms of botanical harvesting.
+          </p>
+          <p>
+            Today, our state-of-the-art compounding laboratories in Chennai translate these time-tested traditions into standardized, pharmaceutical-grade formulations certified for purity and potency.
+          </p>
+        </div>
+        <div class="about-journey-visual">
+          <div class="journey-card-left" data-aos="fade-up" data-aos-delay="100">
+            <img src="assets/about-founder-jungle.webp" alt="Botanist in tropical rainforest documenting indigenous healing plants">
+            <div class="journey-stat-badge">
+              <span class="stat-num">40+</span>
+              <span class="stat-lbl">Botanical Extracts</span>
+            </div>
+          </div>
+          <div class="journey-card-right" data-aos="fade-up" data-aos-delay="200">
+            <img src="assets/about-lab-greenhouse.webp" alt="Modern plant biotechnology research laboratory">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: OUR FOUNDATION -->
+  <section class="about-foundation-section">
+    <div class="container">
+      <div class="foundation-header">
+        <h2 class="foundation-title">Our Foundation</h2>
+        <div class="foundation-accent-line"></div>
+      </div>
+      <div class="foundation-cards-grid">
+        <!-- Foundation Card 1 -->
+        <div class="foundation-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="foundation-icon-wrap">
+            <i class="fa-solid fa-shield-halved"></i>
+          </div>
+          <h3 class="foundation-card-title">Integrity</h3>
+          <p class="foundation-card-desc">
+            Full transparency in sourcing and compounding. We never compromise on clean ingredients or ethical protocols.
+          </p>
+        </div>
+
+        <!-- Foundation Card 2 -->
+        <div class="foundation-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="foundation-icon-wrap">
+            <i class="fa-solid fa-award"></i>
+          </div>
+          <h3 class="foundation-card-title">Quality</h3>
+          <p class="foundation-card-desc">
+            Rigorous multi-stage purity testing adhering to international pharmacopoeia standards and certifications.
+          </p>
+        </div>
+
+        <!-- Foundation Card 3 -->
+        <div class="foundation-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="foundation-icon-wrap">
+            <i class="fa-solid fa-hand-holding-heart"></i>
+          </div>
+          <h3 class="foundation-card-title">Care</h3>
+          <p class="foundation-card-desc">
+            Patient-first healthcare tailored to individual biologies, respecting nature's biochemical intelligence.
+          </p>
+        </div>
+
+        <!-- Foundation Card 4 -->
+        <div class="foundation-card" data-aos="fade-up" data-aos-delay="400">
+          <div class="foundation-icon-wrap">
+            <i class="fa-solid fa-lightbulb"></i>
+          </div>
+          <h3 class="foundation-card-title">Innovation</h3>
+          <p class="foundation-card-desc">
+            Advanced ultrasonic extraction and bio-identical formulation maximizing active phytochemical yield.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4: THE FORMULATION LIFECYCLE (PIPELINE) -->
+  <section class="about-pipeline-section">
+    <div class="container">
+      <div class="pipeline-header">
+        <span class="pipeline-eyebrow">Formulation Lifecycle</span>
+        <h2 class="pipeline-title">From Seed to Remedy: Our 4-Stage Formulation Pipeline</h2>
+        <p class="pipeline-subtitle">
+          Every tincture, capsule, and bespoke compound follows a closed-loop clinical protocol ensuring molecular integrity from sustainable harvest to personal dispensation.
+        </p>
+      </div>
+
+      <div class="pipeline-grid">
+        <!-- Stage 1 -->
+        <div class="pipeline-card" data-aos="fade-up" data-aos-delay="100">
+          <span class="pipeline-stage-badge">STAGE 01</span>
+          <div class="pipeline-icon-wrap">
+            <i class="fa-solid fa-seedling"></i>
+          </div>
+          <h3 class="pipeline-card-title">Circadian Wildcrafting</h3>
+          <p class="pipeline-card-desc">
+            Medicinal plants are gathered during precise metabolic hours when volatile terpenes and secondary phytochemicals reach their highest biological concentration.
+          </p>
+          <div class="pipeline-card-tag">
+            <i class="fa-solid fa-location-dot"></i> Western Ghats & Highlands
+          </div>
+        </div>
+
+        <!-- Stage 2 -->
+        <div class="pipeline-card" data-aos="fade-up" data-aos-delay="200">
+          <span class="pipeline-stage-badge">STAGE 02</span>
+          <div class="pipeline-icon-wrap">
+            <i class="fa-solid fa-atom"></i>
+          </div>
+          <h3 class="pipeline-card-title">Supercritical CO2 Extraction</h3>
+          <p class="pipeline-card-desc">
+            Low-temperature subcritical extraction isolates therapeutic molecules without heat degradation, toxic petroleum solvents, or chemical residuals.
+          </p>
+          <div class="pipeline-card-tag">
+            <i class="fa-solid fa-check"></i> Zero Chemical Solvents
+          </div>
+        </div>
+
+        <!-- Stage 3 -->
+        <div class="pipeline-card" data-aos="fade-up" data-aos-delay="300">
+          <span class="pipeline-stage-badge">STAGE 03</span>
+          <div class="pipeline-icon-wrap">
+            <i class="fa-solid fa-flask-vial"></i>
+          </div>
+          <h3 class="pipeline-card-title">HPLC Standardization</h3>
+          <p class="pipeline-card-desc">
+            Every batch is profiled via High-Performance Liquid Chromatography against international pharmacopoeial standards to guarantee active potency.
+          </p>
+          <div class="pipeline-card-tag">
+            <i class="fa-solid fa-dna"></i> Molecular Fingerprinting
+          </div>
+        </div>
+
+        <!-- Stage 4 -->
+        <div class="pipeline-card" data-aos="fade-up" data-aos-delay="400">
+          <span class="pipeline-stage-badge">STAGE 04</span>
+          <div class="pipeline-icon-wrap">
+            <i class="fa-solid fa-box-open"></i>
+          </div>
+          <h3 class="pipeline-card-title">Cleanroom Dispensation</h3>
+          <p class="pipeline-card-desc">
+            Custom-compounded in positive-pressure ISO Class 5 laminar air cleanrooms into UV-filtering amber glass with IoT-monitored cold-chain dispatch.
+          </p>
+          <div class="pipeline-card-tag">
+            <i class="fa-solid fa-shield-virus"></i> ISO Class 5 Certified
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: THE MINDS BEHIND AURA -->
+  <section class="about-team-figma-section">
+    <div class="container">
+      <div class="team-figma-header">
+        <h2 class="team-figma-title">The Minds Behind Aura</h2>
+        <p class="team-figma-subtitle">
+          A multidisciplinary collective of clinicians, botanists, and compounding pharmacists.
+        </p>
+      </div>
+      <div class="team-figma-grid">
+        <!-- Member 1 -->
+        <div class="team-figma-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="team-avatar-wrap">
+            <img src="assets/team-julian-thorne.webp" alt="Dr. Julian Thorne" loading="lazy">
+          </div>
+          <h3 class="team-member-name">Dr. Julian Thorne</h3>
+          <span class="team-member-role">Founder & Chief Scientist</span>
+          <p class="team-member-bio">
+            PharmD with 15+ years pioneering botanical-drug interactions and clean clinical compounding.
+          </p>
+          <div class="team-member-socials">
+            <a href="404.html" class="team-social-btn" title="LinkedIn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="404.html" class="team-social-btn" title="Twitter / X" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+          </div>
+        </div>
+
+        <!-- Member 2 -->
+        <div class="team-figma-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="team-avatar-wrap">
+            <img src="assets/team-sarah-chen.webp" alt="Dr. Sarah Chen" loading="lazy">
+          </div>
+          <h3 class="team-member-name">Dr. Sarah Chen</h3>
+          <span class="team-member-role">Head of Botanical Research</span>
+          <p class="team-member-bio">
+            PhD in Ethnobotany, leading wildcraft biodiversity studies and sustainable harvesting programs.
+          </p>
+          <div class="team-member-socials">
+            <a href="404.html" class="team-social-btn" title="LinkedIn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="404.html" class="team-social-btn" title="Twitter / X" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+          </div>
+        </div>
+
+        <!-- Member 3 -->
+        <div class="team-figma-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="team-avatar-wrap">
+            <img src="assets/team-marcus-vance.webp" alt="Marcus Vance" loading="lazy">
+          </div>
+          <h3 class="team-member-name">Marcus Vance</h3>
+          <span class="team-member-role">Master Compounding Pharmacist</span>
+          <p class="team-member-bio">
+            Specialist in customized bio-identical tinctures, sterile cleanroom compounding, and purity assurance.
+          </p>
+          <div class="team-member-socials">
+            <a href="404.html" class="team-social-btn" title="LinkedIn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="404.html" class="team-social-btn" title="Twitter / X" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 6: SAFETY WITHOUT COMPROMISE -->
+  <section class="about-safety-figma-section">
+    <div class="container">
+      <div class="safety-card-container" data-aos="fade-up">
+        <div class="safety-grid">
+          <div>
+            <span class="safety-eyebrow">Safety & Standards</span>
+            <h2 class="safety-title">Safety Without Compromise</h2>
+            <div class="safety-steps-list">
+              <div class="safety-step-item">
+                <div class="safety-step-num">1</div>
+                <div>
+                  <h4 class="safety-step-heading">HPLC Assayed Potency</h4>
+                  <p class="safety-step-desc">
+                    Every botanical extract is assayed via High-Performance Liquid Chromatography for active phytochemical marker concentrations.
+                  </p>
+                </div>
+              </div>
+              <div class="safety-step-item">
+                <div class="safety-step-num">2</div>
+                <div>
+                  <h4 class="safety-step-heading">ISO 17025 Certified Testing</h4>
+                  <p class="safety-step-desc">
+                    Third-party accredited testing guaranteeing zero heavy metals, pesticide residues, microbial pathogens, or synthetic fillers.
+                  </p>
+                </div>
+              </div>
+              <div class="safety-step-item">
+                <div class="safety-step-num">3</div>
+                <div>
+                  <h4 class="safety-step-heading">cGMP Standard Cleanrooms</h4>
+                  <p class="safety-step-desc">
+                    Compounded in positive-pressure, HEPA-filtered cleanrooms exceeding international pharmaceutical safety standards.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="safety-media-wrap">
+            <img src="assets/about-safety-robotics.webp" alt="Automated robotic clinical laboratory pipetting dispenser">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 7: ACCREDITATIONS & QUALITY CERTIFICATIONS -->
+  <section class="about-accreditations-section">
+    <div class="container">
+      <div class="accreditations-header">
+        <span class="accreditations-eyebrow">Verified Clinical Governance</span>
+        <h2 class="accreditations-title">Accreditations & Quality Certifications</h2>
+        <p class="accreditations-subtitle">
+          Independent regulatory accreditations and laboratory certifications ensuring our apothecary meets the highest medical, ethical, and dispensing benchmarks.
+        </p>
+      </div>
+
+      <div class="accreditation-cards-grid">
+        <!-- Accreditation 1 -->
+        <div class="accreditation-card" data-aos="zoom-in" data-aos-delay="100">
+          <div class="accreditation-icon-circle">
+            <i class="fa-solid fa-certificate"></i>
+          </div>
+          <h3 class="accreditation-card-title">WHO-GMP Compliant</h3>
+          <span class="accreditation-card-sub">Manufacturing Excellence</span>
+          <p class="accreditation-card-desc">
+            Our cleanroom facilities and compounding methods strictly adhere to World Health Organization Good Manufacturing Practices for pharmaceutical safety.
+          </p>
+        </div>
+
+        <!-- Accreditation 2 -->
+        <div class="accreditation-card" data-aos="zoom-in" data-aos-delay="200">
+          <div class="accreditation-icon-circle">
+            <i class="fa-solid fa-microscope"></i>
+          </div>
+          <h3 class="accreditation-card-title">ISO/IEC 17025:2017</h3>
+          <span class="accreditation-card-sub">Analytical Competence</span>
+          <p class="accreditation-card-desc">
+            Third-party accredited laboratory verification confirming analytical calibration accuracy, microbial safety, and zero heavy metal adulteration.
+          </p>
+        </div>
+
+        <!-- Accreditation 3 -->
+        <div class="accreditation-card" data-aos="zoom-in" data-aos-delay="300">
+          <div class="accreditation-icon-circle">
+            <i class="fa-solid fa-bottle-droplet"></i>
+          </div>
+          <h3 class="accreditation-card-title">Zero-Leach Amber Glass</h3>
+          <span class="accreditation-card-sub">USP Type III Glassware</span>
+          <p class="accreditation-card-desc">
+            Medical-grade UV-filtering amber glass containers protecting delicate phytochemical structures while eliminating microplastic exposure.
+          </p>
+        </div>
+
+        <!-- Accreditation 4 -->
+        <div class="accreditation-card" data-aos="zoom-in" data-aos-delay="400">
+          <div class="accreditation-icon-circle">
+            <i class="fa-solid fa-user-doctor"></i>
+          </div>
+          <h3 class="accreditation-card-title">Licensed Pharmacy</h3>
+          <span class="accreditation-card-sub">Registered Healthcare Facility</span>
+          <p class="accreditation-card-desc">
+            Supervised by licensed doctoral clinical pharmacists authorized for personalized compounding, prescription reviews, and clinical pharmacotherapy.
+          </p>
+        </div>
+      </div>
+
+      <!-- Impact Metrics Highlight Banner -->
+      <div class="about-impact-banner" data-mirror="true">
+        <div class="impact-metric-item">
+          <div class="impact-metric-val" data-target="99.9" data-decimals="1" data-prefix="" data-suffix="%">99.9%</div>
+          <div class="impact-metric-label">Phytochemical Batch Purity</div>
+        </div>
+        <div class="impact-metric-item">
+          <div class="impact-metric-val" data-target="100" data-decimals="0" data-prefix="" data-suffix="%">100%</div>
+          <div class="impact-metric-label">Soil-to-Bottle Traceability</div>
+        </div>
+        <div class="impact-metric-item">
+          <div class="impact-metric-val" data-target="24" data-decimals="0" data-prefix="&lt; " data-suffix="h">&lt; 24h</div>
+          <div class="impact-metric-label">Clinical Pharmacist Review</div>
+        </div>
+        <div class="impact-metric-item">
+          <div class="impact-metric-val" data-target="0" data-decimals="0" data-prefix="" data-suffix="%">0%</div>
+          <div class="impact-metric-label">Synthetic Preservatives</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 8: HEALING THE WORLD WHILE WE HEAL YOU -->
+  <section class="about-healing-figma-section">
+    <div class="container">
+      <div class="healing-grid">
+        <div class="healing-media-wrap" data-aos="fade-right">
+          <img src="assets/about-sustainability-herbs.webp" alt="Organic apothecary packaging, golden botanical oil bottle and herbal powders">
+        </div>
+        <div>
+          <span class="healing-eyebrow">Sustainability</span>
+          <h2 class="healing-title">Healing the World While We Heal You</h2>
+          <p class="healing-desc">
+            Our commitment extends beyond personal health. We believe regenerative medicine starts with a regenerative planet.
+          </p>
+          <div class="healing-checklist">
+            <div class="healing-check-item">
+              <i class="fa-solid fa-circle-check"></i>
+              <span>100% Recyclable Amber Glass & Biodegradable Packaging</span>
+            </div>
+            <div class="healing-check-item">
+              <i class="fa-solid fa-circle-check"></i>
+              <span>Carbon-Neutral Wildcrafting & Zero Chemical Leaching</span>
+            </div>
+            <div class="healing-check-item">
+              <i class="fa-solid fa-circle-check"></i>
+              <span>Supporting 120+ Generational Farming Families</span>
+            </div>
+          </div>
+          <a href="Services.html" class="btn btn-teal btn-pill" style="padding: 0.95rem 2.2rem; font-size: 0.95rem; font-weight: 600;">
+            <i class="fa-solid fa-leaf" style="margin-right: 0.5rem;"></i> Join the Healing Movement
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMMON FOOTER (Dark Teal with 4 Columns - No List Dots) -->
+  <footer class="main-footer">
+    <div class="container">
+      <div class="footer-columns-grid">
+        <!-- Col 1: Brand & Bio -->
+        <div>
+          <a href="index.html" class="brand-logo-link footer-brand-logo" aria-label="Stackly Home">
+            <img src="assets/white.webp" alt="Stackly Pharmacy Logo" class="brand-logo-img">
+          </a>
+          <p class="footer-bio-text">
+            Bridging time-honored herbal traditions with modern clinical precision for your holistic healing journey.
+          </p>
+          <div class="footer-social-links">
+            <a href="404.html" class="footer-social-icon"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="404.html" class="footer-social-icon"><i class="fa-brands fa-instagram"></i></a>
+            <a href="404.html" class="footer-social-icon"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="404.html" class="footer-social-icon"><i class="fa-brands fa-linkedin-in"></i></a>
+          </div>
+        </div>
+
+        <!-- Col 2: Quick Links -->
+        <div>
+          <h4 class="footer-col-heading">Quick Links</h4>
+          <ul class="footer-nav-list">
+            <li class="footer-nav-item"><a href="index.html">Home</a></li>
+            <li class="footer-nav-item"><a href="About.html">About</a></li>
+            <li class="footer-nav-item"><a href="Shop.html">Shop</a></li>
+            <li class="footer-nav-item"><a href="Services.html">Services</a></li>
+            <li class="footer-nav-item"><a href="Blog.html">Blog</a></li>
+            <li class="footer-nav-item"><a href="Contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Specialties -->
+        <div>
+          <h4 class="footer-col-heading">Specialties</h4>
+          <ul class="footer-nav-list">
+            <li class="footer-nav-item"><a href="404.html">Prescription Dispensing</a></li>
+            <li class="footer-nav-item"><a href="404.html">Herbal Compounding</a></li>
+            <li class="footer-nav-item"><a href="404.html">Diagnostic Testing</a></li>
+            <li class="footer-nav-item"><a href="404.html">Chronic Care Pathways</a></li>
+            <li class="footer-nav-item"><a href="404.html">Cold-Chain Delivery</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Visit Us -->
+        <div>
+          <h4 class="footer-col-heading">Visit Us</h4>
+          <div class="footer-contact-items">
+            <div class="footer-contact-item">
+              <i class="fa-solid fa-location-dot"></i>
+              <span>MMR Complex, Chinna Thirupathi, near Chinna Muniyappan Kovil, Salem, Tamil Nadu 636008</span>
+            </div>
+            <div class="footer-contact-item">
+              <i class="fa-solid fa-phone"></i>
+              <span>+91 9876543210</span>
+            </div>
+            <div class="footer-contact-item">
+              <i class="fa-solid fa-envelope"></i>
+              <span>info@stackly.com</span>
+            </div>
+            <div class="footer-contact-item">
+              <i class="fa-solid fa-clock"></i>
+              <span>Mon - Sat: 8:00 AM - 8:00 PM</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        © 2026 Apothecary & Natural Healing. All rights reserved. Licensed Healthcare Dispenser.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="js/inventory.js"></script>
+  <script src="js/orders.js"></script>
+  <script src="js/notifications.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    // Running number animation with mirror: true for Impact Metrics
+    document.addEventListener("DOMContentLoaded", () => {
+      const banner = document.querySelector(".about-impact-banner");
+      if (!banner) return;
+
+      const metricEls = banner.querySelectorAll(".impact-metric-val");
+      if (!metricEls.length) return;
+
+      const metrics = Array.from(metricEls).map((el) => ({
+        el,
+        target: parseFloat(el.getAttribute("data-target")) || 0,
+        decimals: parseInt(el.getAttribute("data-decimals") || "0", 10),
+        prefix: el.getAttribute("data-prefix") || "",
+        suffix: el.getAttribute("data-suffix") || "",
+        finalText: el.textContent.trim()
+      }));
+
+      let animId = null;
+
+      function formatValue(m, val) {
+        if (m.decimals > 0) {
+          return m.prefix + val.toFixed(m.decimals) + m.suffix;
+        }
+        return m.prefix + Math.round(val) + m.suffix;
+      }
+
+      function runCounter() {
+        if (animId) cancelAnimationFrame(animId);
+        const duration = 1800; // ms
+        const startTime = performance.now();
+
+        function step(currentTime) {
+          const elapsed = currentTime - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          // Ease-out cubic curve for natural smooth deceleration
+          const ease = 1 - Math.pow(1 - progress, 3);
+
+          metrics.forEach((m) => {
+            const current = m.target * ease;
+            m.el.textContent = formatValue(m, current);
+          });
+
+          if (progress < 1) {
+            animId = requestAnimationFrame(step);
+          } else {
+            metrics.forEach((m) => {
+              m.el.textContent = m.finalText;
+            });
+            animId = null;
+          }
+        }
+
+        animId = requestAnimationFrame(step);
+      }
+
+      function resetCounter() {
+        if (animId) {
+          cancelAnimationFrame(animId);
+          animId = null;
+        }
+        metrics.forEach((m) => {
+          m.el.textContent = formatValue(m, 0);
+        });
+      }
+
+      // Initialize with start value before animation triggers
+      resetCounter();
+
+      // Mirror: true behavior via IntersectionObserver:
+      // Re-triggers every time the section enters the viewport (scrolling down or up)
+      // and resets when scrolled out of view.
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              runCounter();
+            } else {
+              resetCounter();
+            }
+          });
+        },
+        {
+          threshold: 0.25
+        }
+      );
+
+      observer.observe(banner);
+    });
+  </script>
+</body>
+</html>

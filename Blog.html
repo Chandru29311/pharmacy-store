@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apothecary Journal & Health Insights — Apothecary & Natural Healing</title>
+  
+  <!-- Best Fonts: Outfit, Plus Jakarta Sans & Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Core Stylesheets -->
+  <!-- AOS (Animate On Scroll) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body class="blog-figma-page">
+
+  <!-- Top Dark Teal Navbar (Sticky Navbar) -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <!-- Left: Logo & Brand Name -->
+      <a href="index.html" class="brand-logo-link" aria-label="Stackly Home">
+        <img src="assets/white.webp" alt="Stackly Pharmacy Logo" class="brand-logo-img">
+      </a>
+
+      <!-- Center: Navigation Links -->
+      <nav class="nav-menu-center">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="About.html" class="nav-link">About</a>
+        <a href="Shop.html" class="nav-link">Shop</a>
+        <a href="Services.html" class="nav-link">Services</a>
+        <a href="Blog.html" class="nav-link active">Blog</a>
+        <a href="Contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <!-- Right: Search, Cart & Login Actions -->
+      <div class="nav-actions-right">
+        <a href="404.html" class="nav-icon-btn nav-search-trigger" title="Search" aria-label="Search">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </a>
+
+        <button class="nav-icon-btn cart-drawer-trigger" title="Shopping Cart" aria-label="Shopping Cart">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span class="cart-count-badge">0</span>
+        </button>
+
+        <a href="Login.html" class="btn-nav-login-pill">LOGIN</a>
+
+        <!-- Mobile Hamburger Button -->
+        <button class="hamburger-btn" id="hamburger-btn" aria-label="Toggle Navigation">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Off-Canvas Menu Drawer -->
+  <div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
+  <aside class="mobile-menu-drawer" id="mobile-menu">
+    <div class="mobile-menu-header">
+      <a href="index.html" class="brand-logo-link" aria-label="Stackly Home">
+        <img src="assets/white.webp" alt="Stackly Pharmacy Logo" class="brand-logo-img">
+      </a>
+      <button class="mobile-menu-close-btn" id="mobile-menu-close">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+    <nav class="mobile-nav-links">
+      <a href="index.html" class="mobile-nav-item">Home</a>
+      <a href="About.html" class="mobile-nav-item">About</a>
+      <a href="Shop.html" class="mobile-nav-item">Shop</a>
+      <a href="Services.html" class="mobile-nav-item">Services</a>
+      <a href="Blog.html" class="mobile-nav-item active">Blog</a>
+      <a href="Contact.html" class="mobile-nav-item">Contact</a>
+    </nav>
+    <div class="mobile-menu-footer">
+      <a href="Login.html" class="btn btn-teal btn-pill w-100 mobile-login-btn">Login</a>
+    </div>
+  </aside>
+
+  <!-- Interactive Slide-in Cart Drawer -->
+  <div class="cart-overlay" id="cart-overlay"></div>
+  <div class="cart-drawer" id="cart-drawer">
+    <div class="cart-drawer-header">
+      <h3 class="cart-drawer-title">Apothecary Basket <span id="cart-drawer-count">(0)</span></h3>
+      <button class="nav-icon-btn" id="cart-drawer-close" style="color: var(--color-text-dark);">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+    <div class="cart-drawer-items" id="cart-drawer-items">
+      <!-- Populated via CartManager in js/main.js -->
+    </div>
+    <div class="cart-drawer-footer">
+      <div class="cart-drawer-subtotal">
+        <span>Order Subtotal</span>
+        <span class="cart-drawer-total" id="cart-drawer-total">₹0</span>
+      </div>
+      <p class="cart-drawer-tax-note">Taxes & shipping calculated during checkout</p>
+      <a href="404.html" class="btn btn-teal btn-pill w-100 cart-checkout-btn" id="cart-checkout-btn">Proceed to Safe Checkout</a>
+    </div>
+  </div>
+
+  <main>
+    <!-- SECTION 1: HERO FEATURED BANNER -->
+    <section class="blog-hero-section">
+      <div class="container">
+        <div class="blog-hero-banner">
+          <div class="blog-hero-overlay"></div>
+          <div class="blog-hero-content">
+            <span class="blog-hero-badge">
+              <i class="fa-solid fa-sparkles"></i> WELLNESS &bull; 5 MIN READ
+            </span>
+            <h1 class="blog-hero-title">
+              The Ritual of Rest: How Botanical Infusions Transform Sleep Quality
+            </h1>
+            <p class="blog-hero-desc">
+              Discover the neurochemical benefits of chamomile, passionflower, and valerian root when formulated with precise, clinical-grade extractions.
+            </p>
+            <div class="blog-hero-author-row">
+              <div class="blog-hero-author-pill">
+                <img src="assets/blog-author-evelyn.webp" alt="Dr. Evelyn Vance" loading="lazy">
+                <div class="blog-hero-author-text">
+                  Dr. Evelyn Vance <span>&bull; Chief Pharmacist</span>
+                </div>
+              </div>
+              <a href="404.html" class="blog-hero-btn" onclick="">
+                Read Full Story <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- SECTION 3: LATEST HEALTH INSIGHTS (3 CARDS) -->
+    <section class="blog-insights-section">
+      <div class="container">
+        <div class="blog-insights-header">
+          <div>
+            <span class="blog-insights-eyebrow">EVIDENCE-BASED PERSPECTIVES FROM OUR RESEARCH LAB</span>
+            <h2 class="blog-insights-title">Latest Health Insights</h2>
+          </div>
+          <div class="blog-carousel-arrows">
+            <button class="blog-arrow-btn" aria-label="Previous Page" onclick="slideArticles(-1)"><i class="fa-solid fa-chevron-left"></i></button>
+            <button class="blog-arrow-btn" aria-label="Next Page" onclick="slideArticles(1)"><i class="fa-solid fa-chevron-right"></i></button>
+          </div>
+        </div>
+
+        <div class="blog-cards-grid" id="blog-cards-container">
+          <!-- Card 1 -->
+          <article class="figma-article-card" data-aos="fade-up" data-aos-delay="100" article-item" data-category="herbal-science" data-title="Adaptogens: The Secret to Managing Modern Stress">
+            <div class="figma-card-media">
+              <img src="assets/blog-article-adaptogens.webp" alt="Adaptogenic herbs and roots for modern stress management" class="figma-card-img" loading="lazy">
+              <span class="figma-card-tag">WELLNESS</span>
+            </div>
+            <div class="figma-card-body">
+              <div class="figma-card-readtime">4 MIN READ</div>
+              <h3 class="figma-card-title">Adaptogens: The Secret to Managing Modern Stress</h3>
+              <p class="figma-card-excerpt">
+                How ashwagandha, rhodiola, and holy basil regulate cortisol spikes and protect cellular longevity.
+              </p>
+              <div class="figma-card-footer">
+                <span class="figma-card-author">Dr. Aris Thorne</span>
+                <a href="404.html" class="figma-card-link" onclick="">
+                  Read Article <i class="fa-solid fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 2 -->
+          <article class="figma-article-card" data-aos="fade-up" data-aos-delay="200" article-item" data-category="holistic-living" data-title="The Microbiome Beauty: Rebuilding Skin Health Naturally">
+            <div class="figma-card-media">
+              <img src="assets/blog-article-microbiome-skin.webp" alt="Botanical microbiome skincare and lipid barrier nourishment" class="figma-card-img" loading="lazy">
+              <span class="figma-card-tag">SKIN HEALTH</span>
+            </div>
+            <div class="figma-card-body">
+              <div class="figma-card-readtime">6 MIN READ</div>
+              <h3 class="figma-card-title">The Microbiome Beauty: Rebuilding Skin Health Naturally</h3>
+              <p class="figma-card-excerpt">
+                Why topical probiotics and lipid-barrier nourishment outperform conventional harsh cleansers.
+              </p>
+              <div class="figma-card-footer">
+                <span class="figma-card-author">Elena Rostova, RPh</span>
+                <a href="404.html" class="figma-card-link" onclick="">
+                  Read Article <i class="fa-solid fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 3 -->
+          <article class="figma-article-card" data-aos="fade-up" data-aos-delay="300" article-item" data-category="clinical-care" data-title="AI in Precision Medicine: Personalized Dosing 101">
+            <div class="figma-card-media">
+              <img src="assets/blog-article-ai-precision-medicine.webp" alt="Clinical precision medicine and pharmaceutical biotechnology research" class="figma-card-img" loading="lazy">
+              <span class="figma-card-tag">PHARMACOLOGY</span>
+            </div>
+            <div class="figma-card-body">
+              <div class="figma-card-readtime">5 MIN READ</div>
+              <h3 class="figma-card-title">AI in Precision Medicine: Personalized Dosing 101</h3>
+              <p class="figma-card-excerpt">
+                The revolution in tailoring pharmacotherapy to unique metabolic rates and genomic blueprints.
+              </p>
+              <div class="figma-card-footer">
+                <span class="figma-card-author">Dr. Marcus Vance</span>
+                <a href="404.html" class="figma-card-link" onclick="">
+                  Read Article <i class="fa-solid fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 4 -->
+          <article class="figma-article-card" data-aos="fade-up" data-aos-delay="100" article-item" data-category="herbal-science" data-title="Medicinal Mushrooms: Lion's Mane & Reishi for Neuroplasticity">
+            <div class="figma-card-media">
+              <img src="assets/blog-article-medicinal-mushrooms.webp" alt="Medicinal mushrooms Lion's Mane and Reishi for cognitive vitality" class="figma-card-img" loading="lazy">
+              <span class="figma-card-tag">NEUROSCIENCE</span>
+            </div>
+            <div class="figma-card-body">
+              <div class="figma-card-readtime">5 MIN READ</div>
+              <h3 class="figma-card-title">Medicinal Mushrooms: Lion's Mane & Reishi for Neuroplasticity</h3>
+              <p class="figma-card-excerpt">
+                Clinical trials on hericenones and triterpenes that stimulate nerve growth factor (NGF) and promote cognitive resilience.
+              </p>
+              <div class="figma-card-footer">
+                <span class="figma-card-author">Dr. Sarah Chen</span>
+                <a href="404.html" class="figma-card-link" onclick="">
+                  Read Article <i class="fa-solid fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 5 -->
+          <article class="figma-article-card" data-aos="fade-up" data-aos-delay="200" article-item" data-category="circadian-health" data-title="Chronotherapy: Timing Medications with Circadian Rhythms">
+            <div class="figma-card-media">
+              <img src="assets/blog-article-chronotherapy.webp" alt="Chronotherapy and timing botanical doses with biological clocks" class="figma-card-img" loading="lazy">
+              <span class="figma-card-tag">CIRCADIAN</span>
+            </div>
+            <div class="figma-card-body">
+              <div class="figma-card-readtime">7 MIN READ</div>
+              <h3 class="figma-card-title">Chronotherapy: Timing Medications with Circadian Rhythms</h3>
+              <p class="figma-card-excerpt">
+                Why synchronizing botanical extracts and pharmaceutical dosing with biological clocks optimizes metabolic efficacy.
+              </p>
+              <div class="figma-card-footer">
+                <span class="figma-card-author">Julian Thorne</span>
+                <a href="404.html" class="figma-card-link" onclick="">
+                  Read Article <i class="fa-solid fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 6 -->
+          <article class="figma-article-card" data-aos="fade-up" data-aos-delay="300" article-item" data-category="herbal-science" data-title="Bioavailability Hacks: Piperine, Liposomes & Polyphenols">
+            <div class="figma-card-media">
+              <img src="assets/blog-article-bioavailability.webp" alt="Enhancing bioavailability of curcumin and polyphenols through liposomal delivery" class="figma-card-img" loading="lazy">
+              <span class="figma-card-tag">HERBAL SCIENCE</span>
+            </div>
+            <div class="figma-card-body">
+              <div class="figma-card-readtime">4 MIN READ</div>
+              <h3 class="figma-card-title">Bioavailability Hacks: Piperine, Liposomes & Polyphenols</h3>
+              <p class="figma-card-excerpt">
+                How lipid encapsulation and black pepper alkaloids overcome enzymatic degradation to dramatically increase nutrient uptake.
+              </p>
+              <div class="figma-card-footer">
+                <span class="figma-card-author">Elena Rostova, RPh</span>
+                <a href="404.html" class="figma-card-link" onclick="">
+                  Read Article <i class="fa-solid fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 7 -->
+          <article class="figma-article-card" data-aos="fade-up" data-aos-delay="100" article-item" data-category="holistic-living" data-title="The Gut-Immune Axis: Phytochemicals for Microflora Balance">
+            <div class="figma-card-media">
+              <img src="assets/blog-article-gut-immune.webp" alt="Gut-immune microbiome balance and probiotic botanical elixirs" class="figma-card-img" loading="lazy">
+              <span class="figma-card-tag">GUT HEALTH</span>
+            </div>
+            <div class="figma-card-body">
+              <div class="figma-card-readtime">6 MIN READ</div>
+              <h3 class="figma-card-title">The Gut-Immune Axis: Phytochemicals for Microflora Balance</h3>
+              <p class="figma-card-excerpt">
+                How clinical-grade polyphenols and short-chain fatty acids reinforce the mucosal lining and modulate systemic inflammatory markers.
+              </p>
+              <div class="figma-card-footer">
+                <span class="figma-card-author">Maya Sen, M.Sc</span>
+                <a href="404.html" class="figma-card-link" onclick="">
+                  Read Article <i class="fa-solid fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 8 -->
+          <article class="figma-article-card" data-aos="fade-up" data-aos-delay="200" article-item" data-category="clinical-care" data-title="Full-Spectrum Botanical Extracts vs. Synthetic Isolates">
+            <div class="figma-card-media">
+              <img src="assets/blog-article-botanical-extracts.webp" alt="Full spectrum herbal extracts vs synthetic isolates comparison" class="figma-card-img" loading="lazy">
+              <span class="figma-card-tag">CLINICAL CARE</span>
+            </div>
+            <div class="figma-card-body">
+              <div class="figma-card-readtime">5 MIN READ</div>
+              <h3 class="figma-card-title">Full-Spectrum Botanical Extracts vs. Synthetic Isolates</h3>
+              <p class="figma-card-excerpt">
+                Comparative pharmacognosy examining the synergistic entourage effect of whole plant medicine versus single molecule synthetics.
+              </p>
+              <div class="figma-card-footer">
+                <span class="figma-card-author">Dr. Aris Thorne</span>
+                <a href="404.html" class="figma-card-link" onclick="">
+                  Read Article <i class="fa-solid fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 9 -->
+          <article class="figma-article-card" data-aos="fade-up" data-aos-delay="300" article-item" data-category="holistic-living" data-title="Mindfulness & Vagal Tone: Regulating Endocrine Stress Naturally">
+            <div class="figma-card-media">
+              <img src="assets/blog-article-mindfulness.webp" alt="Mindfulness, parasympathetic nervous system, and cortisol reduction" class="figma-card-img" loading="lazy">
+              <span class="figma-card-tag">MIND-BODY</span>
+            </div>
+            <div class="figma-card-body">
+              <div class="figma-card-readtime">6 MIN READ</div>
+              <h3 class="figma-card-title">Mindfulness & Vagal Tone: Regulating Endocrine Stress Naturally</h3>
+              <p class="figma-card-excerpt">
+                The neurobiology of parasympathetic activation, breathwork cadence, and how daily stillness restores adrenal equilibrium.
+              </p>
+              <div class="figma-card-footer">
+                <span class="figma-card-author">Dr. Marcus Vance</span>
+                <a href="404.html" class="figma-card-link" onclick="">
+                  Read Article <i class="fa-solid fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: DEEP DIVE FEATURE SECTION -->
+    <section class="blog-deepdive-section">
+      <div class="container">
+        <div class="blog-deepdive-card" data-aos="fade-up">
+          <div class="blog-deepdive-content">
+            <span class="blog-deepdive-badge">
+              <i class="fa-solid fa-book-open"></i> DEEP DIVE SERIES
+            </span>
+            <h2 class="blog-deepdive-title">
+              Mastering the Morning: A Comprehensive Guide to Lymphatic Health
+            </h2>
+            <p class="blog-deepdive-desc">
+              Learn the ancient rituals and modern clinical validations behind dry brushing, hydration timing, and postural drainage for systemic vitality.
+            </p>
+            <div class="blog-deepdive-metrics">
+              <div>
+                <div class="deepdive-stat-val">15k</div>
+                <div class="deepdive-stat-label">Article Reads</div>
+              </div>
+              <div>
+                <div class="deepdive-stat-val">4.9 ★</div>
+                <div class="deepdive-stat-label">Expert Rating</div>
+              </div>
+              <div>
+                <div class="deepdive-stat-val">22</div>
+                <div class="deepdive-stat-label">Clinical References</div>
+              </div>
+            </div>
+            <a href="404.html" class="blog-deepdive-btn" onclick="">
+              Start Reading Now <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+          <div class="blog-deepdive-media">
+            <img src="assets/blog-lymphatic-linen.webp" alt="Lymphatic Health Waffle Towel and Oil" class="blog-deepdive-img">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4B: CLINICAL MONOGRAPHS & RESEARCH WHITEPAPERS -->
+    <section class="blog-monograph-section">
+      <div class="container">
+        <div class="blog-monograph-card" data-aos="zoom-in">
+          <div class="blog-monograph-media">
+            <img src="assets/blog-lab-monograph.webp" alt="Aura Clinical Compounding Laboratory & Pharmacological Research" class="blog-monograph-img" loading="lazy">
+            <span class="blog-monograph-tag"><i class="fa-solid fa-microscope"></i> LAB MONOGRAPH</span>
+          </div>
+          <div class="blog-monograph-content">
+            <span class="blog-monograph-eyebrow">AURA PHARMACEUTICAL RESEARCH DOSSIER • ISSUE 24</span>
+            <h2 class="blog-monograph-title">
+              Standardized Ashwagandha Withanolides in Chronic Adrenal Fatigue: A 12-Month Cohort Study
+            </h2>
+            <p class="blog-monograph-desc">
+              Authored by our resident clinical compounding pharmacists, this peer-reviewed monograph analyzes salivary cortisol curves, DHEA-S ratios, and neuro-inflammatory markers across 180 patient cohorts administered micro-dosed full-spectrum withanolides.
+            </p>
+            <div class="blog-monograph-highlights">
+              <div class="monograph-highlight-item">
+                <i class="fa-solid fa-circle-check"></i>
+                <span>HPLC-Verified 5.2% Withanolide Purity Standard</span>
+              </div>
+              <div class="monograph-highlight-item">
+                <i class="fa-solid fa-circle-check"></i>
+                <span>Double-Blind Placebo-Controlled Bioavailability Metrics</span>
+              </div>
+              <div class="monograph-highlight-item">
+                <i class="fa-solid fa-circle-check"></i>
+                <span>Peer-Reviewed Clinical Dossier with Complete Spectral Data</span>
+              </div>
+            </div>
+            <div class="blog-monograph-actions">
+              <a href="404.html" class="btn-monograph-download">
+                <i class="fa-solid fa-file-pdf"></i> Download Full Whitepaper (PDF • 4.8 MB)
+              </a>
+              <span class="monograph-citation">
+                <i class="fa-solid fa-book-bookmark"></i> Indexed in PubMed & CrossRef
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: VOICES OF AURA (CONTRIBUTORS) -->
+    <section class="blog-voices-section">
+      <div class="container">
+        <div class="blog-voices-header">
+          <span class="blog-voices-eyebrow">OUR EXPERT MEDICAL EDITORIAL BOARD</span>
+          <h2 class="blog-voices-title">Voices of Aura</h2>
+          <p class="blog-voices-subtitle">
+            Bridging time-tested botanical wisdom and modern clinical pharmacology through multidisciplinary expertise.
+          </p>
+        </div>
+
+        <div class="blog-voices-grid">
+          <!-- Col 1 -->
+          <div class="blog-voice-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="blog-voice-avatar-wrap">
+              <img src="assets/blog-author-sarah.webp" alt="Dr. Sarah Jenkins" class="blog-voice-avatar" loading="lazy">
+            </div>
+            <h3 class="blog-voice-name">Dr. Sarah Jenkins</h3>
+            <div class="blog-voice-role">Chief Medical Officer</div>
+            <p class="blog-voice-bio">
+              Integrative oncologist and botanical researcher exploring natural adjuvant therapies and clinical trials.
+            </p>
+            <div class="blog-voice-socials">
+              <a href="404.html" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+              <a href="404.html" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+              <a href="404.html" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+            </div>
+          </div>
+
+          <!-- Col 2 -->
+          <div class="blog-voice-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="blog-voice-avatar-wrap">
+              <img src="assets/blog-author-julian.webp" alt="Julian Thorne" class="blog-voice-avatar" loading="lazy">
+            </div>
+            <h3 class="blog-voice-name">Julian Thorne</h3>
+            <div class="blog-voice-role">Herbal Formulator</div>
+            <p class="blog-voice-bio">
+              Third-generation ethnobotanist dedicated to sustainable foraging, biodynamics, and supercritical CO2 extraction.
+            </p>
+            <div class="blog-voice-socials">
+              <a href="404.html" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+              <a href="404.html" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+              <a href="404.html" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+            </div>
+          </div>
+
+          <!-- Col 3 -->
+          <div class="blog-voice-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="blog-voice-avatar-wrap">
+              <img src="assets/blog-author-maya.webp" alt="Maya Sen, M.Sc" class="blog-voice-avatar" loading="lazy">
+            </div>
+            <h3 class="blog-voice-name">Maya Sen, M.Sc</h3>
+            <div class="blog-voice-role">Clinical Nutritionist</div>
+            <p class="blog-voice-bio">
+              Specializing in gut-brain axis modulation, microbiome restoration, and bioavailable micronutrient protocols.
+            </p>
+            <div class="blog-voice-socials">
+              <a href="404.html" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+              <a href="404.html" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+              <a href="404.html" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+            </div>
+          </div>
+
+          <!-- Col 4 -->
+          <div class="blog-voice-card" data-aos="fade-up" data-aos-delay="400">
+            <div class="blog-voice-avatar-wrap">
+              <img src="assets/blog-author-4.webp" alt="Dr. Marcus Vance" class="blog-voice-avatar">
+            </div>
+            <h3 class="blog-voice-name">Dr. Marcus Vance</h3>
+            <div class="blog-voice-role">Pharmacogenomics Lead</div>
+            <p class="blog-voice-bio">
+              Investigating individual genomic variations in drug response to curate personalized herbal pharmacotherapy.
+            </p>
+            <div class="blog-voice-socials">
+              <a href="404.html" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+              <a href="404.html" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+              <a href="404.html" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: SUBSCRIBE TO VITALITY -->
+    <section class="blog-subscribe-section">
+      <div class="container">
+        <div class="blog-subscribe-card" data-aos="zoom-in">
+          <div class="blog-sub-icon">
+            <i class="fa-solid fa-envelope-open-text"></i>
+          </div>
+          <h2 class="blog-subscribe-title">Subscribe to Vitality</h2>
+          <p class="blog-subscribe-desc">
+            Receive evidence-backed wellness insights, seasonal apothecary guides, and exclusive formulations directly to your inbox every Sunday.
+          </p>
+          <form class="blog-subscribe-form" onsubmit="event.preventDefault(); this.reset(); window.location.href = '404.html';">
+            <input type="email" id="subscriber-email" placeholder="Enter your email address..." required>
+            <button type="submit">Subscribe</button>
+          </form>
+          <div class="blog-sub-disclaimer">
+            <i class="fa-solid fa-shield-halved"></i> No spam, ever. Unsubscribe at any time with a single click.
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- COMMON FOOTER (Dark Teal with 4 Columns - No List Dots) -->
+  <footer class="main-footer">
+    <div class="container">
+      <div class="footer-columns-grid">
+        <!-- Col 1: Brand & Bio -->
+        <div>
+          <a href="index.html" class="brand-logo-link footer-brand-logo" aria-label="Stackly Home">
+            <img src="assets/white.webp" alt="Stackly Pharmacy Logo" class="brand-logo-img">
+          </a>
+          <p class="footer-bio-text">
+            Bridging time-honored herbal traditions with modern clinical precision for your holistic healing journey.
+          </p>
+          <div class="footer-social-links">
+            <a href="404.html" class="footer-social-icon"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="404.html" class="footer-social-icon"><i class="fa-brands fa-instagram"></i></a>
+            <a href="404.html" class="footer-social-icon"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="404.html" class="footer-social-icon"><i class="fa-brands fa-linkedin-in"></i></a>
+          </div>
+        </div>
+
+        <!-- Col 2: Quick Links -->
+        <div>
+          <h4 class="footer-col-heading">Quick Links</h4>
+          <ul class="footer-nav-list">
+            <li class="footer-nav-item"><a href="index.html">Home</a></li>
+            <li class="footer-nav-item"><a href="About.html">About</a></li>
+            <li class="footer-nav-item"><a href="Shop.html">Shop</a></li>
+            <li class="footer-nav-item"><a href="Services.html">Services</a></li>
+            <li class="footer-nav-item"><a href="Blog.html">Blog</a></li>
+            <li class="footer-nav-item"><a href="Contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Specialties -->
+        <div>
+          <h4 class="footer-col-heading">Specialties</h4>
+          <ul class="footer-nav-list">
+            <li class="footer-nav-item"><a href="404.html">Prescription Dispensing</a></li>
+            <li class="footer-nav-item"><a href="404.html">Herbal Compounding</a></li>
+            <li class="footer-nav-item"><a href="404.html">Diagnostic Testing</a></li>
+            <li class="footer-nav-item"><a href="404.html">Chronic Care Pathways</a></li>
+            <li class="footer-nav-item"><a href="404.html">Cold-Chain Delivery</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Visit Us -->
+        <div>
+          <h4 class="footer-col-heading">Visit Us</h4>
+          <div class="footer-contact-items">
+            <div class="footer-contact-item">
+              <i class="fa-solid fa-location-dot"></i>
+              <span>MMR Complex, Chinna Thirupathi, near Chinna Muniyappan Kovil, Salem, Tamil Nadu 636008</span>
+            </div>
+            <div class="footer-contact-item">
+              <i class="fa-solid fa-phone"></i>
+              <span>+91 9876543210</span>
+            </div>
+            <div class="footer-contact-item">
+              <i class="fa-solid fa-envelope"></i>
+              <span>info@stackly.com</span>
+            </div>
+            <div class="footer-contact-item">
+              <i class="fa-solid fa-clock"></i>
+              <span>Mon - Sat: 8:00 AM - 8:00 PM</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        &copy; 2026 Apothecary & Natural Healing. All rights reserved. Licensed Healthcare Dispenser.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modal for Full Article Reading -->
+  <div class="article-modal-overlay" id="article-modal" onclick="if(event.target === this) closeArticleModal()">
+    <div class="article-modal-box">
+      <button class="article-modal-close" onclick="closeArticleModal()" aria-label="Close Article">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div id="modal-tag" style="font-size: 0.78rem; font-weight: 700; color: #186077; text-transform: uppercase; margin-bottom: 0.75rem;"></div>
+      <h2 id="modal-title" style="font-family: 'Outfit', sans-serif; font-size: 2rem; color: #103845; margin-bottom: 1rem; line-height: 1.25;"></h2>
+      <div id="modal-author" style="font-size: 0.88rem; color: #64748B; margin-bottom: 1.75rem; border-bottom: 1px solid #EDF2F7; padding-bottom: 1rem;"></div>
+      <div id="modal-content" style="font-size: 0.96rem; line-height: 1.8; color: #334155; white-space: pre-line;"></div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="js/inventory.js"></script>
+  <script src="js/orders.js"></script>
+  <script src="js/notifications.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="js/main.js"></script>
+
+  <script>
+    // Category Filtering
+    function filterArticles(category, btn) {
+      document.querySelectorAll('.blog-pill-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const items = document.querySelectorAll('.article-item');
+      items.forEach(item => {
+        if (category === 'all' || item.dataset.category === category) {
+          item.style.display = '';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+
+    // Real-Time Search Filtering
+    function searchArticles() {
+      const searchEl = document.getElementById('blog-search-input');
+      const q = searchEl ? searchEl.value.toLowerCase().trim() : '';
+      const items = document.querySelectorAll('.article-item');
+      items.forEach(item => {
+        const title = (item.dataset.title || '').toLowerCase();
+        const text = item.innerText.toLowerCase();
+        if (!q || title.includes(q) || text.includes(q)) {
+          item.style.display = '';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+
+    // Carousel Slide Demo
+    function slideArticles(direction) {
+      const container = document.getElementById('blog-cards-container');
+      if (container) {
+        container.style.transition = 'transform 0.3s ease';
+        container.style.transform = `translateX(${direction * -15}px)`;
+        setTimeout(() => {
+          container.style.transform = 'translateX(0)';
+        }, 300);
+      }
+    }
+
+    // Modal Control
+    function openArticleModal(title, author, meta, bodyText) {
+      document.getElementById('modal-title').innerText = title;
+      document.getElementById('modal-author').innerText = 'Published by ' + author + ' • ' + meta;
+      document.getElementById('modal-content').innerText = bodyText;
+      document.getElementById('article-modal').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeArticleModal() {
+      document.getElementById('article-modal').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeArticleModal();
+    });
+
+    // Newsletter Subscribe handler
+    function handleBlogSubscribe(e) {
+      e.preventDefault();
+      if (e.target && e.target.reset) e.target.reset();
+      window.location.href = '404.html';
+    }
+  </script>
+</body>
+</html>

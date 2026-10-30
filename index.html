@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apothecary — Modern & Natural Healing Sanctuary</title>
+  
+  <!-- Google Fonts: Cormorant Garamond & Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Core Stylesheets -->
+  <!-- AOS (Animate On Scroll) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Top Dark Teal Navbar (Matching Image) -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <!-- Left: Logo & Brand Name -->
+      <a href="index.html" class="brand-logo-link" aria-label="Stackly Home">
+        <img src="assets/white.webp" alt="Stackly Pharmacy Logo" class="brand-logo-img">
+      </a>
+
+      <!-- Center: Navigation Links -->
+      <nav class="nav-menu-center">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="About.html" class="nav-link">About</a>
+        <a href="Shop.html" class="nav-link">Shop</a>
+        <a href="Services.html" class="nav-link">Services</a>
+        <a href="Blog.html" class="nav-link">Blog</a>
+        <a href="Contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <!-- Right: Search, Cart & Login Actions -->
+      <div class="nav-actions-right">
+        <a href="404.html" class="nav-icon-btn nav-search-trigger" title="Search" aria-label="Search">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </a>
+
+        <button class="nav-icon-btn cart-drawer-trigger" title="Shopping Cart" aria-label="Shopping Cart">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span class="cart-count-badge">0</span>
+        </button>
+
+        <a href="Login.html" class="btn-nav-login-pill">LOGIN</a>
+
+        <!-- Mobile Hamburger Button -->
+        <button class="hamburger-btn" id="hamburger-btn" aria-label="Toggle Navigation">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Off-Canvas Menu Drawer -->
+  <div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
+  <aside class="mobile-menu-drawer" id="mobile-menu">
+    <div class="mobile-menu-header">
+      <a href="index.html" class="brand-logo-link" aria-label="Stackly Home">
+        <img src="assets/white.webp" alt="Stackly Pharmacy Logo" class="brand-logo-img">
+      </a>
+      <button class="mobile-menu-close-btn" id="mobile-menu-close">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+    <nav class="mobile-nav-links">
+      <a href="index.html" class="mobile-nav-item active">Home</a>
+      <a href="About.html" class="mobile-nav-item">About</a>
+      <a href="Shop.html" class="mobile-nav-item">Shop</a>
+      <a href="Services.html" class="mobile-nav-item">Services</a>
+      <a href="Blog.html" class="mobile-nav-item">Blog</a>
+      <a href="Contact.html" class="mobile-nav-item">Contact</a>
+    </nav>
+    <div class="mobile-menu-footer">
+      <a href="Login.html" class="btn btn-teal btn-pill w-100 mobile-login-btn">Login</a>
+    </div>
+  </aside>
+
+  <!-- Interactive Slide-in Cart Drawer -->
+  <div class="cart-overlay" id="cart-overlay"></div>
+  <div class="cart-drawer" id="cart-drawer">
+    <div class="cart-drawer-header">
+      <h3 class="cart-drawer-title">Apothecary Basket <span id="cart-drawer-count">(0)</span></h3>
+      <button class="nav-icon-btn" id="cart-drawer-close" style="color: var(--color-text-dark);">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+    <div class="cart-drawer-items" id="cart-drawer-items">
+      <!-- Populated via CartManager in js/main.js -->
+    </div>
+    <div class="cart-drawer-footer">
+      <div class="cart-drawer-subtotal">
+        <span>Order Subtotal</span>
+        <span class="cart-drawer-total" id="cart-drawer-total">₹0</span>
+      </div>
+      <p class="cart-drawer-tax-note">Taxes & shipping calculated during checkout</p>
+      <a href="404.html" class="btn btn-teal btn-pill w-100 cart-checkout-btn" id="cart-checkout-btn">Proceed to Safe Checkout</a>
+    </div>
+  </div>
+
+  <!-- SECTION 1: HERO SECTION (Exact Match to Image) -->
+  <section class="hero-pharmacy-section">
+    <img src="assets/hero-pharmacy.webp" alt="Apothecary Modern & Natural Healing" class="hero-pharmacy-bg">
+    <div class="hero-ambient-vignette"></div>
+
+    <div class="container hero-container">
+      <!-- Left Floating Glassmorphic Dark Teal Card -->
+      <div class="hero-glass-card">
+        <span class="hero-glass-tagline">HOLISTIC WELLNESS REDEFINED</span>
+        <h1 class="hero-glass-heading">Your Sanctuary for<br>Modern & Natural<br>Healing</h1>
+        <p class="hero-glass-desc">
+          Experience the perfect blend of exotic botanical remedies and cutting-edge pharmaceutical science at Aura Apothecary.
+        </p>
+        <div class="hero-glass-buttons">
+          <a href="Services.html" class="btn btn-hero-shop">Explore Services</a>
+          <a href="About.html" class="btn btn-hero-story">Our Story</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2: CURATED CARE FOR EVERY NEED (4 Icon Cards Matching Image) -->
+  <section class="curated-care-section">
+    <div class="container">
+      <div class="section-center-header">
+        <span class="section-eyebrow">Personalized Wellness</span>
+        <h2 class="section-main-title">Curated Care for Every Need</h2>
+        <p class="section-subtext">Clinically developed remedies and botanical elixirs crafted for your daily routine.</p>
+      </div>
+
+      <div class="curated-care-grid">
+        <!-- 1. Remedies -->
+        <a href="Shop.html?category=Medicines" class="curated-care-card">
+          <div class="curated-icon-circle">
+            <i class="fa-solid fa-mortar-pestle"></i>
+          </div>
+          <h3 class="curated-card-title">Remedies</h3>
+          <p class="curated-card-desc">Targeted botanical solutions for daily ailments</p>
+        </a>
+
+        <!-- 2. Elixirs -->
+        <a href="Shop.html?category=Wellness" class="curated-care-card">
+          <div class="curated-icon-circle">
+            <i class="fa-solid fa-spa"></i>
+          </div>
+          <h3 class="curated-card-title">Elixirs</h3>
+          <p class="curated-card-desc">Potent tinctures for immunity & stress balance</p>
+        </a>
+
+        <!-- 3. Prescriptions -->
+        <a href="Shop.html?category=Vitamins" class="curated-care-card">
+          <div class="curated-icon-circle">
+            <i class="fa-solid fa-prescription-bottle-medical"></i>
+          </div>
+          <h3 class="curated-card-title">Prescriptions</h3>
+          <p class="curated-card-desc">Certified pharmaceutical compounding care</p>
+        </a>
+
+        <!-- 4. Personal Care -->
+        <a href="Shop.html?category=Personal+Care" class="curated-care-card">
+          <div class="curated-icon-circle">
+            <i class="fa-solid fa-hand-holding-droplet"></i>
+          </div>
+          <h3 class="curated-card-title">Personal Care</h3>
+          <p class="curated-card-desc">Clean skincare and nourishing body essentials</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: APOTHECARY FAVORITES (4 Product Cards Matching Image) -->
+  <section class="apothecary-favorites-section">
+    <div class="container">
+      <div class="favorites-header-row">
+        <div>
+          <h2 class="favorites-title">Apothecary Favorites</h2>
+          <p class="favorites-subtitle">Our most trusted formulations</p>
+        </div>
+        <a href="404.html" class="view-all-link">
+          View All Products <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+
+      <div class="favorites-products-grid">
+        <!-- Product 1: Sleep Meditation Drops -->
+        <div class="fav-product-card" data-product-id="apoth-01" data-aos="fade-up" data-aos-delay="100">
+          <div class="fav-product-media">
+            <a href="404.html">
+              <img src="assets/fav-sleep-drops.webp" alt="Sleep Meditation Drops" class="fav-product-img">
+            </a>
+            <span class="fav-product-badge">BESTSELLER</span>
+            <button type="button" class="btn-quick-add-basket" data-product-id="apoth-01" data-name="Sleep Meditation Drops" data-price="499" data-image="assets/fav-sleep-drops.webp" data-category="Herbal Tinctures" title="Quick Add to Basket" aria-label="Add Sleep Meditation Drops to Basket">
+              <i class="fa-solid fa-cart-plus"></i>
+            </button>
+          </div>
+          <h4 class="fav-product-name"><a href="404.html">Sleep Meditation Drops</a></h4>
+          <span class="fav-product-type">Herbal sleep tincture (30ml)</span>
+          <div class="fav-product-action-row">
+            <span class="fav-product-price">₹499</span>
+            <button type="button" class="btn-add-to-basket" data-product-id="apoth-01" data-name="Sleep Meditation Drops" data-price="499" data-image="assets/fav-sleep-drops.webp" data-category="Herbal Tinctures" aria-label="Add Sleep Meditation Drops to Basket">
+              <i class="fa-solid fa-basket-shopping"></i>
+              <span>Add to Basket</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Product 2: Immunity Protection Elixir -->
+        <div class="fav-product-card" data-product-id="apoth-02" data-aos="fade-up" data-aos-delay="200">
+          <div class="fav-product-media">
+            <a href="404.html">
+              <img src="assets/fav-immunity-elixir.webp" alt="Immunity Protection Elixir" class="fav-product-img">
+            </a>
+            <button type="button" class="btn-quick-add-basket" data-product-id="apoth-02" data-name="Immunity Protection Elixir" data-price="649" data-image="assets/fav-immunity-elixir.webp" data-category="Elixirs & Tonics" title="Quick Add to Basket" aria-label="Add Immunity Protection Elixir to Basket">
+              <i class="fa-solid fa-cart-plus"></i>
+            </button>
+          </div>
+          <h4 class="fav-product-name"><a href="404.html">Immunity Protection Elixir</a></h4>
+          <span class="fav-product-type">Herbal vitality defense (100ml)</span>
+          <div class="fav-product-action-row">
+            <span class="fav-product-price">₹649</span>
+            <button type="button" class="btn-add-to-basket" data-product-id="apoth-02" data-name="Immunity Protection Elixir" data-price="649" data-image="assets/fav-immunity-elixir.webp" data-category="Elixirs & Tonics" aria-label="Add Immunity Protection Elixir to Basket">
+              <i class="fa-solid fa-basket-shopping"></i>
+              <span>Add to Basket</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Product 3: Pure Revitalizing Tea Blend -->
+        <div class="fav-product-card" data-product-id="apoth-03" data-aos="fade-up" data-aos-delay="300">
+          <div class="fav-product-media">
+            <a href="404.html">
+              <img src="assets/fav-tea-blend.webp" alt="Pure Revitalizing Tea Blend" class="fav-product-img">
+            </a>
+            <button type="button" class="btn-quick-add-basket" data-product-id="apoth-03" data-name="Pure Revitalizing Tea Blend" data-price="349" data-image="assets/fav-tea-blend.webp" data-category="Organic Teas" title="Quick Add to Basket" aria-label="Add Pure Revitalizing Tea Blend to Basket">
+              <i class="fa-solid fa-cart-plus"></i>
+            </button>
+          </div>
+          <h4 class="fav-product-name"><a href="404.html">Pure Revitalizing Tea Blend</a></h4>
+          <span class="fav-product-type">Organic loose leaf (85g)</span>
+          <div class="fav-product-action-row">
+            <span class="fav-product-price">₹349</span>
+            <button type="button" class="btn-add-to-basket" data-product-id="apoth-03" data-name="Pure Revitalizing Tea Blend" data-price="349" data-image="assets/fav-tea-blend.webp" data-category="Organic Teas" aria-label="Add Pure Revitalizing Tea Blend to Basket">
+              <i class="fa-solid fa-basket-shopping"></i>
+              <span>Add to Basket</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Product 4: Calming Herbal Face Oil -->
+        <div class="fav-product-card" data-product-id="apoth-04" data-aos="fade-up" data-aos-delay="400">
+          <div class="fav-product-media">
+            <a href="404.html">
+              <img src="assets/fav-face-oil.webp" alt="Calming Herbal Face Oil" class="fav-product-img">
+            </a>
+            <button type="button" class="btn-quick-add-basket" data-product-id="apoth-04" data-name="Calming Herbal Face Oil" data-price="529" data-image="assets/fav-face-oil.webp" data-category="Botanical Skincare" title="Quick Add to Basket" aria-label="Add Calming Herbal Face Oil to Basket">
+              <i class="fa-solid fa-cart-plus"></i>
+            </button>
+          </div>
+          <h4 class="fav-product-name"><a href="404.html">Calming Herbal Face Oil</a></h4>
+          <span class="fav-product-type">Organic botanical serum (50ml)</span>
+          <div class="fav-product-action-row">
+            <span class="fav-product-price">₹529</span>
+            <button type="button" class="btn-add-to-basket" data-product-id="apoth-04" data-name="Calming Herbal Face Oil" data-price="529" data-image="assets/fav-face-oil.webp" data-category="Botanical Skincare" aria-label="Add Calming Herbal Face Oil to Basket">
+              <i class="fa-solid fa-basket-shopping"></i>
+              <span>Add to Basket</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4: TRADITION MEETS SCIENTIFIC PRECISION (Matching Image) -->
+  <section class="tradition-section">
+    <div class="container">
+      <div class="tradition-grid">
+        <!-- Left: Image of Herbalist / Pharmacist in Lab -->
+        <div class="tradition-image-container" data-aos="fade-up">
+          <img src="assets/tradition-pharmacist.webp" alt="Apothecary Craftsmanship" class="tradition-img">
+        </div>
+
+        <!-- Right: Text & Checkmarks -->
+        <div class="tradition-content">
+          <span class="tradition-eyebrow">ABOUT OUR CRAFT</span>
+          <h2 class="tradition-title">Tradition Meets Scientific Precision</h2>
+          <p class="tradition-text">
+            At our apothecary, we bridge centuries-old herbal wisdom with rigorous modern clinical standards. Every herb is ethically sourced, every tincture is cold-extracted for maximum potency, and every prescription is verified by licensed pharmacists.
+          </p>
+
+          <div class="tradition-checkmarks" data-aos="fade-up" data-aos-delay="150">
+            <div class="tradition-check-item">
+              <i class="fa-solid fa-check"></i>
+              <span>100% Organic & Ethically Sourced Herbs</span>
+            </div>
+            <div class="tradition-check-item">
+              <i class="fa-solid fa-check"></i>
+              <span>Third-Party Lab Tested for Purity & Potency</span>
+            </div>
+            <div class="tradition-check-item">
+              <i class="fa-solid fa-check"></i>
+              <span>Custom Compounding by Licensed Pharmacists</span>
+            </div>
+          </div>
+
+          <div>
+            <a href="404.html" class="btn btn-white btn-pill">Learn More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: THREE BENEFIT CARDS (Matching Image) -->
+  <section class="benefits-section">
+    <div class="container">
+      <div class="benefits-grid">
+        <!-- 1. Express Home Delivery -->
+        <div class="benefit-card" data-aos="zoom-in" data-aos-delay="100">
+          <div class="benefit-icon">
+            <i class="fa-solid fa-truck-fast"></i>
+          </div>
+          <h3 class="benefit-title">Express Home Delivery</h3>
+          <p class="benefit-desc">
+            Temperature-controlled eco packaging to preserve botanical potency delivered within 24-48 hours.
+          </p>
+        </div>
+
+        <!-- 2. Online Consultation -->
+        <div class="benefit-card" data-aos="zoom-in" data-aos-delay="200">
+          <div class="benefit-icon">
+            <i class="fa-solid fa-user-doctor"></i>
+          </div>
+          <h3 class="benefit-title">Online Consultation</h3>
+          <p class="benefit-desc">
+            Speak directly with our registered herbalists and clinical pharmacists for tailored wellness advice.
+          </p>
+        </div>
+
+        <!-- 3. Smart Refill Alerts -->
+        <div class="benefit-card" data-aos="zoom-in" data-aos-delay="300">
+          <div class="benefit-icon">
+            <i class="fa-solid fa-bell"></i>
+          </div>
+          <h3 class="benefit-title">Smart Refill Alerts</h3>
+          <p class="benefit-desc">
+            Never run out of essential wellness care with flexible automated monthly dispensary deliveries.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 6: THE SIGNATURE EXOTIC COLLECTION (Exact Match to User Screenshot) -->
+  <section class="exotic-section">
+    <div class="container">
+      <div class="section-center-header">
+        <span class="section-eyebrow">Rare Botanical Discoveries</span>
+        <h2 class="exotic-heading">The Signature Exotic Collection</h2>
+        <p class="exotic-subtext">
+          Rare botanical treasures sourced from the world's most remote biospheres, formulated into premium restorative health elixirs.
+        </p>
+      </div>
+
+      <div class="exotic-cards-grid">
+        <!-- Card 1: Amazonian Rain Revive -->
+        <div class="exotic-card" data-product-id="apoth-05" data-aos="fade-up" data-aos-delay="100">
+          <div class="exotic-media">
+            <img src="assets/amazonian-rain-revive.webp" alt="Amazonian Rain Revive" class="exotic-img">
+          </div>
+          <div class="exotic-body">
+            <h3 class="exotic-title">Amazonian<br>Rain Revive</h3>
+            <p class="exotic-desc">Potent antioxidant blend from rare jungle orchids.</p>
+            <div class="exotic-actions-row">
+              <span class="exotic-price">₹899</span>
+              <button type="button" class="btn-exotic-add-basket" data-product-id="apoth-05" data-name="Amazonian Rain Revive" data-price="899" data-image="assets/amazonian-rain-revive.webp" data-category="Exotic Formulations" aria-label="Add Amazonian Rain Revive to Basket">
+                <i class="fa-solid fa-basket-shopping"></i> Add to Basket
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2: Himalayan Peak Vitality -->
+        <div class="exotic-card" data-product-id="apoth-06" data-aos="fade-up" data-aos-delay="200">
+          <div class="exotic-media">
+            <img src="assets/himalayan-peak-vitality.webp" alt="Himalayan Peak Vitality" class="exotic-img">
+          </div>
+          <div class="exotic-body">
+            <h3 class="exotic-title">Himalayan<br>Peak Vitality</h3>
+            <p class="exotic-desc">Trace minerals harvested at 15,000 feet elevation.</p>
+            <div class="exotic-actions-row">
+              <span class="exotic-price">₹1,199</span>
+              <button type="button" class="btn-exotic-add-basket" data-product-id="apoth-06" data-name="Himalayan Peak Vitality" data-price="1199" data-image="assets/himalayan-peak-vitality.webp" data-category="Exotic Formulations" aria-label="Add Himalayan Peak Vitality to Basket">
+                <i class="fa-solid fa-basket-shopping"></i> Add to Basket
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 7: WELLNESS STORIES (3 Testimonial Cards — Center is Dark Teal) -->
+  <section class="stories-section">
+    <div class="container">
+      <div class="section-center-header">
+        <span class="section-eyebrow">Patient Experiences</span>
+        <h2 class="section-main-title">Wellness Stories</h2>
+        <p class="section-subtext">Real healing journeys and verified feedback from our holistic community.</p>
+      </div>
+
+      <div class="stories-grid">
+        <!-- Story 1 (White Card) -->
+        <div class="story-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="story-top-row">
+            <div class="story-quote-icon">“</div>
+            <div class="story-rating-stars" aria-label="5 out of 5 stars">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+          </div>
+          <p class="story-quote-text">
+            "The sleep meditation drops transformed my evening routine completely. Within days, my resting heart rate lowered and I woke up refreshed."
+          </p>
+          <div class="story-author-row">
+            <div class="story-avatar-wrap">
+              <img src="assets/testimonial-elena.webp" alt="Dr. Eleanor Vance" class="story-avatar" width="60" height="60" loading="lazy">
+              <span class="story-verified-badge" title="Verified Community Member"><i class="fa-solid fa-check"></i></span>
+            </div>
+            <div>
+              <h5 class="story-author-name">Dr. Eleanor Vance</h5>
+              <span class="story-author-role">Holistic Practitioner</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Story 2 (Featured Dark Teal Card matching Image) -->
+        <div class="story-card featured-dark" data-aos="fade-up" data-aos-delay="200">
+          <div class="story-top-row">
+            <div class="story-quote-icon">“</div>
+            <div class="story-rating-stars" aria-label="5 out of 5 stars">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+          </div>
+          <p class="story-quote-text">
+            "Finding a pharmacy that honors natural medicine without compromising on rigorous pharmaceutical standards was a breath of fresh air."
+          </p>
+          <div class="story-author-row">
+            <div class="story-avatar-wrap">
+              <img src="assets/testimonial-marcus.webp" alt="Marcus Chen" class="story-avatar" width="60" height="60" loading="lazy">
+              <span class="story-verified-badge" title="Verified Community Member"><i class="fa-solid fa-check"></i></span>
+            </div>
+            <div>
+              <h5 class="story-author-name">Marcus Chen</h5>
+              <span class="story-author-role">Architect</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Story 3 (White Card) -->
+        <div class="story-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="story-top-row">
+            <div class="story-quote-icon">“</div>
+            <div class="story-rating-stars" aria-label="5 out of 5 stars">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+          </div>
+          <p class="story-quote-text">
+            "Their custom compounding service resolved my seasonal allergies when standard over-the-counter options fell short. Invaluable service."
+          </p>
+          <div class="story-author-row">
+            <div class="story-avatar-wrap">
+              <img src="assets/testimonial-priya.webp" alt="Sarah Jenkins" class="story-avatar" width="60" height="60" loading="lazy">
+              <span class="story-verified-badge" title="Verified Community Member"><i class="fa-solid fa-check"></i></span>
+            </div>
+            <div>
+              <h5 class="story-author-name">Sarah Jenkins</h5>
+              <span class="story-author-role">Yoga Instructor</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 8: HEALTHCARE MADE SIMPLE (5-Step Apothecary Process) -->
+  <section class="how-it-works-section" id="how-it-works">
+    <div class="container">
+      <div class="section-center-header text-center" style="text-align: center;">
+        <span class="section-eyebrow" style="color: #4DB5D8;">Seamless & Trusted Care</span>
+        <h2 class="section-main-title" style="color: #FFFFFF;">Healthcare Made Simple</h2>
+        <p class="section-subtext" style="color: #CCE2EB; max-width: 620px; margin: 0.5rem auto 0;">
+          From ancient botanical wisdom to verified dispensing, experience a transparent five-step journey to your holistic wellbeing.
+        </p>
+      </div>
+
+      <div class="process-steps-grid">
+        <!-- Step 1: Discover -->
+        <div class="process-step-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="step-badge-row">
+            <span class="step-num-badge">01</span>
+            <div class="step-icon-circle">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+          </div>
+          <h3 class="step-title">Discover</h3>
+          <p class="step-desc">
+            Explore authenticated herbal remedies, vitamins, and clinical healthcare essentials tailored to your wellness needs.
+          </p>
+        </div>
+
+        <!-- Step 2: Select -->
+        <div class="process-step-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="step-badge-row">
+            <span class="step-num-badge">02</span>
+            <div class="step-icon-circle">
+              <i class="fa-solid fa-clipboard-check"></i>
+            </div>
+          </div>
+          <h3 class="step-title">Select</h3>
+          <p class="step-desc">
+            Choose the right botanical formulations with full ingredient transparency, verified potencies, and clear dosage instructions.
+          </p>
+        </div>
+
+        <!-- Step 3: Verify -->
+        <div class="process-step-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="step-badge-row">
+            <span class="step-num-badge">03</span>
+            <div class="step-icon-circle">
+              <i class="fa-solid fa-shield-halved"></i>
+            </div>
+          </div>
+          <h3 class="step-title">Verify</h3>
+          <p class="step-desc">
+            Every product and formulation is cross-checked by licensed clinical pharmacists for purity, potency, and zero drug-herb interactions.
+          </p>
+        </div>
+
+        <!-- Step 4: Order -->
+        <div class="process-step-card" data-aos="fade-up" data-aos-delay="400">
+          <div class="step-badge-row">
+            <span class="step-num-badge">04</span>
+            <div class="step-icon-circle">
+              <i class="fa-solid fa-cart-shopping"></i>
+            </div>
+          </div>
+          <h3 class="step-title">Order</h3>
+          <p class="step-desc">
+            Seamlessly add to cart with instant secure checkout, prescription upload capability, and multiple payment options.
+          </p>
+        </div>
+
+        <!-- Step 5: Receive -->
+        <div class="process-step-card" data-aos="fade-up" data-aos-delay="500">
+          <div class="step-badge-row">
+            <span class="step-num-badge">05</span>
+            <div class="step-icon-circle">
+              <i class="fa-solid fa-truck-fast"></i>
+            </div>
+          </div>
+          <h3 class="step-title">Receive</h3>
+          <p class="step-desc">
+            Enjoy fast, climate-regulated express delivery to your door in UV-protective amber packaging with live tracking.
+          </p>
+        </div>
+      </div>
+
+      <!-- Trust Bar & CTA -->
+      <div class="process-footer-row">
+        <div class="process-trust-pill">
+          <i class="fa-solid fa-circle-check"></i>
+          <span>Licensed Pharmacist Oversight on Every Order</span>
+        </div>
+        <a href="404.html" class="btn btn-hero-shop">Start Your Healing Journey <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </div>
+
+    <!-- Architectural Bottom Wave Divider Transition -->
+    <div class="section-divider-curve" aria-hidden="true">
+      <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <path d="M0,0 C480,50 960,50 1440,0 L1440,60 L0,60 Z" fill="#FFFFFF"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- SECTION 9: NEWSLETTER CTA BANNER (Matching Image) -->
+  <section class="newsletter-section">
+    <div class="container">
+      <div class="newsletter-banner-card" data-aos="zoom-in">
+        <div>
+          <h2 class="newsletter-title">Elevate Your Wellness Knowledge</h2>
+          <p class="newsletter-desc">
+            Subscribe for seasonal herbal guides, clinician formulated recipes, and exclusive access to limited-batch apothecary releases.
+          </p>
+        </div>
+        <div>
+          <form class="newsletter-form" onsubmit="event.preventDefault(); this.reset(); window.location.href = '404.html';">
+            <input type="email" class="newsletter-input" placeholder="Enter your email address..." required>
+            <button type="submit" class="newsletter-btn">Subscribe</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER (Exact Match: Dark Teal with 4 Columns) -->
+  <footer class="main-footer">
+    <div class="container">
+      <div class="footer-columns-grid">
+        <!-- Col 1: Brand & Bio -->
+        <div>
+          <a href="index.html" class="brand-logo-link footer-brand-logo" aria-label="Stackly Home">
+            <img src="assets/white.webp" alt="Stackly Pharmacy Logo" class="brand-logo-img">
+          </a>
+          <p class="footer-bio-text">
+            Bridging time-honored herbal traditions with modern clinical precision for your holistic healing journey.
+          </p>
+          <div class="footer-social-links">
+            <a href="404.html" class="footer-social-icon"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="404.html" class="footer-social-icon"><i class="fa-brands fa-instagram"></i></a>
+            <a href="404.html" class="footer-social-icon"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="404.html" class="footer-social-icon"><i class="fa-brands fa-linkedin-in"></i></a>
+          </div>
+        </div>
+
+        <!-- Col 2: Quick Links -->
+        <div>
+          <h4 class="footer-col-heading">Quick Links</h4>
+          <ul class="footer-nav-list">
+            <li class="footer-nav-item"><a href="index.html">Home</a></li>
+            <li class="footer-nav-item"><a href="About.html">About</a></li>
+            <li class="footer-nav-item"><a href="Shop.html">Shop</a></li>
+            <li class="footer-nav-item"><a href="Services.html">Services</a></li>
+            <li class="footer-nav-item"><a href="Blog.html">Blog</a></li>
+            <li class="footer-nav-item"><a href="Contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Specialties -->
+        <div>
+          <h4 class="footer-col-heading">Specialties</h4>
+          <ul class="footer-nav-list">
+            <li class="footer-nav-item"><a href="404.html">Prescription Dispensing</a></li>
+            <li class="footer-nav-item"><a href="404.html">Herbal Compounding</a></li>
+            <li class="footer-nav-item"><a href="404.html">Diagnostic Testing</a></li>
+            <li class="footer-nav-item"><a href="404.html">Chronic Care Pathways</a></li>
+            <li class="footer-nav-item"><a href="404.html">Cold-Chain Delivery</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Visit Us -->
+        <div>
+          <h4 class="footer-col-heading">Visit Us</h4>
+          <div class="footer-contact-items">
+            <div class="footer-contact-item">
+              <i class="fa-solid fa-location-dot"></i>
+              <span>MMR Complex, Chinna Thirupathi, near Chinna Muniyappan Kovil, Salem, Tamil Nadu 636008</span>
+            </div>
+            <div class="footer-contact-item">
+              <i class="fa-solid fa-phone"></i>
+              <span>+91 9876543210</span>
+            </div>
+            <div class="footer-contact-item">
+              <i class="fa-solid fa-envelope"></i>
+              <span>info@stackly.com</span>
+            </div>
+            <div class="footer-contact-item">
+              <i class="fa-solid fa-clock"></i>
+              <span>Mon - Sat: 8:00 AM - 8:00 PM</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        © 2026 Apothecary & Natural Healing. All rights reserved. Licensed Healthcare Dispenser.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="js/inventory.js"></script>
+  <script src="js/orders.js"></script>
+  <script src="js/notifications.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

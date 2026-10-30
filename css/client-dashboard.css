@@ -1,0 +1,1110 @@
+/* ==========================================================================
+   CLIENT DASHBOARD SPECIFIC STYLES
+   ========================================================================== */
+
+/* Order Tracking Stepper Card */
+.order-tracking-card {
+  background-color: #FFFFFF;
+  border: 1px solid var(--color-light-border);
+  border-radius: var(--radius-sm);
+  padding: 2.2rem;
+  margin-bottom: 2.5rem;
+}
+
+.tracking-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--color-light-border);
+}
+
+.tracking-stepper-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+}
+
+.tracker-progress-track {
+  position: absolute;
+  top: 32px;
+  left: 40px;
+  right: 40px;
+  height: 4px;
+  background-color: var(--color-light-border);
+  z-index: 1;
+}
+
+.tracker-progress-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #2E7D32, var(--color-accent));
+  transition: width 1s ease;
+}
+
+.tracker-step {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 120px;
+}
+
+.step-node {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background-color: #FFFFFF;
+  border: 2px solid var(--color-light-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-text-muted);
+  margin-bottom: 0.75rem;
+  transition: var(--transition-smooth);
+}
+
+.tracker-step.completed .step-node {
+  background-color: #2E7D32;
+  border-color: #2E7D32;
+  color: #FFFFFF;
+}
+
+.tracker-step.active .step-node {
+  background-color: var(--color-accent);
+  border-color: var(--color-accent);
+  color: #FFFFFF;
+  box-shadow: 0 0 0 5px var(--color-accent-glow);
+  transform: scale(1.15);
+}
+
+.step-name {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-dark);
+  line-height: 1.2;
+}
+
+.tracker-step.active .step-name {
+  color: var(--color-accent);
+  font-weight: 700;
+}
+
+.step-time {
+  font-size: 0.7rem;
+  color: var(--color-text-muted);
+  margin-top: 0.2rem;
+}
+
+/* Client Orders List */
+.client-order-card {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  background-color: #FFFFFF;
+  border: 1px solid var(--color-light-border);
+  border-radius: var(--radius-sm);
+  margin-bottom: 1.25rem;
+  transition: var(--transition-smooth);
+}
+
+.client-order-card:hover {
+  border-color: var(--color-accent);
+  box-shadow: var(--shadow-sm);
+}
+
+.client-order-img {
+  width: 72px;
+  height: 72px;
+  border-radius: var(--radius-sm);
+  object-fit: cover;
+  background-color: var(--color-light-surface);
+}
+
+.client-order-details {
+  flex: 1;
+}
+
+.client-order-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.25rem;
+}
+
+.client-order-name {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-dark);
+}
+
+.client-order-price {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-accent);
+}
+
+.client-order-meta {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  margin-bottom: 0.65rem;
+}
+
+.client-order-status-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.expected-badge {
+  font-size: 0.78rem;
+  color: #555;
+}
+
+/* Client Wishlist Grid */
+.client-wishlist-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+}
+
+.wishlist-item-card {
+  background-color: #FFFFFF;
+  border: 1px solid var(--color-light-border);
+  border-radius: var(--radius-sm);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition-smooth);
+}
+
+.wishlist-item-card:hover {
+  border-color: var(--color-accent);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.wishlist-item-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  margin-bottom: 1rem;
+  background-color: var(--color-light-surface);
+}
+
+.wishlist-item-cat {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+.wishlist-item-title {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--color-dark);
+  margin: 0.25rem 0 0.5rem;
+  line-height: 1.25;
+}
+
+.wishlist-item-price {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-dark);
+  margin-bottom: 1.25rem;
+}
+
+.wishlist-item-actions {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--color-light-border);
+}
+
+.btn-text-danger {
+  color: var(--color-danger);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.btn-text-danger:hover {
+  text-decoration: underline;
+}
+
+/* Picked For You (Recommended Products) */
+.recommended-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+}
+
+.recommended-card {
+  background-color: #FFFFFF;
+  border: 1px solid var(--color-light-border);
+  border-radius: var(--radius-sm);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.rec-category-tag {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--color-accent);
+  margin-bottom: 0.75rem;
+}
+
+.rec-thumb {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  margin-bottom: 1rem;
+}
+
+.rec-title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+}
+
+.rec-price {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-dark);
+  margin-bottom: 1rem;
+}
+
+.rec-actions {
+  margin-top: auto;
+  display: flex;
+  gap: 0.75rem;
+}
+
+/* Client Messages */
+.client-msg-item {
+  display: flex;
+  gap: 1.25rem;
+  padding: 1.25rem;
+  background-color: #FFFFFF;
+  border: 1px solid var(--color-light-border);
+  border-radius: var(--radius-sm);
+  margin-bottom: 1rem;
+  transition: var(--transition-smooth);
+}
+
+.client-msg-item.unread {
+  border-left: 3px solid var(--color-accent);
+  background-color: #FAF8F4;
+}
+
+.msg-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--color-accent);
+  margin-top: 5px;
+  flex-shrink: 0;
+}
+
+.client-msg-item:not(.unread) .msg-dot {
+  background-color: transparent;
+}
+
+.msg-content {
+  flex: 1;
+}
+
+.msg-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.3rem;
+}
+
+.msg-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-dark);
+}
+
+.msg-time {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+.msg-preview {
+  font-size: 0.85rem;
+  color: #555;
+  line-height: 1.45;
+}
+
+/* Settings Tabs */
+.settings-tabs-wrapper {
+  background-color: #FFFFFF;
+  border: 1px solid var(--color-light-border);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.settings-nav-bar {
+  display: flex;
+  background-color: var(--color-light-surface);
+  border-bottom: 1px solid var(--color-light-border);
+  overflow-x: auto;
+}
+
+.settings-nav-btn {
+  padding: 1rem 1.75rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  border-bottom: 2px solid transparent;
+  white-space: nowrap;
+}
+
+.settings-nav-btn.active {
+  color: var(--color-accent);
+  border-bottom-color: var(--color-accent);
+  background-color: #FFFFFF;
+}
+
+.settings-tab-pane {
+  display: none;
+  padding: 2.5rem;
+}
+
+.settings-tab-pane.active {
+  display: block;
+}
+
+.settings-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  max-width: 720px;
+}
+
+.settings-form-grid .full-span {
+  grid-column: span 2;
+}
+
+.settings-input {
+  background-color: #FAF9F6;
+  border: 1px solid var(--color-light-border);
+  padding: 0.85rem 1rem;
+  border-radius: var(--radius-sm);
+  width: 100%;
+}
+
+/* ==========================================================================
+   HEALTH BIOMARKERS GRID
+   ========================================================================== */
+.health-biomarkers-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.biomarker-card {
+  background: #FFFFFF;
+  border: 1px solid var(--color-light-border);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.biomarker-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+}
+
+.biomarker-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.biomarker-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  color: var(--color-text-muted);
+}
+
+.biomarker-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+}
+
+.biomarker-icon.pulse { background: rgba(220, 38, 38, 0.1); color: #dc2626; }
+.biomarker-icon.activity { background: rgba(217, 119, 6, 0.1); color: #d97706; }
+.biomarker-icon.drop { background: rgba(37, 99, 235, 0.1); color: #2563eb; }
+.biomarker-icon.sun { background: rgba(16, 185, 129, 0.1); color: #10b981; }
+
+.biomarker-val {
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: var(--color-dark);
+  margin-bottom: 0.35rem;
+}
+
+.biomarker-val small {
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+}
+
+.biomarker-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #16a34a;
+}
+
+/* ==========================================================================
+   ACTIVE PRESCRIPTIONS & REFILL CARDS
+   ========================================================================== */
+.rx-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem;
+  background: #FAF9F6;
+  border: 1px solid var(--color-light-border);
+  border-radius: var(--radius-sm);
+  margin-bottom: 1rem;
+  gap: 1.5rem;
+}
+
+.rx-info-col {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex: 2;
+}
+
+.rx-icon-box {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-sm);
+  background: rgba(184, 151, 106, 0.12);
+  color: var(--color-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.rx-name {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--color-dark);
+}
+
+.rx-dosage {
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+  margin-top: 0.15rem;
+}
+
+.rx-refill-col {
+  flex: 1.5;
+}
+
+.rx-refill-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.78rem;
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+}
+
+.rx-progress-bar {
+  width: 100%;
+  height: 6px;
+  background: #E5E7EB;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.rx-progress-fill {
+  height: 100%;
+  background: var(--color-accent);
+  border-radius: 999px;
+}
+
+.rx-actions-col {
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* ==========================================================================
+   DAILY DOSAGE SCHEDULE
+   ========================================================================== */
+.dosage-schedule-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.dosage-slot-card {
+  background: #FAF9F6;
+  border: 1px solid var(--color-light-border);
+  border-radius: var(--radius-sm);
+  padding: 1.1rem;
+  border-left: 3px solid var(--color-accent);
+}
+
+.dosage-slot-card.completed {
+  border-left-color: #10b981;
+}
+
+.dosage-slot-card.pending {
+  border-left-color: #d97706;
+}
+
+.dosage-slot-card.scheduled {
+  border-left-color: #6b7280;
+}
+
+.slot-time {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: 0.35rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.slot-item-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-dark);
+  margin-bottom: 0.2rem;
+}
+
+.slot-instruction {
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+}
+
+.slot-status-pill {
+  display: inline-block;
+  font-size: 0.7rem;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+.slot-status-pill.taken {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.slot-status-pill.due {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.slot-status-pill.scheduled {
+  background: #f3f4f6;
+  color: #4b5563;
+}
+
+/* ==========================================================================
+   COLD-CHAIN & TRANSIT TELEMETRY (In Live Tracking)
+   ========================================================================== */
+.tracking-telemetry-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-top: 1.75rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--color-light-border);
+}
+
+.telemetry-item-box {
+  background: #FAF9F6;
+  border: 1px solid var(--color-light-border);
+  border-radius: var(--radius-sm);
+  padding: 0.9rem 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.telemetry-icon {
+  font-size: 1.15rem;
+  color: var(--color-accent);
+  margin-top: 0.15rem;
+  flex-shrink: 0;
+}
+
+.telemetry-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 700;
+  color: var(--color-text-muted);
+  margin-bottom: 0.2rem;
+}
+
+.telemetry-val {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-dark);
+  line-height: 1.35;
+}
+
+/* ==========================================================================
+   ORDER STATS STRIP (In My Orders)
+   ========================================================================== */
+.orders-summary-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.order-stat-pill {
+  background: #FAF9F6;
+  border: 1px solid var(--color-light-border);
+  border-radius: var(--radius-sm);
+  padding: 0.85rem 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.order-stat-pill .stat-label {
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  font-weight: 600;
+}
+
+.order-stat-pill .stat-count {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-dark);
+}
+
+/* ==========================================================================
+   CLINICAL CONSULTATION BOX (In Messages)
+   ========================================================================== */
+.consultation-chat-panel {
+  margin-top: 1.75rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--color-light-border);
+}
+
+.attendant-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.attendant-profile {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.attendant-avatar {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #E5E7EB;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  color: var(--color-accent);
+}
+
+.online-indicator-dot {
+  position: absolute;
+  bottom: 1px;
+  right: 1px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #10b981;
+  border: 2px solid #FFFFFF;
+}
+
+.attendant-name {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-dark);
+}
+
+.attendant-status {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+.consultation-input-box {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.consultation-input-field {
+  flex: 1;
+  background-color: #FAF9F6;
+  border: 1px solid var(--color-light-border);
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.consultation-input-field:focus {
+  border-color: var(--color-accent);
+  background-color: #FFFFFF;
+}
+
+.consultation-notice {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  margin-top: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+/* ==========================================================================
+   CLIENT DEDICATED SECTION SWITCHING & TRANSITIONS
+   ========================================================================== */
+.client-dashboard-section {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.client-dashboard-section.active-section {
+  display: block;
+  opacity: 1;
+  animation: fadeInDashboardSection 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeInDashboardSection {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Section Page Header */
+.section-page-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.section-page-title {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: var(--color-dark);
+  margin-bottom: 0.3rem;
+  letter-spacing: -0.01em;
+}
+
+.section-page-subtitle {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+}
+
+.section-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+/* Dedicated Chart Cards */
+.dashboard-chart-card {
+  background: #FFFFFF;
+  border: 1px solid var(--color-light-border);
+  border-radius: var(--radius-sm);
+  padding: 1.75rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+}
+
+.chart-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.chart-title-box h4 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--color-dark);
+  margin-bottom: 0.2rem;
+}
+
+.chart-title-box p {
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+}
+
+.chart-badge-legend {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  flex-wrap: wrap;
+}
+
+.chart-legend-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 0.35rem;
+}
+
+.svg-chart-container {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.svg-chart-container svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  min-width: 540px;
+}
+
+/* Dedicated Data Tables */
+.client-data-table-wrapper {
+  overflow-x: auto;
+  margin-top: 1rem;
+}
+
+.client-data-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.88rem;
+}
+
+.client-data-table th {
+  background-color: #FAF9F6;
+  color: var(--color-text-muted);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  padding: 0.9rem 1.2rem;
+  border-bottom: 1px solid var(--color-light-border);
+  white-space: nowrap;
+}
+
+.client-data-table td {
+  padding: 1rem 1.2rem;
+  border-bottom: 1px solid var(--color-light-border);
+  color: var(--color-dark);
+  vertical-align: middle;
+}
+
+.client-data-table tr:hover td {
+  background-color: #FAF9F6;
+}
+
+/* Status Badges */
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.status-pill-success {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.status-pill-warning {
+  background: #fef3c7;
+  color: #b45309;
+}
+
+.status-pill-info {
+  background: #e0f2fe;
+  color: #0369a1;
+}
+
+.status-pill-neutral {
+  background: #f3f4f6;
+  color: #4b5563;
+}
+
+/* Filter Toolbar Strip */
+.filter-toolbar-strip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.filter-search-box {
+  position: relative;
+  flex: 1;
+  max-width: 360px;
+  min-width: 240px;
+}
+
+.filter-search-box i {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+}
+
+.filter-search-input {
+  width: 100%;
+  padding: 0.65rem 1rem 0.65rem 2.4rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-light-border);
+  background-color: #FAF9F6;
+  font-size: 0.88rem;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.filter-search-input:focus {
+  border-color: var(--color-accent);
+  background-color: #FFFFFF;
+}
+
+.filter-tabs-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  background: #FAF9F6;
+  padding: 0.25rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-light-border);
+}
+
+.filter-tab-btn {
+  border: none;
+  background: transparent;
+  padding: 0.45rem 0.85rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filter-tab-btn.active, .filter-tab-btn:hover {
+  background: #FFFFFF;
+  color: var(--color-accent);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+/* Quick Clinical Action Cards Grid */
+.clinical-guideline-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  margin-top: 1.75rem;
+}
+
+.clinical-guideline-card {
+  background: #FAF9F6;
+  border: 1px solid var(--color-light-border);
+  border-radius: var(--radius-sm);
+  padding: 1.25rem;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.clinical-guideline-card:hover {
+  border-color: var(--color-accent);
+  transform: translateY(-2px);
+}
+
+.clinical-guideline-card h5 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-dark);
+  margin-bottom: 0.4rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.clinical-guideline-card p {
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+  line-height: 1.45;
+  margin-bottom: 0.75rem;
+}
+

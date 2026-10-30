@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Your Sanctuary Account — Apothecary & Natural Healing</title>
+  
+  <!-- Best Fonts: Outfit, Plus Jakarta Sans & Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Core Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body class="auth-figma-page">
+
+  <!-- Top Dark Teal Navbar (Sticky Navbar) -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <!-- Left: Logo & Brand Name -->
+      <a href="index.html" class="brand-logo-link" aria-label="Stackly Home">
+        <img src="assets/white.webp" alt="Stackly Pharmacy Logo" class="brand-logo-img">
+      </a>
+
+      <!-- Center: Navigation Links -->
+      <nav class="nav-menu-center">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="About.html" class="nav-link">About</a>
+        <a href="Shop.html" class="nav-link">Shop</a>
+        <a href="Services.html" class="nav-link">Services</a>
+        <a href="Blog.html" class="nav-link">Blog</a>
+        <a href="Contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <!-- Right: Search, Cart & Login Actions -->
+      <div class="nav-actions-right">
+        <a href="404.html" class="nav-icon-btn nav-search-trigger" title="Search" aria-label="Search">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </a>
+
+        <button class="nav-icon-btn cart-drawer-trigger" title="Shopping Cart" aria-label="Shopping Cart">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span class="cart-count-badge">0</span>
+        </button>
+
+        <a href="Login.html" class="btn-nav-login-pill">LOGIN</a>
+
+        <!-- Mobile Hamburger Button -->
+        <button class="hamburger-btn" id="hamburger-btn" aria-label="Toggle Navigation">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Off-Canvas Menu Drawer -->
+  <div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
+  <aside class="mobile-menu-drawer" id="mobile-menu">
+    <div class="mobile-menu-header">
+      <a href="index.html" class="brand-logo-link" aria-label="Stackly Home">
+        <img src="assets/white.webp" alt="Stackly Pharmacy Logo" class="brand-logo-img">
+      </a>
+      <button class="mobile-menu-close-btn" id="mobile-menu-close">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+    <nav class="mobile-nav-links">
+      <a href="index.html" class="mobile-nav-item">Home</a>
+      <a href="About.html" class="mobile-nav-item">About</a>
+      <a href="Shop.html" class="mobile-nav-item">Shop</a>
+      <a href="Services.html" class="mobile-nav-item">Services</a>
+      <a href="Blog.html" class="mobile-nav-item">Blog</a>
+      <a href="Contact.html" class="mobile-nav-item">Contact</a>
+    </nav>
+    <div class="mobile-menu-footer">
+      <a href="Login.html" class="btn btn-teal btn-pill w-100 mobile-login-btn">Login</a>
+    </div>
+  </aside>
+
+  <!-- Interactive Slide-in Cart Drawer -->
+  <div class="cart-overlay" id="cart-overlay"></div>
+  <div class="cart-drawer" id="cart-drawer">
+    <div class="cart-drawer-header">
+      <h3 class="cart-drawer-title">Apothecary Basket <span id="cart-drawer-count">(0)</span></h3>
+      <button class="nav-icon-btn" id="cart-drawer-close" style="color: var(--color-text-dark);">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+    <div class="cart-drawer-items" id="cart-drawer-items">
+      <!-- Populated via CartManager in js/main.js -->
+    </div>
+    <div class="cart-drawer-footer">
+      <div class="cart-drawer-subtotal">
+        <span>Order Subtotal</span>
+        <span class="cart-drawer-total" id="cart-drawer-total">₹0</span>
+      </div>
+      <p class="cart-drawer-tax-note">Taxes & shipping calculated during checkout</p>
+      <a href="404.html" class="btn btn-teal btn-pill w-100 cart-checkout-btn" id="cart-checkout-btn">Proceed to Safe Checkout</a>
+    </div>
+  </div>
+
+  <!-- MAIN AUTHENTICATION CONTAINER -->
+  <main class="auth-page-main">
+    <div class="container" style="display: flex; justify-content: center;">
+      <div class="auth-figma-card">
+        
+        <!-- Left Panel: Botanical Visual -->
+        <div class="auth-visual-panel signup-visual-panel">
+          <div class="auth-visual-overlay"></div>
+          <div class="auth-visual-content">
+            <div class="auth-visual-badge">
+              <i class="fa-solid fa-wand-magic-sparkles"></i>
+            </div>
+            <h1 class="auth-visual-title">
+              Start Your Journey to Wholeness.
+            </h1>
+            <p class="auth-visual-desc">
+              Join our inner circle for bespoke botanical remedies, expert-led wellness workshops, and early access to our limited harvests.
+            </p>
+          </div>
+
+          <!-- Bottom Metrics -->
+          <div class="auth-metrics-row">
+            <div class="auth-metric-item">
+              <h4>15k+</h4>
+              <span>ACTIVE SEEKERS</span>
+            </div>
+            <div class="auth-metric-item">
+              <h4>100%</h4>
+              <span>ORGANIC SOURCED</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Panel: Interactive Form -->
+        <div class="auth-form-panel">
+          <h2 class="auth-form-title">Create Account</h2>
+          <p class="auth-form-subtitle">Begin your bespoke botanical experience with us today.</p>
+
+          <!-- Social Auth Buttons -->
+          <div class="auth-social-row">
+            <a href="404.html" type="button" class="auth-social-btn" onclick="">
+              <i class="fa-brands fa-google" style="color: #EA4335;"></i> GOOGLE
+            </a>
+            <a href="404.html" type="button" class="auth-social-btn" onclick="">
+              <i class="fa-brands fa-apple"></i> APPLE
+            </a>
+          </div>
+
+          <!-- Divider -->
+          <div class="auth-divider">
+            <span>OR USE YOUR EMAIL</span>
+          </div>
+
+          <!-- Signup Form -->
+          <form id="member-signup-form" onsubmit="handleSignup(event)">
+            <!-- Role Selector: User vs Admin -->
+            <div class="auth-form-group">
+              <label class="auth-field-label">Select Role</label>
+              <div class="auth-role-segmented">
+                <label class="auth-role-item active" id="signup-role-user">
+                  <input type="radio" name="auth-role" value="user" checked onchange="updateRoleSelection(this)">
+                  <span class="auth-role-btn">
+                    <i class="fa-solid fa-user"></i>
+                    <span>User</span>
+                  </span>
+                </label>
+                <label class="auth-role-item" id="signup-role-admin">
+                  <input type="radio" name="auth-role" value="admin" onchange="updateRoleSelection(this)">
+                  <span class="auth-role-btn">
+                    <i class="fa-solid fa-user-shield"></i>
+                    <span>Admin</span>
+                  </span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Full Name -->
+            <div class="auth-form-group">
+              <label class="auth-field-label" for="signup-name">Full Name</label>
+              <div class="auth-input-wrap">
+                <i class="fa-regular fa-user auth-input-icon"></i>
+                <input type="text" id="signup-name" class="auth-text-input" placeholder="Julian Thorne" required>
+              </div>
+            </div>
+
+            <!-- Email Address -->
+            <div class="auth-form-group">
+              <label class="auth-field-label" for="signup-email">Email Address</label>
+              <div class="auth-input-wrap">
+                <i class="fa-regular fa-envelope auth-input-icon"></i>
+                <input type="email" id="signup-email" class="auth-text-input" placeholder="julian@aura.com" required>
+              </div>
+            </div>
+
+            <!-- 2-col Password & Confirm -->
+            <div class="auth-grid-2col">
+              <div class="auth-form-group">
+                <label class="auth-field-label" for="signup-password">Password</label>
+                <div class="auth-input-wrap">
+                  <i class="fa-solid fa-lock auth-input-icon"></i>
+                  <input type="password" id="signup-password" class="auth-text-input" placeholder="••••••••" required>
+                  <button type="button" class="auth-pwd-toggle" onclick="togglePasswordVisibility('signup-password', this)" aria-label="Toggle password view">
+                    <i class="fa-regular fa-eye-slash"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="auth-form-group">
+                <label class="auth-field-label" for="signup-confirm">Confirm</label>
+                <div class="auth-input-wrap">
+                  <i class="fa-solid fa-shield-halved auth-input-icon"></i>
+                  <input type="password" id="signup-confirm" class="auth-text-input" placeholder="••••••••" required>
+                  <button type="button" class="auth-pwd-toggle" onclick="togglePasswordVisibility('signup-confirm', this)" aria-label="Toggle password view">
+                    <i class="fa-regular fa-eye-slash"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- The Monthly Essence Checkbox Card -->
+            <label class="auth-essence-card">
+              <input type="checkbox" id="essence-subscription" checked style="margin-top: 3px;">
+              <div class="auth-essence-text">
+                <strong>The Monthly Essence</strong>
+                <p>Subscribe to receive seasonal harvesting guides and member-only botanical drops.</p>
+              </div>
+            </label>
+
+            <!-- In-Form Alert Box -->
+            <div id="signup-alert-box" class="auth-alert-box" style="display: none;"></div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="auth-primary-btn" id="signup-submit-btn">
+              Become a Member <i class="fa-solid fa-leaf"></i>
+            </button>
+
+            <!-- Bottom Prompt -->
+            <p class="auth-footer-prompt">
+              Already a member of the sanctuary? <a href="Login.html" class="auth-switch-link">Log in here</a>
+            </p>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- COMMON FOOTER (Dark Teal with 4 Columns - No List Dots) -->
+  <footer class="main-footer">
+    <div class="container">
+      <div class="footer-columns-grid">
+        <!-- Col 1: Brand & Bio -->
+        <div>
+          <a href="index.html" class="brand-logo-link footer-brand-logo" aria-label="Stackly Home">
+            <img src="assets/white.webp" alt="Stackly Pharmacy Logo" class="brand-logo-img">
+          </a>
+          <p class="footer-bio-text">
+            Bridging time-honored herbal traditions with modern clinical precision for your holistic healing journey.
+          </p>
+          <div class="footer-social-links">
+            <a href="404.html" class="footer-social-icon"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="404.html" class="footer-social-icon"><i class="fa-brands fa-instagram"></i></a>
+            <a href="404.html" class="footer-social-icon"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="404.html" class="footer-social-icon"><i class="fa-brands fa-linkedin-in"></i></a>
+          </div>
+        </div>
+
+        <!-- Col 2: Quick Links -->
+        <div>
+          <h4 class="footer-col-heading">Quick Links</h4>
+          <ul class="footer-nav-list">
+            <li class="footer-nav-item"><a href="index.html">Home</a></li>
+            <li class="footer-nav-item"><a href="About.html">About</a></li>
+            <li class="footer-nav-item"><a href="Shop.html">Shop</a></li>
+            <li class="footer-nav-item"><a href="Services.html">Services</a></li>
+            <li class="footer-nav-item"><a href="Blog.html">Blog</a></li>
+            <li class="footer-nav-item"><a href="Contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Specialties -->
+        <div>
+          <h4 class="footer-col-heading">Specialties</h4>
+          <ul class="footer-nav-list">
+            <li class="footer-nav-item"><a href="404.html">Prescription Dispensing</a></li>
+            <li class="footer-nav-item"><a href="404.html">Herbal Compounding</a></li>
+            <li class="footer-nav-item"><a href="404.html">Diagnostic Testing</a></li>
+            <li class="footer-nav-item"><a href="404.html">Chronic Care Pathways</a></li>
+            <li class="footer-nav-item"><a href="404.html">Cold-Chain Delivery</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Visit Us -->
+        <div>
+          <h4 class="footer-col-heading">Visit Us</h4>
+          <div class="footer-contact-items">
+            <div class="footer-contact-item">
+              <i class="fa-solid fa-location-dot"></i>
+              <span>MMR Complex, Chinna Thirupathi, near Chinna Muniyappan Kovil, Salem, Tamil Nadu 636008</span>
+            </div>
+            <div class="footer-contact-item">
+              <i class="fa-solid fa-phone"></i>
+              <span>+91 9876543210</span>
+            </div>
+            <div class="footer-contact-item">
+              <i class="fa-solid fa-envelope"></i>
+              <span>info@stackly.com</span>
+            </div>
+            <div class="footer-contact-item">
+              <i class="fa-solid fa-clock"></i>
+              <span>Mon - Sat: 8:00 AM - 8:00 PM</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        &copy; 2026 Apothecary & Natural Healing. All rights reserved. Licensed Healthcare Dispenser.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="js/inventory.js"></script>
+  <script src="js/orders.js"></script>
+  <script src="js/notifications.js"></script>
+  <script src="js/main.js"></script>
+
+  <script>
+    // Password visibility toggle
+    function togglePasswordVisibility(fieldId, btn) {
+      const field = document.getElementById(fieldId);
+      const icon = btn.querySelector('i');
+      if (field.type === 'password') {
+        field.type = 'text';
+        icon.className = 'fa-regular fa-eye';
+      } else {
+        field.type = 'password';
+        icon.className = 'fa-regular fa-eye-slash';
+      }
+    }
+
+    // Social Authentication Simulated Handler
+    function handleSocialAuth(provider) {
+      if (typeof NotificationManager !== 'undefined' && (NotificationManager.showToast || NotificationManager.show)) {
+        (NotificationManager.showToast || NotificationManager.show)(`Connecting securely via ${provider}... Redirecting to portal.`, 'info');
+      }
+      setTimeout(() => {
+        window.location.href = 'Login.html';
+      }, 1200);
+    }
+
+    // Role selection change handler
+    function updateRoleSelection(input) {
+      document.querySelectorAll('.auth-role-item').forEach(item => {
+        item.classList.remove('active');
+      });
+      if (input && input.parentElement) {
+        input.parentElement.classList.add('active');
+      }
+    }
+
+    // Form signup handler
+    function handleSignup(e) {
+      e.preventDefault();
+      const alertBox = document.getElementById('signup-alert-box');
+      const submitBtn = document.getElementById('signup-submit-btn');
+
+      function showAlert(msg, isError = true) {
+        if (alertBox) {
+          alertBox.className = `auth-alert-box ${isError ? 'error' : 'success'}`;
+          alertBox.innerHTML = `<i class="fa-solid ${isError ? 'fa-circle-exclamation' : 'fa-circle-check'}"></i> <span>${msg}</span>`;
+          alertBox.style.display = 'flex';
+        }
+        if (typeof NotificationManager !== 'undefined' && (NotificationManager.showToast || NotificationManager.show)) {
+          (NotificationManager.showToast || NotificationManager.show)(msg, isError ? 'error' : 'success');
+        }
+      }
+
+      function hideAlert() {
+        if (alertBox) alertBox.style.display = 'none';
+      }
+
+      hideAlert();
+
+      const name = document.getElementById('signup-name').value.trim();
+      const email = document.getElementById('signup-email').value.trim();
+      const pwd = document.getElementById('signup-password').value;
+      const confirmPwd = document.getElementById('signup-confirm').value;
+      const selectedRole = document.querySelector('input[name="auth-role"]:checked')?.value || 'user';
+
+      // Validations
+      if (!name || name.length < 2) {
+        showAlert('Please enter your full name (minimum 2 characters).');
+        document.getElementById('signup-name').focus();
+        return;
+      }
+
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!email || !emailRegex.test(email)) {
+        showAlert('Please provide a valid email address.');
+        document.getElementById('signup-email').focus();
+        return;
+      }
+
+      if (!pwd || pwd.length < 4) {
+        showAlert('Password must be at least 4 characters long.');
+        document.getElementById('signup-password').focus();
+        return;
+      }
+
+      if (pwd !== confirmPwd) {
+        showAlert('Passwords do not match. Please verify.');
+        document.getElementById('signup-confirm').focus();
+        return;
+      }
+
+      // Visual button loading state
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Creating Account...';
+      }
+
+      showAlert('Account created successfully! Redirecting to login...', false);
+
+      // REDIRECT TO LOGIN PAGE (Do not pass details so login fields remain empty)
+      setTimeout(() => {
+        window.location.href = 'Login.html';
+      }, 1200);
+    }
+  </script>
+</body>
+</html>

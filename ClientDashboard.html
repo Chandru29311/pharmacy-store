@@ -1,0 +1,1177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Client Portal | Aura Pharmacy Store</title>
+  
+  <!-- Google Fonts: Cormorant Garamond & Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/client-dashboard.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body class="dashboard-body">
+
+  <div class="dashboard-layout">
+    <!-- Off-Canvas Mobile Overlay -->
+    <div class="dashboard-overlay" id="dashboard-overlay"></div>
+
+    <!-- CLIENT SIDEBAR (Section 43) -->
+    <aside class="dashboard-sidebar">
+      <div class="sidebar-brand-box">
+        <a href="ClientDashboard.html" class="sidebar-brand-link" title="Return to Website Home">
+          <img src="assets/white.webp" alt="Stackly Logo" class="sidebar-brand-img">
+          <div>
+            <div class="sidebar-brand-sub">Client Portal</div>
+          </div>
+        </a>
+        <button class="sidebar-close-btn" id="sidebar-close-btn" aria-label="Close menu">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <nav class="sidebar-nav-container">
+        <a href="#section-dashboard" class="sidebar-nav-link active" data-target="section-dashboard">
+          <i class="fa-solid fa-house-medical"></i> Dashboard
+        </a>
+        <a href="#section-orders" class="sidebar-nav-link" data-target="section-orders">
+          <i class="fa-solid fa-box-open"></i> My Orders
+        </a>
+        <a href="#section-tracking" class="sidebar-nav-link" data-target="section-tracking">
+          <i class="fa-solid fa-route"></i> Live Tracking
+        </a>
+        <a href="#section-messages" class="sidebar-nav-link" data-target="section-messages">
+          <i class="fa-regular fa-envelope"></i> Messages
+        </a>
+        <a href="#section-settings" class="sidebar-nav-link" data-target="section-settings">
+          <i class="fa-solid fa-gear"></i> Settings
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="user-profile-badge sidebar-user-badge">
+          <div class="user-avatar-circle session-user-avatar-text">U</div>
+          <div class="user-meta">
+            <span class="user-name-bold"><span class="session-user-name">user@example.com</span></span>
+            <span class="user-role-label">User</span>
+          </div>
+        </div>
+        <button class="btn-sidebar-logout btn-logout-action">
+          <i class="fa-solid fa-arrow-right-from-bracket"></i> Logout
+        </button>
+      </div>
+    </aside>
+
+    <!-- MAIN WRAPPER -->
+    <div class="dashboard-main-wrapper">
+      <!-- Client Header (Section 44) -->
+      <header class="dashboard-header">
+        <div class="header-left-col">
+          <button class="sidebar-toggle-btn" id="sidebar-toggle-btn" aria-label="Toggle menu">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+          <div class="header-title-box">
+            <h3>Client Portal</h3>
+          </div>
+        </div>
+
+        <div class="header-right-col">
+          <!-- <a href="Shop.html" class="btn btn-outline btn-sm">
+            <i class="fa-solid fa-plus"></i> Order New Medicines
+          </a> -->
+          <div class="user-profile-badge">
+            <div class="user-avatar-circle session-user-avatar-text">U</div>
+            <div class="user-meta">
+              <span class="user-name-bold">Welcome, <span class="session-user-name">user@example.com</span></span>
+              <span class="user-role-label">User</span>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Content Area -->
+      <main class="dashboard-content-area" id="portal-overview">
+
+      <!-- ===================================================================
+           SECTION 1: DASHBOARD (Dedicated Overview View)
+           =================================================================== -->
+      <section class="client-dashboard-section active-section" id="section-dashboard">
+        <!-- Section Header -->
+        <div class="section-page-header">
+          <div>
+            <span class="text-accent font-semibold" style="font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase;">
+              Clinical Snapshot & Dispensary
+            </span>
+            <h1 class="section-page-title">Healthcare Portal & Vitals Overview</h1>
+            <p class="section-page-subtitle">
+              Welcome back, <strong class="session-user-name">user@example.com</strong>. Monitored vitals, active prescription regimens, and daily dosage schedule.
+            </p>
+          </div>
+          <div class="section-header-actions">
+            <button class="btn btn-outline btn-sm" onclick="window.location.href='404.html'">
+              <i class="fa-solid fa-phone-volume"></i> Emergency Line
+            </button>
+            <a href="Shop.html" class="btn btn-primary btn-sm">
+              <i class="fa-solid fa-plus"></i> Order New Medicines
+            </a>
+          </div>
+        </div>
+
+        <!-- 4 Statistics / KPI Cards -->
+        <div class="kpi-cards-grid">
+          <div class="kpi-card">
+            <div>
+              <span class="kpi-label">ACTIVE PRESCRIPTIONS</span>
+              <div class="kpi-val" style="font-size: 1.8rem;">2 Regimens</div>
+              <div class="text-muted" style="font-size: 0.8rem; margin-top: 0.2rem;"><i class="fa-solid fa-clock-rotate-left text-accent"></i> 1 Refill due in 12 days</div>
+            </div>
+            <div class="kpi-icon-box">
+              <i class="fa-solid fa-capsules"></i>
+            </div>
+          </div>
+
+          <div class="kpi-card">
+            <div>
+              <span class="kpi-label">HEALTH VITALS SCORE</span>
+              <div class="kpi-val text-accent" style="font-size: 1.8rem;">98% Optimal</div>
+              <div class="kpi-growth"><i class="fa-solid fa-circle-check"></i> All biomarkers stable</div>
+            </div>
+            <div class="kpi-icon-box">
+              <i class="fa-solid fa-heart-pulse"></i>
+            </div>
+          </div>
+
+          <div class="kpi-card">
+            <div>
+              <span class="kpi-label">DOSAGE ADHERENCE</span>
+              <div class="kpi-val" style="font-size: 1.8rem;">94% Rate</div>
+              <div class="kpi-growth" style="color: #16a34a;"><i class="fa-solid fa-arrow-trend-up"></i> +4% vs last month</div>
+            </div>
+            <div class="kpi-icon-box">
+              <i class="fa-solid fa-circle-check"></i>
+            </div>
+          </div>
+
+          <div class="kpi-card">
+            <div>
+              <span class="kpi-label">AURA WELLNESS REWARD</span>
+              <div class="kpi-val" style="font-size: 1.8rem;">1,450 Pts</div>
+              <div class="text-muted" style="font-size: 0.8rem; margin-top: 0.2rem;">₹725 Dispensary Credit</div>
+            </div>
+            <div class="kpi-icon-box">
+              <i class="fa-solid fa-award"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive SVG Chart: 7-Day Medication Adherence & Compliance -->
+        <div class="dashboard-chart-card">
+          <div class="chart-header-row">
+            <div class="chart-title-box">
+              <h4>7-Day Medication Adherence & Regimen Compliance</h4>
+              <p>Daily dosage adherence consistency recorded across active prescriptions.</p>
+            </div>
+            <div class="chart-badge-legend">
+              <span><span class="chart-legend-dot" style="background: var(--color-accent);"></span> Daily Compliance (%)</span>
+              <span><span class="chart-legend-dot" style="background: #16a34a;"></span> 90% Target Baseline</span>
+            </div>
+          </div>
+          <div class="svg-chart-container">
+            <svg viewBox="0 0 760 210" preserveAspectRatio="none" style="height: 180px;">
+              <defs>
+                <linearGradient id="adherenceGrad" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#B8976A" stop-opacity="0.32"></stop>
+                  <stop offset="100%" stop-color="#B8976A" stop-opacity="0.0"></stop>
+                </linearGradient>
+              </defs>
+              <line x1="50" y1="30" x2="720" y2="30" stroke="#E5E7EB" stroke-dasharray="3,3" stroke-width="1"></line>
+              <line x1="50" y1="80" x2="720" y2="80" stroke="#E5E7EB" stroke-dasharray="3,3" stroke-width="1"></line>
+              <line x1="50" y1="130" x2="720" y2="130" stroke="#E5E7EB" stroke-dasharray="3,3" stroke-width="1"></line>
+              <line x1="50" y1="55" x2="720" y2="55" stroke="#16a34a" stroke-dasharray="4,4" stroke-width="1.5"></line>
+              <text x="15" y="35" font-size="11" fill="#888">100%</text>
+              <text x="15" y="85" font-size="11" fill="#888">75%</text>
+              <text x="15" y="135" font-size="11" fill="#888">50%</text>
+              <polygon points="70,40 170,30 270,50 370,30 470,30 570,60 670,40 670,165 70,165" fill="url(#adherenceGrad)"></polygon>
+              <polyline points="70,40 170,30 270,50 370,30 470,30 570,60 670,40" fill="none" stroke="#B8976A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></polyline>
+              <g><circle cx="70" cy="40" r="5" fill="#121417" stroke="#B8976A" stroke-width="2.5"></circle><text x="60" y="24" font-size="10" font-weight="600" fill="#121417">95%</text><text x="58" y="182" font-size="11" fill="#666">Mon</text></g>
+              <g><circle cx="170" cy="30" r="5" fill="#121417" stroke="#B8976A" stroke-width="2.5"></circle><text x="157" y="18" font-size="10" font-weight="600" fill="#121417">100%</text><text x="160" y="182" font-size="11" fill="#666">Tue</text></g>
+              <g><circle cx="270" cy="50" r="5" fill="#121417" stroke="#B8976A" stroke-width="2.5"></circle><text x="260" y="34" font-size="10" font-weight="600" fill="#121417">90%</text><text x="258" y="182" font-size="11" fill="#666">Wed</text></g>
+              <g><circle cx="370" cy="30" r="5" fill="#121417" stroke="#B8976A" stroke-width="2.5"></circle><text x="357" y="18" font-size="10" font-weight="600" fill="#121417">100%</text><text x="362" y="182" font-size="11" fill="#666">Thu</text></g>
+              <g><circle cx="470" cy="30" r="5" fill="#121417" stroke="#B8976A" stroke-width="2.5"></circle><text x="457" y="18" font-size="10" font-weight="600" fill="#121417">100%</text><text x="463" y="182" font-size="11" fill="#666">Fri</text></g>
+              <g><circle cx="570" cy="60" r="5" fill="#121417" stroke="#B8976A" stroke-width="2.5"></circle><text x="560" y="44" font-size="10" font-weight="600" fill="#121417">85%</text><text x="562" y="182" font-size="11" fill="#666">Sat</text></g>
+              <g><circle cx="670" cy="40" r="5" fill="#121417" stroke="#B8976A" stroke-width="2.5"></circle><text x="660" y="24" font-size="10" font-weight="600" fill="#121417">95%</text><text x="663" y="182" font-size="11" fill="#666">Sun</text></g>
+            </svg>
+          </div>
+        </div>
+
+        <!-- 4 Health Biomarkers -->
+        <div class="health-biomarkers-grid">
+          <div class="biomarker-card">
+            <div class="biomarker-top">
+              <span class="biomarker-label">Blood Pressure</span>
+              <div class="biomarker-icon pulse"><i class="fa-solid fa-heart-pulse"></i></div>
+            </div>
+            <div class="biomarker-val">118/76 <small>mmHg</small></div>
+            <div class="biomarker-status"><i class="fa-solid fa-circle-check"></i> Normal (Optimal)</div>
+          </div>
+          <div class="biomarker-card">
+            <div class="biomarker-top">
+              <span class="biomarker-label">Resting Heart Rate</span>
+              <div class="biomarker-icon activity"><i class="fa-solid fa-wave-square"></i></div>
+            </div>
+            <div class="biomarker-val">68 <small>bpm</small></div>
+            <div class="biomarker-status"><i class="fa-solid fa-circle-check"></i> Healthy Range</div>
+          </div>
+          <div class="biomarker-card">
+            <div class="biomarker-top">
+              <span class="biomarker-label">Fasting Glucose</span>
+              <div class="biomarker-icon drop"><i class="fa-solid fa-droplet"></i></div>
+            </div>
+            <div class="biomarker-val">94 <small>mg/dL</small></div>
+            <div class="biomarker-status"><i class="fa-solid fa-circle-check"></i> Target Controlled</div>
+          </div>
+          <div class="biomarker-card">
+            <div class="biomarker-top">
+              <span class="biomarker-label">Serum Vitamin D3</span>
+              <div class="biomarker-icon sun"><i class="fa-solid fa-sun"></i></div>
+            </div>
+            <div class="biomarker-val">38.2 <small>ng/mL</small></div>
+            <div class="biomarker-status"><i class="fa-solid fa-circle-check"></i> Sufficient</div>
+          </div>
+        </div>
+
+        <!-- Active Digital Prescriptions & Auto-Refills Table Card -->
+        <div class="dashboard-table-card">
+          <div class="table-header-row">
+            <div>
+              <h4 class="table-header-title">Active Digital Prescriptions & Auto-Refills</h4>
+              <p class="text-muted" style="font-size: 0.85rem; margin-top: 0.2rem;">
+                Verified by certified clinical practitioners. Auto-refill dispatched when supply falls below 7 days.
+              </p>
+            </div>
+            <button class="btn btn-outline btn-sm" onclick="window.location.href='404.html'">
+              <i class="fa-solid fa-file-medical"></i> View Rx Vault
+            </button>
+          </div>
+
+          <div class="rx-card">
+            <div class="rx-info-col">
+              <div class="rx-icon-box"><i class="fa-solid fa-capsules"></i></div>
+              <div>
+                <div class="rx-name">Atorvastatin Liposomal 20mg</div>
+                <div class="rx-dosage"><i class="fa-solid fa-user-doctor text-accent"></i> Dr. Robert Vance, MD &bull; 1 Tablet Daily at Bedtime</div>
+              </div>
+            </div>
+            <div class="rx-refill-col">
+              <div class="rx-refill-meta">
+                <span>Supply: 18 / 30 Days</span>
+                <span class="text-accent font-semibold">Refill in 12 days</span>
+              </div>
+              <div class="rx-progress-bar">
+                <div class="rx-progress-fill" style="width: 60%;"></div>
+              </div>
+            </div>
+            <div class="rx-actions-col">
+              <button class="btn btn-outline btn-sm" onclick="window.location.href='404.html'">Request Refill</button>
+            </div>
+          </div>
+
+          <div class="rx-card">
+            <div class="rx-info-col">
+              <div class="rx-icon-box"><i class="fa-solid fa-tablets"></i></div>
+              <div>
+                <div class="rx-name">Metformin ER 500mg (Extended Release)</div>
+                <div class="rx-dosage"><i class="fa-solid fa-user-doctor text-accent"></i> Dr. Sarah Jenkins, MD &bull; 1 Tablet Twice Daily with Meals</div>
+              </div>
+            </div>
+            <div class="rx-refill-col">
+              <div class="rx-refill-meta">
+                <span>Supply: 24 / 30 Days</span>
+                <span class="text-accent font-semibold">Refill in 24 days</span>
+              </div>
+              <div class="rx-progress-bar">
+                <div class="rx-progress-fill" style="width: 80%;"></div>
+              </div>
+            </div>
+            <div class="rx-actions-col">
+              <button class="btn btn-outline btn-sm" onclick="window.location.href='404.html'">Request Refill</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Today's Dosage Schedule -->
+        <div class="dashboard-table-card">
+          <div class="table-header-row">
+            <div>
+              <h4 class="table-header-title">Today's Dosage & Medication Regimen</h4>
+              <p class="text-muted" style="font-size: 0.85rem; margin-top: 0.2rem;">
+                Synchronized with your digital prescription schedule.
+              </p>
+            </div>
+            <span class="badge badge-gold"><i class="fa-regular fa-clock"></i> Live Regimen</span>
+          </div>
+          <div class="dosage-schedule-grid">
+            <div class="dosage-slot-card completed">
+              <div class="slot-time">
+                <span>08:00 AM &bull; Morning</span>
+                <span class="slot-status-pill taken"><i class="fa-solid fa-check"></i> Taken</span>
+              </div>
+              <div class="slot-item-title">Atorvastatin 20mg</div>
+              <div class="slot-instruction">1 Tablet with water after breakfast</div>
+            </div>
+            <div class="dosage-slot-card completed">
+              <div class="slot-time">
+                <span>01:30 PM &bull; Afternoon</span>
+                <span class="slot-status-pill taken"><i class="fa-solid fa-check"></i> Taken</span>
+              </div>
+              <div class="slot-item-title">Multivitamin & Omega-3</div>
+              <div class="slot-instruction">1 Softgel capsule with lunch</div>
+            </div>
+            <div class="dosage-slot-card pending">
+              <div class="slot-time">
+                <span>08:30 PM &bull; Evening</span>
+                <span class="slot-status-pill due"><i class="fa-solid fa-hourglass-half"></i> Due</span>
+              </div>
+              <div class="slot-item-title">Metformin ER 500mg</div>
+              <div class="slot-instruction">1 Tablet with dinner</div>
+            </div>
+            <div class="dosage-slot-card scheduled">
+              <div class="slot-time">
+                <span>10:30 PM &bull; Night</span>
+                <span class="slot-status-pill scheduled"><i class="fa-regular fa-moon"></i> Scheduled</span>
+              </div>
+              <div class="slot-item-title">Melatonin 3mg</div>
+              <div class="slot-instruction">1 Tablet 30 mins before sleep (Optional)</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           SECTION 2: MY ORDERS (Dedicated Orders View)
+           =================================================================== -->
+      <section class="client-dashboard-section" id="section-orders">
+        <!-- Section Header -->
+        <div class="section-page-header">
+          <div>
+            <span class="text-accent font-semibold" style="font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase;">
+              Fulfillment History & Invoices
+            </span>
+            <h1 class="section-page-title">My Dispensary Orders</h1>
+            <p class="section-page-subtitle">
+              Review current shipments, past prescription dispatches, digital receipts, and one-click reorders.
+            </p>
+          </div>
+          <div class="section-header-actions">
+            <button class="btn btn-outline btn-sm" onclick="window.location.href='404.html'">
+              <i class="fa-solid fa-file-invoice-dollar"></i> Annual Tax Statement
+            </button>
+            <a href="Shop.html" class="btn btn-primary btn-sm">
+              <i class="fa-solid fa-cart-shopping"></i> Browse Store
+            </a>
+          </div>
+        </div>
+
+        <!-- 4 Statistics / KPI Cards -->
+        <div class="kpi-cards-grid">
+          <div class="kpi-card">
+            <div>
+              <span class="kpi-label">TOTAL ORDERS</span>
+              <div class="kpi-val" style="font-size: 1.8rem;">14 Orders</div>
+              <div class="text-muted" style="font-size: 0.8rem; margin-top: 0.2rem;"><i class="fa-solid fa-circle-check text-accent"></i> 100% Fulfilled</div>
+            </div>
+            <div class="kpi-icon-box">
+              <i class="fa-solid fa-box-archive"></i>
+            </div>
+          </div>
+
+          <div class="kpi-card">
+            <div>
+              <span class="kpi-label">ACTIVE IN-TRANSIT</span>
+              <div class="kpi-val text-accent" style="font-size: 1.8rem;">1 Package</div>
+              <div class="kpi-growth"><i class="fa-solid fa-truck-fast"></i> ORD-1024 en route</div>
+            </div>
+            <div class="kpi-icon-box">
+              <i class="fa-solid fa-truck-ramp-box"></i>
+            </div>
+          </div>
+
+          <div class="kpi-card">
+            <div>
+              <span class="kpi-label">LIFETIME DISPENSARY SPEND</span>
+              <div class="kpi-val" style="font-size: 1.8rem;">₹18,450</div>
+              <div class="text-muted" style="font-size: 0.8rem; margin-top: 0.2rem;">Saved ₹2,180 with Aura Care</div>
+            </div>
+            <div class="kpi-icon-box">
+              <i class="fa-solid fa-receipt"></i>
+            </div>
+          </div>
+
+          <div class="kpi-card">
+            <div>
+              <span class="kpi-label">RETURNS & DISPUTES</span>
+              <div class="kpi-val" style="font-size: 1.8rem;">0 Open</div>
+              <div class="kpi-growth" style="color: #16a34a;"><i class="fa-solid fa-shield-halved"></i> 100% Quality Satisfied</div>
+            </div>
+            <div class="kpi-icon-box">
+              <i class="fa-solid fa-rotate-left"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive SVG Chart: Monthly Dispensary Spending & Category Breakdown -->
+        <div class="dashboard-chart-card">
+          <div class="chart-header-row">
+            <div class="chart-title-box">
+              <h4>Healthcare Expenditure & Category Allocation</h4>
+              <p>Monthly dispensary spending across Maintenance Meds, Bio-Vitamins, and Clinical Wellness.</p>
+            </div>
+            <div class="chart-badge-legend">
+              <span><span class="chart-legend-dot" style="background: var(--color-accent);"></span> Bio-Vitamins (45%)</span>
+              <span><span class="chart-legend-dot" style="background: #16a34a;"></span> Maintenance Rx (35%)</span>
+              <span><span class="chart-legend-dot" style="background: #2563eb;"></span> Wellness (20%)</span>
+            </div>
+          </div>
+          <div class="svg-chart-container">
+            <svg viewBox="0 0 760 190" preserveAspectRatio="none" style="height: 170px;">
+              <line x1="50" y1="20" x2="720" y2="20" stroke="#E5E7EB" stroke-dasharray="3,3" stroke-width="1"></line>
+              <line x1="50" y1="70" x2="720" y2="70" stroke="#E5E7EB" stroke-dasharray="3,3" stroke-width="1"></line>
+              <line x1="50" y1="120" x2="720" y2="120" stroke="#E5E7EB" stroke-dasharray="3,3" stroke-width="1"></line>
+              <text x="12" y="25" font-size="11" fill="#888">₹4,000</text>
+              <text x="12" y="75" font-size="11" fill="#888">₹2,500</text>
+              <text x="12" y="125" font-size="11" fill="#888">₹1,000</text>
+              <g><rect x="85" y="65" width="28" height="85" fill="#B8976A" rx="4"></rect><rect x="116" y="85" width="28" height="65" fill="#16a34a" rx="4"></rect><text x="96" y="168" font-size="11" fill="#666">May</text></g>
+              <g><rect x="195" y="45" width="28" height="105" fill="#B8976A" rx="4"></rect><rect x="226" y="75" width="28" height="75" fill="#16a34a" rx="4"></rect><text x="206" y="168" font-size="11" fill="#666">Jun</text></g>
+              <g><rect x="305" y="55" width="28" height="95" fill="#B8976A" rx="4"></rect><rect x="336" y="80" width="28" height="70" fill="#16a34a" rx="4"></rect><text x="316" y="168" font-size="11" fill="#666">Jul</text></g>
+              <g><rect x="415" y="35" width="28" height="115" fill="#B8976A" rx="4"></rect><rect x="446" y="65" width="28" height="85" fill="#16a34a" rx="4"></rect><text x="426" y="168" font-size="11" fill="#666">Aug</text></g>
+              <g><rect x="525" y="50" width="28" height="100" fill="#B8976A" rx="4"></rect><rect x="556" y="70" width="28" height="80" fill="#16a34a" rx="4"></rect><text x="536" y="168" font-size="11" fill="#666">Sep</text></g>
+              <g><rect x="635" y="30" width="28" height="120" fill="#B8976A" rx="4"></rect><rect x="666" y="55" width="28" height="95" fill="#16a34a" rx="4"></rect><text x="646" y="168" font-size="11" fill="#666">Oct</text></g>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Filter & Search Toolbar -->
+        <div class="filter-toolbar-strip">
+          <div class="filter-search-box">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" class="filter-search-input" placeholder="Search orders by ID, medicine, batch...">
+          </div>
+          <div class="filter-tabs-group">
+            <button class="filter-tab-btn active">All Orders (14)</button>
+            <button class="filter-tab-btn">In Transit (1)</button>
+            <button class="filter-tab-btn">Delivered (13)</button>
+            <button class="filter-tab-btn">Prescriptions (8)</button>
+          </div>
+        </div>
+
+        <!-- Dynamic Order Cards List -->
+        <div class="dashboard-table-card">
+          <div class="table-header-row">
+            <h4 class="table-header-title">Recent Order Shipments</h4>
+            <span class="badge badge-gold">Active Fulfillment</span>
+          </div>
+          <div id="client-orders-list">
+            <!-- Dynamic order cards rendered via js/client-dashboard.js -->
+          </div>
+        </div>
+
+        <!-- Dispensary Tax Invoices & Ledger Table -->
+        <div class="dashboard-table-card">
+          <div class="table-header-row">
+            <div>
+              <h4 class="table-header-title">Dispensary Invoices & Tax Receipts</h4>
+              <p class="text-muted" style="font-size: 0.85rem; margin-top: 0.2rem;">
+                GST compliant and medical insurance reimbursable statements.
+              </p>
+            </div>
+            <button class="btn btn-outline btn-sm" onclick="window.location.href='404.html'">
+              <i class="fa-solid fa-download"></i> Export All Invoices
+            </button>
+          </div>
+          <div class="client-data-table-wrapper">
+            <table class="client-data-table">
+              <thead>
+                <tr>
+                  <th>Invoice #</th>
+                  <th>Date</th>
+                  <th>Medication / Regimen</th>
+                  <th>Amount</th>
+                  <th>Payment</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong class="font-mono text-accent">#INV-2026-881</strong></td>
+                  <td>Oct 24, 2026</td>
+                  <td>Vitamin C 500mg Zinc Complex</td>
+                  <td><strong>₹1,499</strong></td>
+                  <td><i class="fa-solid fa-bolt text-accent"></i> UPI (Instant)</td>
+                  <td><span class="status-pill status-pill-success"><i class="fa-solid fa-circle-check"></i> Paid</span></td>
+                  <td>
+                    <button class="btn btn-outline btn-sm" style="padding: 0.25rem 0.6rem; font-size: 0.75rem;" onclick="window.location.href='404.html'">
+                      <i class="fa-solid fa-file-pdf"></i> PDF
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong class="font-mono text-accent">#INV-2026-742</strong></td>
+                  <td>Oct 10, 2026</td>
+                  <td>Atorvastatin Liposomal 20mg (30-day)</td>
+                  <td><strong>₹680</strong></td>
+                  <td><i class="fa-regular fa-credit-card"></i> Card ending 4019</td>
+                  <td><span class="status-pill status-pill-success"><i class="fa-solid fa-circle-check"></i> Paid</span></td>
+                  <td>
+                    <button class="btn btn-outline btn-sm" style="padding: 0.25rem 0.6rem; font-size: 0.75rem;" onclick="window.location.href='404.html'">
+                      <i class="fa-solid fa-file-pdf"></i> PDF
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong class="font-mono text-accent">#INV-2026-619</strong></td>
+                  <td>Sep 22, 2026</td>
+                  <td>Metformin ER 500mg (60-day supply)</td>
+                  <td><strong>₹440</strong></td>
+                  <td><i class="fa-regular fa-credit-card"></i> Card ending 4019</td>
+                  <td><span class="status-pill status-pill-success"><i class="fa-solid fa-circle-check"></i> Paid</span></td>
+                  <td>
+                    <button class="btn btn-outline btn-sm" style="padding: 0.25rem 0.6rem; font-size: 0.75rem;" onclick="window.location.href='404.html'">
+                      <i class="fa-solid fa-file-pdf"></i> PDF
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong class="font-mono text-accent">#INV-2026-508</strong></td>
+                  <td>Sep 05, 2026</td>
+                  <td>Sleep Meditation Herbal Tincture</td>
+                  <td><strong>₹1,299</strong></td>
+                  <td><i class="fa-solid fa-building-columns"></i> Net Banking</td>
+                  <td><span class="status-pill status-pill-success"><i class="fa-solid fa-circle-check"></i> Paid</span></td>
+                  <td>
+                    <button class="btn btn-outline btn-sm" style="padding: 0.25rem 0.6rem; font-size: 0.75rem;" onclick="window.location.href='404.html'">
+                      <i class="fa-solid fa-file-pdf"></i> PDF
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           SECTION 3: LIVE TRACKING (Dedicated Tracking View)
+           =================================================================== -->
+      <section class="client-dashboard-section" id="section-tracking">
+        <!-- Section Header -->
+        <div class="section-page-header">
+          <div>
+            <span class="text-accent font-semibold" style="font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase;">
+              Real-Time GPS & Climate Telemetry
+            </span>
+            <h1 class="section-page-title">Live Shipment & Cold-Chain Tracking</h1>
+            <p class="section-page-subtitle">
+              Active shipment <strong class="text-accent font-mono">#ORD-1024</strong>. Continuous temperature monitoring and live delivery waypoint updates.
+            </p>
+          </div>
+          <div class="section-header-actions">
+            <button class="btn btn-outline btn-sm" onclick="window.location.href='404.html'">
+              <i class="fa-solid fa-phone"></i> Call Delivery Courier
+            </button>
+            <button class="btn btn-primary btn-sm" onclick="window.location.href='404.html'">
+              <i class="fa-solid fa-location-dot"></i> Update Gate Instructions
+            </button>
+          </div>
+        </div>
+
+        <!-- 4 Statistics / KPI Cards -->
+        <div class="kpi-cards-grid">
+          <div class="kpi-card">
+            <div>
+              <span class="kpi-label">ACTIVE ORDER</span>
+              <div class="kpi-val" style="font-size: 1.8rem;">Vitamin C</div>
+              <div class="text-muted" style="font-size: 0.8rem; margin-top: 0.2rem;">Order #ORD-1024</div>
+            </div>
+            <div class="kpi-icon-box">
+              <i class="fa-solid fa-prescription-bottle-medical"></i>
+            </div>
+          </div>
+
+          <div class="kpi-card">
+            <div>
+              <span class="kpi-label">SHIPMENT STATUS</span>
+              <div class="kpi-val text-accent" style="font-size: 1.8rem;">Out for Delivery</div>
+              <div class="kpi-growth"><i class="fa-solid fa-motorcycle"></i> Courier in transit (45m away)</div>
+            </div>
+            <div class="kpi-icon-box">
+              <i class="fa-solid fa-truck-fast"></i>
+            </div>
+          </div>
+
+          <div class="kpi-card">
+            <div>
+              <span class="kpi-label">ESTIMATED ARRIVAL</span>
+              <div class="kpi-val" style="font-size: 1.8rem;">Today, 05:00 PM</div>
+              <div class="text-muted" style="font-size: 0.8rem; margin-top: 0.2rem;">Cold-Chain Monitored Safe</div>
+            </div>
+            <div class="kpi-icon-box">
+              <i class="fa-solid fa-clock"></i>
+            </div>
+          </div>
+
+          <div class="kpi-card">
+            <div>
+              <span class="kpi-label">COLD-CHAIN SENSOR</span>
+              <div class="kpi-val" style="font-size: 1.8rem; color: #16a34a;">4.2°C</div>
+              <div class="text-muted" style="font-size: 0.8rem; margin-top: 0.2rem;"><i class="fa-solid fa-snowflake text-accent"></i> Target Range: 2°C - 8°C</div>
+            </div>
+            <div class="kpi-icon-box">
+              <i class="fa-solid fa-temperature-arrow-down"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Connected GSAP Stepper Card -->
+        <div class="order-tracking-card">
+          <div class="tracking-header">
+            <div>
+              <span class="text-accent font-semibold" style="font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase;">
+                Live Fulfillment Progress
+              </span>
+              <h3 class="font-display" style="font-size: 1.6rem; color: var(--color-dark);">
+                ORDER TRACKING — #ORD-1024
+              </h3>
+            </div>
+            <span class="badge badge-gold">Active Shipment</span>
+          </div>
+
+          <div class="tracking-stepper-container">
+            <div class="tracker-progress-track">
+              <div class="tracker-progress-fill"></div>
+            </div>
+
+            <div class="tracker-step completed">
+              <div class="step-node"><i class="fa-solid fa-check"></i></div>
+              <span class="step-name">Order Confirmed</span>
+              <span class="step-time">Oct 24, 09:15 AM</span>
+            </div>
+
+            <div class="tracker-step completed">
+              <div class="step-node"><i class="fa-solid fa-check"></i></div>
+              <span class="step-name">Packed</span>
+              <span class="step-time">Oct 24, 02:40 PM</span>
+            </div>
+
+            <div class="tracker-step completed">
+              <div class="step-node"><i class="fa-solid fa-check"></i></div>
+              <span class="step-name">Shipped</span>
+              <span class="step-time">Oct 25, 08:30 AM</span>
+            </div>
+
+            <div class="tracker-step active">
+              <div class="step-node"><i class="fa-solid fa-truck"></i></div>
+              <span class="step-name">Out for Delivery</span>
+              <span class="step-time">Today, 07:15 AM</span>
+            </div>
+
+            <div class="tracker-step">
+              <div class="step-node"><i class="fa-solid fa-house-chimney-medical"></i></div>
+              <span class="step-name">Delivered</span>
+              <span class="step-time">Estimated by 05:00 PM</span>
+            </div>
+          </div>
+
+          <!-- Cold-Chain & Courier Telemetry Grid -->
+          <div class="tracking-telemetry-grid">
+            <div class="telemetry-item-box">
+              <i class="fa-solid fa-snowflake telemetry-icon"></i>
+              <div>
+                <div class="telemetry-label">Cold-Chain Status</div>
+                <div class="telemetry-val">4.2°C <span style="color: #16a34a; font-size: 0.75rem;">(Safe: 2°C - 8°C)</span></div>
+              </div>
+            </div>
+            <div class="telemetry-item-box">
+              <i class="fa-solid fa-truck-ramp-box telemetry-icon"></i>
+              <div>
+                <div class="telemetry-label">Carrier & Service</div>
+                <div class="telemetry-val">BlueDart PharmaSafe Air</div>
+              </div>
+            </div>
+            <div class="telemetry-item-box">
+              <i class="fa-solid fa-headset telemetry-icon"></i>
+              <div>
+                <div class="telemetry-label">Delivery Agent</div>
+                <div class="telemetry-val">Ramesh K. (+91 98401 23456)</div>
+              </div>
+            </div>
+            <div class="telemetry-item-box">
+              <i class="fa-solid fa-location-dot telemetry-icon"></i>
+              <div>
+                <div class="telemetry-label">Delivery Destination</div>
+                <div class="telemetry-val">Flat 4B, Bellandur, Bengaluru</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive SVG Chart: Continuous Cold-Chain Temperature Sensor Log -->
+        <div class="dashboard-chart-card">
+          <div class="chart-header-row">
+            <div class="chart-title-box">
+              <h4>Real-Time Cold-Chain IoT Sensor Temperature Log</h4>
+              <p>Continuous thermal telemetry recorded inside vaccine/medication transit container #ORD-1024.</p>
+            </div>
+            <div class="chart-badge-legend">
+              <span><span class="chart-legend-dot" style="background: #2563eb;"></span> Current Sensor Temp (°C)</span>
+              <span><span class="chart-legend-dot" style="background: #16a34a;"></span> Safe Zone [2.0°C - 8.0°C]</span>
+            </div>
+          </div>
+          <div class="svg-chart-container">
+            <svg viewBox="0 0 760 190" preserveAspectRatio="none" style="height: 170px;">
+              <rect x="50" y="25" width="670" height="110" fill="#16a34a" fill-opacity="0.08" rx="4"></rect>
+              <line x1="50" y1="25" x2="720" y2="25" stroke="#16a34a" stroke-dasharray="3,3" stroke-width="1.2"></line>
+              <line x1="50" y1="135" x2="720" y2="135" stroke="#16a34a" stroke-dasharray="3,3" stroke-width="1.2"></line>
+              <text x="12" y="30" font-size="11" fill="#16a34a">8.0°C</text>
+              <text x="12" y="80" font-size="11" fill="#888">5.0°C</text>
+              <text x="12" y="140" font-size="11" fill="#16a34a">2.0°C</text>
+              <polyline points="70,95 200,90 330,100 460,88 590,92 680,93" fill="none" stroke="#2563eb" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></polyline>
+              <g><circle cx="70" cy="95" r="4.5" fill="#2563eb"></circle><text x="56" y="80" font-size="10" font-weight="700" fill="#2563eb">4.1°C</text><text x="45" y="165" font-size="11" fill="#666">Packing Hub</text></g>
+              <g><circle cx="200" cy="90" r="4.5" fill="#2563eb"></circle><text x="186" y="75" font-size="10" font-weight="700" fill="#2563eb">4.3°C</text><text x="180" y="165" font-size="11" fill="#666">Airport Cargo</text></g>
+              <g><circle cx="330" cy="100" r="4.5" fill="#2563eb"></circle><text x="316" y="85" font-size="10" font-weight="700" fill="#2563eb">4.0°C</text><text x="312" y="165" font-size="11" fill="#666">Cold Storage</text></g>
+              <g><circle cx="460" cy="88" r="4.5" fill="#2563eb"></circle><text x="446" y="73" font-size="10" font-weight="700" fill="#2563eb">4.4°C</text><text x="435" y="165" font-size="11" fill="#666">Sorting Depot</text></g>
+              <g><circle cx="590" cy="92" r="4.5" fill="#2563eb"></circle><text x="576" y="77" font-size="10" font-weight="700" fill="#2563eb">4.2°C</text><text x="565" y="165" font-size="11" fill="#666">Delivery Van</text></g>
+              <g><circle cx="680" cy="93" r="6" fill="#16a34a" stroke="#FFFFFF" stroke-width="2"></circle><text x="665" y="77" font-size="10" font-weight="700" fill="#16a34a">4.2°C</text><text x="660" y="165" font-size="11" fill="#666">Now</text></g>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Shipment Transit Milestones Table -->
+        <div class="dashboard-table-card">
+          <div class="table-header-row">
+            <div>
+              <h4 class="table-header-title">Shipment Transit Milestones & Audit Log</h4>
+              <p class="text-muted" style="font-size: 0.85rem; margin-top: 0.2rem;">
+                Official carrier dispatch logs stamped with GPS coordinates.
+              </p>
+            </div>
+            <span class="badge badge-gold"><i class="fa-solid fa-satellite-dish"></i> GPS Live Sync</span>
+          </div>
+          <div class="client-data-table-wrapper">
+            <table class="client-data-table">
+              <thead>
+                <tr>
+                  <th>Timestamp</th>
+                  <th>Location / Facility</th>
+                  <th>Activity & Sensor Audit</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Today, 07:15 AM</td>
+                  <td><strong>Bellandur Express Hub (BLR-South)</strong></td>
+                  <td>Loaded on delivery route vehicle (Van #KA-04-E-4819). Thermal sensors nominal at 4.2°C.</td>
+                  <td><span class="status-pill status-pill-warning"><i class="fa-solid fa-motorcycle"></i> Out for Delivery</span></td>
+                </tr>
+                <tr>
+                  <td>Oct 25, 08:30 PM</td>
+                  <td><strong>Bengaluru Airport Cargo Terminal</strong></td>
+                  <td>Arrived at central regional temperature-controlled sorting bay.</td>
+                  <td><span class="status-pill status-pill-success"><i class="fa-solid fa-check"></i> Completed</span></td>
+                </tr>
+                <tr>
+                  <td>Oct 25, 08:30 AM</td>
+                  <td><strong>Central Apothecary Fulfillment Lab</strong></td>
+                  <td>Dispatched via BlueDart PharmaSafe Air Express freight #BD-9041.</td>
+                  <td><span class="status-pill status-pill-success"><i class="fa-solid fa-check"></i> Completed</span></td>
+                </tr>
+                <tr>
+                  <td>Oct 24, 02:40 PM</td>
+                  <td><strong>Dispensary Packaging Bay</strong></td>
+                  <td>Triple-layer thermal insulation packing sealed with digital barcode verification.</td>
+                  <td><span class="status-pill status-pill-success"><i class="fa-solid fa-check"></i> Completed</span></td>
+                </tr>
+                <tr>
+                  <td>Oct 24, 09:15 AM</td>
+                  <td><strong>Digital Pharmacy Desk</strong></td>
+                  <td>Digital prescription verified by registered pharmacist Dr. Evelyn Vance, PharmD.</td>
+                  <td><span class="status-pill status-pill-success"><i class="fa-solid fa-check"></i> Completed</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           SECTION 4: MESSAGES (Dedicated Clinical Communications View)
+           =================================================================== -->
+      <section class="client-dashboard-section" id="section-messages">
+        <!-- Section Header -->
+        <div class="section-page-header">
+          <div>
+            <span class="text-accent font-semibold" style="font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase;">
+              Encrypted Clinical Dialogue
+            </span>
+            <h1 class="section-page-title">Messages & Clinical Consultations</h1>
+            <p class="section-page-subtitle">
+              Direct, HIPAA / DISHA encrypted communication channel with your licensed clinical pharmacist and care team.
+            </p>
+          </div>
+          <div class="section-header-actions">
+            <button class="btn btn-outline btn-sm" onclick="window.location.href='404.html'">
+              <i class="fa-solid fa-headset"></i> Pharmacist Helpdesk
+            </button>
+            <button class="btn btn-primary btn-sm" onclick="window.location.href='404.html'">
+              <i class="fa-solid fa-pen-to-square"></i> New Inquiry
+            </button>
+          </div>
+        </div>
+
+        <!-- 4 Statistics / KPI Cards -->
+        <div class="kpi-cards-grid">
+          <div class="kpi-card">
+            <div>
+              <span class="kpi-label">ASSIGNED PHARMACIST</span>
+              <div class="kpi-val" style="font-size: 1.45rem;">Dr. Evelyn Vance</div>
+              <div class="text-muted" style="font-size: 0.8rem; margin-top: 0.2rem;">PharmD &bull; Senior Care Lead</div>
+            </div>
+            <div class="kpi-icon-box">
+              <i class="fa-solid fa-user-doctor"></i>
+            </div>
+          </div>
+
+          <div class="kpi-card">
+            <div>
+              <span class="kpi-label">CLINICAL STATUS</span>
+              <div class="kpi-val text-accent" style="font-size: 1.8rem;">Online Now</div>
+              <div class="kpi-growth"><i class="fa-solid fa-circle-dot"></i> Active dispensary desk</div>
+            </div>
+            <div class="kpi-icon-box">
+              <i class="fa-solid fa-stethoscope"></i>
+            </div>
+          </div>
+
+          <div class="kpi-card">
+            <div>
+              <span class="kpi-label">AVG RESPONSE TIME</span>
+              <div class="kpi-val" style="font-size: 1.8rem;">12 Mins</div>
+              <div class="kpi-growth" style="color: #16a34a;"><i class="fa-solid fa-bolt"></i> Rapid clinical reply</div>
+            </div>
+            <div class="kpi-icon-box">
+              <i class="fa-solid fa-stopwatch"></i>
+            </div>
+          </div>
+
+          <div class="kpi-card">
+            <div>
+              <span class="kpi-label">RESOLVED INQUIRIES</span>
+              <div class="kpi-val" style="font-size: 1.8rem;">18 Total</div>
+              <div class="text-muted" style="font-size: 0.8rem; margin-top: 0.2rem;">100% Patient Satisfaction</div>
+            </div>
+            <div class="kpi-icon-box">
+              <i class="fa-solid fa-message"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive SVG Chart: Inquiries Breakdown & Consultation Topics -->
+        <div class="dashboard-chart-card">
+          <div class="chart-header-row">
+            <div class="chart-title-box">
+              <h4>Consultation Topics & Resolution Velocity</h4>
+              <p>Breakdown of clinical consultation topics & response speed over the past 30 days.</p>
+            </div>
+            <div class="chart-badge-legend">
+              <span><span class="chart-legend-dot" style="background: var(--color-accent);"></span> Dosage & Timing (45%)</span>
+              <span><span class="chart-legend-dot" style="background: #16a34a;"></span> Drug Interactions (30%)</span>
+              <span><span class="chart-legend-dot" style="background: #2563eb;"></span> Refill Requests (25%)</span>
+            </div>
+          </div>
+          <div class="svg-chart-container">
+            <svg viewBox="0 0 760 170" preserveAspectRatio="none" style="height: 150px;">
+              <text x="50" y="32" font-size="12" font-weight="600" fill="#121417">Medication Dosage & Meal Timing (45%)</text>
+              <rect x="50" y="42" width="670" height="14" fill="#F3F4F6" rx="7"></rect>
+              <rect x="50" y="42" width="300" height="14" fill="#B8976A" rx="7"></rect>
+
+              <text x="50" y="82" font-size="12" font-weight="600" fill="#121417">Drug & Dietary Interactions (30%)</text>
+              <rect x="50" y="92" width="670" height="14" fill="#F3F4F6" rx="7"></rect>
+              <rect x="50" y="92" width="200" height="14" fill="#16a34a" rx="7"></rect>
+
+              <text x="50" y="132" font-size="12" font-weight="600" fill="#121417">Refill Authorizations & Titrations (25%)</text>
+              <rect x="50" y="142" width="670" height="14" fill="#F3F4F6" rx="7"></rect>
+              <rect x="50" y="142" width="168" height="14" fill="#2563eb" rx="7"></rect>
+            </svg>
+          </div>
+        </div>
+
+
+
+        <!-- Official Consultation Transcripts & Records Table -->
+        <div class="dashboard-table-card">
+          <div class="table-header-row">
+            <div>
+              <h4 class="table-header-title">Official Consultation History & Clinical Records</h4>
+              <p class="text-muted" style="font-size: 0.85rem; margin-top: 0.2rem;">
+                Historical pharmacist consult logs signed by registered healthcare providers.
+              </p>
+            </div>
+            <button class="btn btn-outline btn-sm" onclick="window.location.href='404.html'">
+              <i class="fa-solid fa-file-arrow-down"></i> Export Transcript
+            </button>
+          </div>
+          <div class="client-data-table-wrapper">
+            <table class="client-data-table">
+              <thead>
+                <tr>
+                  <th>Record ID</th>
+                  <th>Clinician</th>
+                  <th>Subject & Clinical Topic</th>
+                  <th>Date</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong class="font-mono text-accent">#CNS-409</strong></td>
+                  <td>Dr. Evelyn Vance, PharmD</td>
+                  <td>Atorvastatin bedtime timing & grapefruit juice avoidance</td>
+                  <td>Today, 09:40 AM</td>
+                  <td><span class="status-pill status-pill-success"><i class="fa-solid fa-circle-check"></i> Answered</span></td>
+                  <td>
+                    <button class="btn btn-outline btn-sm" style="padding: 0.25rem 0.6rem; font-size: 0.75rem;" onclick="window.location.href='404.html'">
+                      <i class="fa-solid fa-eye"></i> View
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong class="font-mono text-accent">#CNS-382</strong></td>
+                  <td>Dr. Robert Vance, MD</td>
+                  <td>Semi-annual lipid panel report review & dosage confirmation</td>
+                  <td>Oct 18, 2026</td>
+                  <td><span class="status-pill status-pill-neutral"><i class="fa-solid fa-folder-closed"></i> Closed</span></td>
+                  <td>
+                    <button class="btn btn-outline btn-sm" style="padding: 0.25rem 0.6rem; font-size: 0.75rem;" onclick="window.location.href='404.html'">
+                      <i class="fa-solid fa-eye"></i> View
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong class="font-mono text-accent">#CNS-301</strong></td>
+                  <td>Dr. Sarah Jenkins, MD</td>
+                  <td>Metformin ER dosage titration protocol (500mg to 1000mg)</td>
+                  <td>Sep 15, 2026</td>
+                  <td><span class="status-pill status-pill-neutral"><i class="fa-solid fa-folder-closed"></i> Closed</span></td>
+                  <td>
+                    <button class="btn btn-outline btn-sm" style="padding: 0.25rem 0.6rem; font-size: 0.75rem;" onclick="window.location.href='404.html'">
+                      <i class="fa-solid fa-eye"></i> View
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- 3 Quick Clinical Action Guidelines Cards -->
+        <div class="clinical-guideline-grid">
+          <div class="clinical-guideline-card">
+            <h5><i class="fa-solid fa-triangle-exclamation text-accent"></i> Drug Interactions</h5>
+            <p>Verify potential food or  counteractions  active daily medicines.</p>
+            <button class="btn btn-outline btn-sm" onclick="window.location.href='404.html'">Run Interaction Check</button>
+          </div>
+          <div class="clinical-guideline-card">
+            <h5><i class="fa-solid fa-notes-medical text-accent"></i> Side Effect Report</h5>
+            <p>Log any unexpected mild symptoms for fast review by your clinical care lead.</p>
+            <button class="btn btn-outline btn-sm" onclick="window.location.href='404.html'">Report Symptom</button>
+          </div>
+          <div class="clinical-guideline-card">
+            <h5><i class="fa-solid fa-file-prescription text-accent"></i> Prescription Copy</h5>
+            <p>Download digitally authenticated medical prescriptions for travel or insurance.</p>
+            <button class="btn btn-outline btn-sm" onclick="window.location.href='404.html'">Download Digital Rx</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           SECTION 5: SETTINGS (Dedicated Account & Dispensary Settings View)
+           =================================================================== -->
+      <section class="client-dashboard-section" id="section-settings">
+        <!-- Section Header -->
+        <div class="section-page-header">
+          <div>
+            <span class="text-accent font-semibold" style="font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase;">
+              Account & Security Controls
+            </span>
+            <h1 class="section-page-title">Account & Delivery Settings</h1>
+            <p class="section-page-subtitle">
+              Manage patient credentials, shipping destinations, security preferences, and health data privacy.
+            </p>
+          </div>
+          <div class="section-header-actions">
+            <button class="btn btn-outline btn-sm" onclick="window.location.href='404.html'">
+              <i class="fa-solid fa-download"></i> Export Data
+            </button>
+            <button class="btn btn-primary btn-sm" onclick="window.location.href='404.html'">
+              <i class="fa-solid fa-floppy-disk"></i> Save Changes
+            </button>
+          </div>
+        </div>
+
+        <!-- 4 Statistics / KPI Cards -->
+        <div class="kpi-cards-grid">
+          <div class="kpi-card">
+            <div>
+              <span class="kpi-label">PROFILE COMPLETION</span>
+              <div class="kpi-val" style="font-size: 1.8rem;">100% Verified</div>
+              <div class="kpi-growth"><i class="fa-solid fa-circle-check"></i> Government ID & Aadhaar Verified</div>
+            </div>
+            <div class="kpi-icon-box">
+              <i class="fa-solid fa-user-shield"></i>
+            </div>
+          </div>
+
+          <div class="kpi-card">
+            <div>
+              <span class="kpi-label">SAVED DESTINATIONS</span>
+              <div class="kpi-val text-accent" style="font-size: 1.8rem;">2 Addresses</div>
+              <div class="text-muted" style="font-size: 0.8rem; margin-top: 0.2rem;">Primary: Bellandur, Bengaluru</div>
+            </div>
+            <div class="kpi-icon-box">
+              <i class="fa-solid fa-location-dot"></i>
+            </div>
+          </div>
+
+          <div class="kpi-card">
+            <div>
+              <span class="kpi-label">ACCOUNT SECURITY</span>
+              <div class="kpi-val" style="font-size: 1.8rem;">High Protection</div>
+              <div class="kpi-growth" style="color: #16a34a;"><i class="fa-solid fa-lock"></i> 2FA Enabled via Authenticator</div>
+            </div>
+            <div class="kpi-icon-box">
+              <i class="fa-solid fa-shield-halved"></i>
+            </div>
+          </div>
+
+          <div class="kpi-card">
+            <div>
+              <span class="kpi-label">DATA PRIVACY MODE</span>
+              <div class="kpi-val" style="font-size: 1.8rem;">Strict</div>
+              <div class="text-muted" style="font-size: 0.8rem; margin-top: 0.2rem;">HIPAA & DISHA Compliant</div>
+            </div>
+            <div class="kpi-icon-box">
+              <i class="fa-solid fa-file-shield"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive SVG Chart: Security Score & Compliance Audit -->
+        <div class="dashboard-chart-card">
+          <div class="chart-header-row">
+            <div class="chart-title-box">
+              <h4>Account Security Health & Protection Score</h4>
+              <p>Security compliance metrics based on authentication strength, device authorization, and data encryption.</p>
+            </div>
+            <span class="badge badge-gold"><i class="fa-solid fa-shield-check"></i> Security Score: 98/100 (Optimal)</span>
+          </div>
+          <div class="svg-chart-container">
+            <svg viewBox="0 0 760 140" preserveAspectRatio="none" style="height: 125px;">
+              <text x="50" y="24" font-size="11" font-weight="600" fill="#121417">Two-Factor Authentication (2FA) Active</text>
+              <rect x="50" y="32" width="670" height="10" fill="#F3F4F6" rx="5"></rect>
+              <rect x="50" y="32" width="670" height="10" fill="#16a34a" rx="5"></rect>
+
+              <text x="50" y="64" font-size="11" font-weight="600" fill="#121417">Cryptographic Password Complexity & Rotation (16 char)</text>
+              <rect x="50" y="72" width="670" height="10" fill="#F3F4F6" rx="5"></rect>
+              <rect x="50" y="72" width="640" height="10" fill="#B8976A" rx="5"></rect>
+
+              <text x="50" y="104" font-size="11" font-weight="600" fill="#121417">Automated Medical Session Timeout (30 mins inactivity)</text>
+              <rect x="50" y="112" width="670" height="10" fill="#F3F4F6" rx="5"></rect>
+              <rect x="50" y="112" width="670" height="10" fill="#16a34a" rx="5"></rect>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Connected Devices & Active Login Sessions Table -->
+        <div class="dashboard-table-card">
+          <div class="table-header-row">
+            <div>
+              <h4 class="table-header-title">Authorized Devices & Active Sessions</h4>
+              <p class="text-muted" style="font-size: 0.85rem; margin-top: 0.2rem;">
+                Currently logged-in devices with cryptographic tokens.
+              </p>
+            </div>
+            <button class="btn btn-outline btn-sm" onclick="window.location.href='404.html'">
+              <i class="fa-solid fa-arrow-right-from-bracket"></i> Revoke Other Sessions
+            </button>
+          </div>
+          <div class="client-data-table-wrapper">
+            <table class="client-data-table">
+              <thead>
+                <tr>
+                  <th>Device & Platform</th>
+                  <th>Location</th>
+                  <th>IP Address</th>
+                  <th>Last Activity</th>
+                  <th>Security Status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><i class="fa-solid fa-laptop text-accent"></i> <strong>Chrome 122 &bull; Windows 11</strong></td>
+                  <td>Bengaluru, India</td>
+                  <td><code>103.21.244.12</code></td>
+                  <td><span class="status-pill status-pill-success">Active Now</span></td>
+                  <td>Trusted Device</td>
+                  <td><span class="text-muted" style="font-size: 0.78rem;">Current Session</span></td>
+                </tr>
+                <tr>
+                  <td><i class="fa-solid fa-mobile-screen text-accent"></i> <strong>Safari 17 &bull; iPhone 15 Pro</strong></td>
+                  <td>Bengaluru, India</td>
+                  <td><code>103.21.244.15</code></td>
+                  <td>2 hours ago</td>
+                  <td>Trusted Device</td>
+                  <td>
+                    <button class="btn btn-outline btn-sm" style="padding: 0.2rem 0.5rem; font-size: 0.72rem; color: #dc2626;" onclick="window.location.href='404.html'">Revoke</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td><i class="fa-solid fa-laptop text-accent"></i> <strong>Chrome 120 &bull; macOS Sonoma</strong></td>
+                  <td>Mumbai, India</td>
+                  <td><code>49.36.120.88</code></td>
+                  <td>Oct 15, 2026</td>
+                  <td>Inactive</td>
+                  <td>
+                    <button class="btn btn-outline btn-sm" style="padding: 0.2rem 0.5rem; font-size: 0.72rem; color: #dc2626;" onclick="window.location.href='404.html'">Revoke</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </main>
+    </div>
+  </div>
+
+  <!-- GSAP & Client Dashboard Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="js/inventory.js"></script>
+  <script src="js/orders.js"></script>
+  <script src="js/notifications.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/dashboard.js"></script>
+  <script src="js/client-dashboard.js"></script>
+</body>
+</html>

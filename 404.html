@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 — Clinical Pathway Moved | Apothecary & Natural Healing</title>
+  
+  <!-- Google Fonts: Cormorant Garamond & Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body style="margin: 0; padding: 0; overflow-x: hidden; background-color: #0A1F26; min-height: 100vh;">
+
+  <!-- UNIQUE FULL-SCREEN 404 APOTHECARY EXPERIENCE (No Header, No Footer) -->
+  <main class="error-page-section">
+    <!-- Ambient Pulsing Glow Orbs -->
+    <div class="error-ambient-glow" id="error-glow"></div>
+
+    <!-- Floating Parallax Herb Botanical Icons -->
+    <i class="fa-solid fa-leaf error-floating-leaf" style="top: 15%; left: 10%; font-size: 2.2rem; transform: rotate(-25deg);" id="leaf-1"></i>
+    <i class="fa-solid fa-seedling error-floating-leaf" style="top: 75%; left: 12%; font-size: 1.8rem; transform: rotate(15deg);" id="leaf-2"></i>
+    <i class="fa-solid fa-cannabis error-floating-leaf" style="top: 18%; right: 12%; font-size: 2.4rem; transform: rotate(35deg);" id="leaf-3"></i>
+    <i class="fa-solid fa-spa error-floating-leaf" style="top: 78%; right: 10%; font-size: 2rem; transform: rotate(-15deg);" id="leaf-4"></i>
+
+    <div class="container">
+      <div class="error-card-container">
+        <!-- Brand Link at Top of Card with Clear Crisp Background & Generous Padding -->
+        <a href="index.html" class="brand-logo-link error-brand-logo" aria-label="Stackly Home" style="display: inline-flex !important; visibility: visible !important; opacity: 1 !important;">
+          <img src="assets/white.webp" alt="Stackly Pharmacy Logo" class="brand-logo-img" style="display: block !important; visibility: visible !important; opacity: 1 !important; height: 48px;" onerror="this.onerror=null; this.src='assets/white.webp';">
+        </a>
+
+        <!-- Floating Visual Core with Orbit Ring -->
+        <div class="error-visual-badge-wrap" id="error-badge">
+          <div class="error-orbit-ring" id="orbit-ring"></div>
+          <div class="error-visual-core">
+            <i class="fa-solid fa-mortar-pestle"></i>
+          </div>
+        </div>
+
+        <!-- Giant Editorial 404 Numeral -->
+        <div class="error-numeral" id="error-numeral">404</div>
+
+        <!-- Eyebrow Badge -->
+        <div>
+          <span class="error-pill-tag" id="error-pill">
+            <i class="fa-solid fa-compass-slash"></i> Clinical Pathway Relocated
+          </span>
+        </div>
+
+        <!-- Main Heading -->
+        <h1 class="error-main-title" id="error-title">
+          The page you're looking for has moved.
+        </h1>
+
+        <!-- Supporting Lead -->
+        <p class="error-lead-text" id="error-desc">
+          The pharmaceutical index, prescription archive, or healthcare route you requested could not be located in our current clinical directory.
+        </p>
+
+        <!-- Primary Action Buttons (history.back() & index.html) -->
+        <div class="error-actions-group" id="error-actions">
+          <button class="btn-error-back" onclick="history.back()">
+            <i class="fa-solid fa-arrow-left"></i> BACK
+          </button>
+          <a href="index.html" class="btn btn-hero-shop">
+            <i class="fa-solid fa-house" style="margin-right: 0.5rem;"></i> BACK TO HOME
+          </a>
+        </div>
+
+        <!-- Quick Recovery Routes -->
+        <!-- <div class="error-quick-routes" id="error-routes">
+          <span style="font-family: 'Poppins', sans-serif; font-size: 0.82rem; color: #ADC8D2; text-transform: uppercase; letter-spacing: 0.08em;">
+            Suggested Pathways:
+          </span>
+          <a href="Services.html" class="error-route-link">
+            <i class="fa-solid fa-stethoscope"></i> Clinical Services
+          </a>
+          <a href="Blog.html" class="error-route-link">
+            <i class="fa-solid fa-book-open"></i> Apothecary Journal
+          </a>
+          <a href="Contact.html" class="error-route-link">
+            <i class="fa-solid fa-headset"></i> Pharmacist Desk
+          </a>
+        </div> -->
+      </div>
+    </div>
+  </main>
+
+  <!-- GSAP Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+  <!-- Elegant GSAP Entrance & Ambient Animations -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      if (typeof gsap !== "undefined") {
+        const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+
+        tl.from(".error-card-container", {
+          scale: 0.94,
+          opacity: 0,
+          y: 30,
+          duration: 0.8
+        })
+        .from("#error-badge", {
+          scale: 0.6,
+          opacity: 0,
+          duration: 0.6,
+          ease: "back.out(1.7)"
+        }, "-=0.4")
+        .from("#error-numeral", {
+          y: 30,
+          opacity: 0,
+          duration: 0.7
+        }, "-=0.3")
+        .from("#error-pill", {
+          scale: 0.85,
+          opacity: 0,
+          duration: 0.5
+        }, "-=0.3")
+        .from("#error-title", {
+          y: 15,
+          opacity: 0,
+          duration: 0.5
+        }, "-=0.3")
+        .from("#error-desc", {
+          y: 12,
+          opacity: 0,
+          duration: 0.5
+        }, "-=0.2")
+        .from("#error-actions", {
+          y: 12,
+          opacity: 0,
+          duration: 0.5
+        }, "-=0.2");
+
+        // Orbit ring continuous rotation
+        gsap.to("#orbit-ring", {
+          rotation: 360,
+          duration: 16,
+          repeat: -1,
+          ease: "none"
+        });
+
+        // Floating emblem gentle bob
+        gsap.to("#error-badge", {
+          y: -10,
+          duration: 2.4,
+          repeat: -1,
+          yoyo: true,
+          ease: "sine.inOut"
+        });
+
+        // Ambient glow breathing pulse
+        gsap.to("#error-glow", {
+          scale: 1.2,
+          opacity: 0.8,
+          duration: 3.5,
+          repeat: -1,
+          yoyo: true,
+          ease: "sine.inOut"
+        });
+
+        // Floating leaves animation
+        const leaves = ["#leaf-1", "#leaf-2", "#leaf-3", "#leaf-4"];
+        leaves.forEach((leaf, i) => {
+          gsap.to(leaf, {
+            y: (i % 2 === 0 ? -16 : 16),
+            x: (i % 2 === 0 ? 12 : -12),
+            rotation: (i % 2 === 0 ? 20 : -20),
+            duration: 3 + i * 0.8,
+            repeat: -1,
+            yoyo: true,
+            ease: "sine.inOut"
+          });
+        });
+      }
+    });
+  </script>
+</body>
+</html>

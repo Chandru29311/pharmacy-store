@@ -1,0 +1,1459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apothecary Shop & Dispensary — Curated Botanical Remedies</title>
+  
+  <!-- Best Fonts: Outfit, Plus Jakarta Sans & Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Core Stylesheets -->
+  <!-- AOS (Animate On Scroll) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body class="shop-page-body">
+
+  <!-- Top Dark Teal Navbar (Sticky Navbar) -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <!-- Left: Logo & Brand Name -->
+      <a href="index.html" class="brand-logo-link" aria-label="Stackly Home">
+        <img src="assets/white.webp" alt="Stackly Pharmacy Logo" class="brand-logo-img">
+      </a>
+
+      <!-- Center: Navigation Links -->
+      <nav class="nav-menu-center">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="About.html" class="nav-link">About</a>
+        <a href="Shop.html" class="nav-link active">Shop</a>
+        <a href="Services.html" class="nav-link">Services</a>
+        <a href="Blog.html" class="nav-link">Blog</a>
+        <a href="Contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <!-- Right: Search, Cart & Login Actions -->
+      <div class="nav-actions-right">
+        <a href="404.html" class="nav-icon-btn nav-search-trigger" id="nav-search-btn" title="Search Remedies" aria-label="Search Remedies">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </a>
+
+        <button class="nav-icon-btn cart-drawer-trigger" title="Shopping Cart" aria-label="Shopping Cart">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span class="cart-count-badge">0</span>
+        </button>
+
+        <a href="Login.html" class="btn-nav-login-pill">LOGIN</a>
+
+        <!-- Mobile Hamburger Button -->
+        <button class="hamburger-btn" id="hamburger-btn" aria-label="Toggle Navigation">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Off-Canvas Menu Drawer -->
+  <div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
+  <aside class="mobile-menu-drawer" id="mobile-menu">
+    <div class="mobile-menu-header">
+      <a href="index.html" class="brand-logo-link" aria-label="Stackly Home">
+        <img src="assets/white.webp" alt="Stackly Pharmacy Logo" class="brand-logo-img">
+      </a>
+      <button class="mobile-menu-close-btn" id="mobile-menu-close">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+    <nav class="mobile-nav-links">
+      <a href="index.html" class="mobile-nav-item">Home</a>
+      <a href="About.html" class="mobile-nav-item">About</a>
+      <a href="Shop.html" class="mobile-nav-item active">Shop</a>
+      <a href="Services.html" class="mobile-nav-item">Services</a>
+      <a href="Blog.html" class="mobile-nav-item">Blog</a>
+      <a href="Contact.html" class="mobile-nav-item">Contact</a>
+    </nav>
+    <div class="mobile-menu-footer">
+      <a href="Login.html" class="btn btn-teal btn-pill w-100 mobile-login-btn">Login</a>
+    </div>
+  </aside>
+
+  <!-- Interactive Slide-in Cart Drawer -->
+  <div class="cart-overlay" id="cart-overlay"></div>
+  <div class="cart-drawer" id="cart-drawer">
+    <div class="cart-drawer-header">
+      <h3 class="cart-drawer-title">Apothecary Basket <span id="cart-drawer-count">(0)</span></h3>
+      <button class="nav-icon-btn" id="cart-drawer-close" style="color: var(--color-text-dark);">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+    <div class="cart-drawer-items" id="cart-drawer-items">
+      <!-- Populated via CartManager in js/main.js -->
+    </div>
+    <div class="cart-drawer-footer">
+      <div class="cart-drawer-subtotal">
+        <span>Order Subtotal</span>
+        <span class="cart-drawer-total" id="cart-drawer-total">₹0</span>
+      </div>
+      <p class="cart-drawer-tax-note">Taxes & shipping calculated during checkout</p>
+      <a href="404.html" class="btn btn-teal btn-pill w-100 cart-checkout-btn" id="cart-checkout-btn">Proceed to Safe Checkout</a>
+    </div>
+  </div>
+
+  <!-- SECTION 1: SHOP HERO BANNER -->
+  <section class="shop-hero-section">
+    <div class="container shop-hero-content">
+      <span class="shop-hero-eyebrow">
+        <i class="fa-solid fa-leaf"></i> Certified Botanical Dispensary
+      </span>
+      <h1 class="shop-hero-title">
+        Curated Herbal Remedies &amp; <span class="gold-accent" style="color: #ffffff; -webkit-text-fill-color: #ffffff; background: none;">Holistic Essentials</span>
+      </h1>
+      <p class="shop-hero-desc">
+        Discover practitioner-grade botanical extracts, small-batch organic tinctures, and pharmacist-calibrated micronutrients handcrafted for cellular vitality and whole-body balance.
+      </p>
+      <div class="shop-hero-buttons">
+        <a href="#shop-catalog" class="btn btn-teal btn-pill">
+          <i class="fa-solid fa-bag-shopping"></i> Browse Remedies
+        </a>
+        <a href="Contact.html" class="btn btn-outline-white btn-pill">
+          <i class="fa-solid fa-user-doctor"></i> Consult Pharmacist
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Shop Catalog Section -->
+  <section class="shop-catalog-section" id="shop-catalog">
+    <div class="container">
+      <div class="shop-layout-wrapper">
+        
+        <!-- Left Sticky Filter Sidebar -->
+        <aside class="shop-filters-sidebar" id="shop-filters-sidebar">
+          
+          <div class="mobile-filter-header">
+            <h3><i class="fa-solid fa-sliders"></i> Filter Catalog</h3>
+            <button type="button" class="mobile-filters-close-btn" id="mobile-filters-close">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+
+          <div class="sidebar-header">
+            <h3><i class="fa-solid fa-filter"></i> Filters</h3>
+            <button type="button" class="btn-reset-filters" id="shop-reset-filters">
+              <i class="fa-solid fa-rotate-left"></i> Reset
+            </button>
+          </div>
+
+          <!-- Keyword Search Filter -->
+          <div class="filter-group">
+            <h4 class="filter-title">Filter by Keyword</h4>
+            <div style="position: relative;">
+              <input type="text" id="shop-search-input" placeholder="Search remedies..." style="width: 100%; padding: 0.55rem 0.75rem 0.55rem 2rem; border: 1px solid var(--color-border); border-radius: 8px; font-size: 0.85rem; outline: none; color: var(--color-text-dark); background-color: var(--color-card-bg);">
+              <i class="fa-solid fa-magnifying-glass" style="position: absolute; left: 0.75rem; top: 50%; transform: translateY(-50%); color: var(--color-text-muted); font-size: 0.82rem;"></i>
+            </div>
+          </div>
+
+          <!-- Category Filter -->
+          <div class="filter-group">
+            <h4 class="filter-title">Remedy Categories</h4>
+            <div class="filter-list">
+              <label class="filter-check-item">
+                <span class="filter-check-label">
+                  <input type="checkbox" name="category" value="Herbal Tinctures">
+                  <span>Herbal Tinctures</span>
+                </span>
+                <span class="filter-count">3</span>
+              </label>
+              <label class="filter-check-item">
+                <span class="filter-check-label">
+                  <input type="checkbox" name="category" value="Elixirs & Tonics">
+                  <span>Elixirs &amp; Tonics</span>
+                </span>
+                <span class="filter-count">2</span>
+              </label>
+              <label class="filter-check-item">
+                <span class="filter-check-label">
+                  <input type="checkbox" name="category" value="Organic Teas">
+                  <span>Organic Teas</span>
+                </span>
+                <span class="filter-count">3</span>
+              </label>
+              <label class="filter-check-item">
+                <span class="filter-check-label">
+                  <input type="checkbox" name="category" value="Botanical Skincare">
+                  <span>Botanical Skincare</span>
+                </span>
+                <span class="filter-count">3</span>
+              </label>
+              <label class="filter-check-item">
+                <span class="filter-check-label">
+                  <input type="checkbox" name="category" value="Vitamins & Minerals">
+                  <span>Vitamins &amp; Minerals</span>
+                </span>
+                <span class="filter-count">3</span>
+              </label>
+              <label class="filter-check-item">
+                <span class="filter-check-label">
+                  <input type="checkbox" name="category" value="Exotic Formulations">
+                  <span>Exotic Formulations</span>
+                </span>
+                <span class="filter-count">2</span>
+              </label>
+              <label class="filter-check-item">
+                <span class="filter-check-label">
+                  <input type="checkbox" name="category" value="Medical Equipment">
+                  <span>Medical Equipment</span>
+                </span>
+                <span class="filter-count">2</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Price Range Slider -->
+          <div class="filter-group">
+            <h4 class="filter-title">Max Price</h4>
+            <div class="price-slider-wrap">
+              <input type="range" id="shop-price-range" class="price-slider-range" min="300" max="2500" step="50" value="2500">
+              <div class="price-slider-readout">
+                <span>Range: ₹300 - </span>
+                <strong id="shop-price-display">₹2,500</strong>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product Formulation Type -->
+          <div class="filter-group">
+            <h4 class="filter-title">Formulation</h4>
+            <div class="filter-list">
+              <label class="filter-check-item">
+                <span class="filter-check-label">
+                  <input type="checkbox" name="productType" value="Drops">
+                  <span>Drops &amp; Tinctures</span>
+                </span>
+                <span class="filter-count">3</span>
+              </label>
+              <label class="filter-check-item">
+                <span class="filter-check-label">
+                  <input type="checkbox" name="productType" value="Elixir">
+                  <span>Liquid Elixirs</span>
+                </span>
+                <span class="filter-count">3</span>
+              </label>
+              <label class="filter-check-item">
+                <span class="filter-check-label">
+                  <input type="checkbox" name="productType" value="Loose Leaf">
+                  <span>Loose-Leaf Herbs</span>
+                </span>
+                <span class="filter-count">3</span>
+              </label>
+              <label class="filter-check-item">
+                <span class="filter-check-label">
+                  <input type="checkbox" name="productType" value="Face Oil">
+                  <span>Lipid Oils</span>
+                </span>
+                <span class="filter-count">3</span>
+              </label>
+              <label class="filter-check-item">
+                <span class="filter-check-label">
+                  <input type="checkbox" name="productType" value="Capsules">
+                  <span>Softgels &amp; Veggie Caps</span>
+                </span>
+                <span class="filter-count">2</span>
+              </label>
+              <label class="filter-check-item">
+                <span class="filter-check-label">
+                  <input type="checkbox" name="productType" value="Tablets">
+                  <span>Buffered Tablets</span>
+                </span>
+                <span class="filter-count">1</span>
+              </label>
+              <label class="filter-check-item">
+                <span class="filter-check-label">
+                  <input type="checkbox" name="productType" value="Device">
+                  <span>Clinical Devices</span>
+                </span>
+                <span class="filter-count">2</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Availability Filter -->
+          <div class="filter-group">
+            <h4 class="filter-title">Stock Status</h4>
+            <div class="filter-list">
+              <label class="filter-check-item">
+                <span class="filter-check-label">
+                  <input type="radio" name="availability" value="all" checked>
+                  <span>All Items</span>
+                </span>
+              </label>
+              <label class="filter-check-item">
+                <span class="filter-check-label">
+                  <input type="radio" name="availability" value="In Stock">
+                  <span>In Stock Only</span>
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Rating Filter -->
+          <div class="filter-group">
+            <h4 class="filter-title">Customer Rating</h4>
+            <div class="filter-list">
+              <label class="filter-check-item">
+                <span class="filter-check-label">
+                  <input type="radio" name="rating" value="all" checked>
+                  <span>All Ratings</span>
+                </span>
+              </label>
+              <label class="filter-check-item">
+                <span class="filter-check-label">
+                  <input type="radio" name="rating" value="4.8">
+                  <span>★ 4.8 &amp; Higher</span>
+                </span>
+              </label>
+              <label class="filter-check-item">
+                <span class="filter-check-label">
+                  <input type="radio" name="rating" value="5.0">
+                  <span>★ 5.0 Perfect Score</span>
+                </span>
+              </label>
+            </div>
+          </div>
+
+        </aside>
+
+        <!-- Right Products Column -->
+        <main class="shop-main-catalog">
+          
+          <!-- Top Utility Toolbar -->
+          <div class="shop-toolbar">
+            <div class="shop-results-count" id="shop-results-count">
+              Showing <strong>18</strong> of <strong>18</strong> Curated Remedies
+            </div>
+
+            <div class="shop-toolbar-actions">
+              <button type="button" class="btn-mobile-filter-open" id="mobile-filter-toggle">
+                <i class="fa-solid fa-sliders"></i> Filters
+              </button>
+
+              <div class="shop-sort-wrap">
+                <label for="shop-sort-select">Sort By:</label>
+                <select id="shop-sort-select" class="shop-sort-select">
+                  <option value="featured">Featured / Staff Picks</option>
+                  <option value="price-low">Price: Low to High</option>
+                  <option value="price-high">Price: High to Low</option>
+                  <option value="rating">Highest Rated</option>
+                  <option value="name">Remedy Name (A-Z)</option>
+                </select>
+              </div>
+
+              <div class="view-toggle-btns" title="Layout View">
+                <button type="button" class="btn-view-toggle active" id="view-grid-3" title="3 Columns View">
+                  <i class="fa-solid fa-grip"></i>
+                </button>
+                <button type="button" class="btn-view-toggle" id="view-grid-4" title="4 Columns View">
+                  <i class="fa-solid fa-table-cells"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Active Filter Chips Bar -->
+          <div class="active-filters-chips" id="active-filters-chips">
+            <!-- Dynamically populated via shop.js -->
+          </div>
+
+          <!-- Products Grid (18 Items) -->
+          <div class="shop-products-grid" id="shop-products-grid">
+
+          <article class="apoth-shop-card" data-aos="fade-up" data-aos-delay="50" data-id="apoth-01">
+            <div class="apoth-card-media">
+              <img src="assets/fav-sleep-drops.webp" alt="Sleep Meditation Drops" class="apoth-card-img" loading="lazy">
+              
+              <div class="apoth-card-badges">
+                <span class="apoth-badge apoth-badge-gold">BESTSELLER</span>
+                <span class="apoth-badge apoth-badge-discount">-29%</span>
+              </div>
+
+              <button type="button" class="apoth-wishlist-btn" data-id="apoth-01" title="Add to Wishlist" aria-label="Add Sleep Meditation Drops to Wishlist">
+                <i class="fa-regular fa-heart"></i>
+              </button>
+            </div>
+
+            <div class="apoth-card-body">
+              <div class="apoth-card-meta">
+                <span class="apoth-card-category">Herbal Tinctures</span>
+                <span class="apoth-card-brand">Apothecary Sanctuary</span>
+              </div>
+
+              <h3 class="apoth-card-title">
+                Sleep Meditation Drops
+              </h3>
+
+              <div class="apoth-card-rating">
+                <span class="stars-gold"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>
+                <span class="rating-val">5.0</span>
+                <span class="reviews-count">(84)</span>
+              </div>
+
+              <p class="apoth-card-desc">Deep restorative botanical sleep tincture formulated with organic valerian...</p>
+
+              <div class="apoth-card-pricing">
+                <span class="apoth-price-current">₹499</span>
+                <span class="apoth-price-orig">₹699</span>
+                <span class="apoth-save-pill">Save ₹200</span>
+              </div>
+
+              <div class="apoth-card-footer">
+                <span class="apoth-stock-indicator in-stock">
+                  <span class="stock-dot"></span>
+                  <span>24 in stock</span>
+                </span>
+
+                <button type="button" class="btn-shop-add-cart" data-id="apoth-01" data-name="Sleep Meditation Drops" data-price="499" data-image="assets/fav-sleep-drops.webp">
+                  <i class="fa-solid fa-cart-plus"></i> ADD
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="apoth-shop-card" data-aos="fade-up" data-aos-delay="100" data-id="apoth-02">
+            <div class="apoth-card-media">
+              <img src="assets/fav-immunity-elixir.webp" alt="Immunity Protection Elixir" class="apoth-card-img" loading="lazy">
+              
+              <div class="apoth-card-badges">
+                <span class="apoth-badge apoth-badge-gold">STAFF PICK</span>
+                <span class="apoth-badge apoth-badge-discount">-24%</span>
+              </div>
+
+              <button type="button" class="apoth-wishlist-btn" data-id="apoth-02" title="Add to Wishlist" aria-label="Add Immunity Protection Elixir to Wishlist">
+                <i class="fa-regular fa-heart"></i>
+              </button>
+            </div>
+
+            <div class="apoth-card-body">
+              <div class="apoth-card-meta">
+                <span class="apoth-card-category">Elixirs & Tonics</span>
+                <span class="apoth-card-brand">Apothecary Sanctuary</span>
+              </div>
+
+              <h3 class="apoth-card-title">
+                Immunity Protection Elixir
+              </h3>
+
+              <div class="apoth-card-rating">
+                <span class="stars-gold"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></span>
+                <span class="rating-val">4.9</span>
+                <span class="reviews-count">(112)</span>
+              </div>
+
+              <p class="apoth-card-desc">Concentrated botanical tonic infused with elderberry, organic echinacea, an...</p>
+
+              <div class="apoth-card-pricing">
+                <span class="apoth-price-current">₹649</span>
+                <span class="apoth-price-orig">₹849</span>
+                <span class="apoth-save-pill">Save ₹200</span>
+              </div>
+
+              <div class="apoth-card-footer">
+                <span class="apoth-stock-indicator in-stock">
+                  <span class="stock-dot"></span>
+                  <span>19 in stock</span>
+                </span>
+
+                <button type="button" class="btn-shop-add-cart" data-id="apoth-02" data-name="Immunity Protection Elixir" data-price="649" data-image="assets/fav-immunity-elixir.webp">
+                  <i class="fa-solid fa-cart-plus"></i> ADD
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="apoth-shop-card" data-aos="fade-up" data-aos-delay="150" data-id="apoth-03">
+            <div class="apoth-card-media">
+              <img src="assets/fav-tea-blend.webp" alt="Pure Revitalizing Tea Blend" class="apoth-card-img" loading="lazy">
+              
+              <div class="apoth-card-badges">
+                <span class="apoth-badge apoth-badge-gold">POPULAR</span>
+                <span class="apoth-badge apoth-badge-discount">-30%</span>
+              </div>
+
+              <button type="button" class="apoth-wishlist-btn" data-id="apoth-03" title="Add to Wishlist" aria-label="Add Pure Revitalizing Tea Blend to Wishlist">
+                <i class="fa-regular fa-heart"></i>
+              </button>
+            </div>
+
+            <div class="apoth-card-body">
+              <div class="apoth-card-meta">
+                <span class="apoth-card-category">Organic Teas</span>
+                <span class="apoth-card-brand">Apothecary Sanctuary</span>
+              </div>
+
+              <h3 class="apoth-card-title">
+                Pure Revitalizing Tea Blend
+              </h3>
+
+              <div class="apoth-card-rating">
+                <span class="stars-gold"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></span>
+                <span class="rating-val">4.8</span>
+                <span class="reviews-count">(95)</span>
+              </div>
+
+              <p class="apoth-card-desc">Artisan loose-leaf botanical tea blending hand-harvested spearmint, lemon v...</p>
+
+              <div class="apoth-card-pricing">
+                <span class="apoth-price-current">₹349</span>
+                <span class="apoth-price-orig">₹499</span>
+                <span class="apoth-save-pill">Save ₹150</span>
+              </div>
+
+              <div class="apoth-card-footer">
+                <span class="apoth-stock-indicator in-stock">
+                  <span class="stock-dot"></span>
+                  <span>35 in stock</span>
+                </span>
+
+                <button type="button" class="btn-shop-add-cart" data-id="apoth-03" data-name="Pure Revitalizing Tea Blend" data-price="349" data-image="assets/fav-tea-blend.webp">
+                  <i class="fa-solid fa-cart-plus"></i> ADD
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="apoth-shop-card" data-aos="fade-up" data-aos-delay="200" data-id="apoth-04">
+            <div class="apoth-card-media">
+              <img src="assets/fav-face-oil.webp" alt="Calming Herbal Face Oil" class="apoth-card-img" loading="lazy">
+              
+              <div class="apoth-card-badges">
+                <span class="apoth-badge apoth-badge-gold">LIMITED HARVEST</span>
+                <span class="apoth-badge apoth-badge-discount">-27%</span>
+              </div>
+
+              <button type="button" class="apoth-wishlist-btn" data-id="apoth-04" title="Add to Wishlist" aria-label="Add Calming Herbal Face Oil to Wishlist">
+                <i class="fa-regular fa-heart"></i>
+              </button>
+            </div>
+
+            <div class="apoth-card-body">
+              <div class="apoth-card-meta">
+                <span class="apoth-card-category">Botanical Skincare</span>
+                <span class="apoth-card-brand">Sanctuary Botanicals</span>
+              </div>
+
+              <h3 class="apoth-card-title">
+                Calming Herbal Face Oil
+              </h3>
+
+              <div class="apoth-card-rating">
+                <span class="stars-gold"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>
+                <span class="rating-val">5.0</span>
+                <span class="reviews-count">(136)</span>
+              </div>
+
+              <p class="apoth-card-desc">Cold-pressed golden jojoba and blue tansy lipid serum designed to restore c...</p>
+
+              <div class="apoth-card-pricing">
+                <span class="apoth-price-current">₹529</span>
+                <span class="apoth-price-orig">₹729</span>
+                <span class="apoth-save-pill">Save ₹200</span>
+              </div>
+
+              <div class="apoth-card-footer">
+                <span class="apoth-stock-indicator in-stock">
+                  <span class="stock-dot"></span>
+                  <span>15 in stock</span>
+                </span>
+
+                <button type="button" class="btn-shop-add-cart" data-id="apoth-04" data-name="Calming Herbal Face Oil" data-price="529" data-image="assets/fav-face-oil.webp">
+                  <i class="fa-solid fa-cart-plus"></i> ADD
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="apoth-shop-card" data-aos="fade-up" data-aos-delay="250" data-id="apoth-05">
+            <div class="apoth-card-media">
+              <img src="assets/amazonian-rain-revive.webp" alt="Amazonian Rain Revive" class="apoth-card-img" loading="lazy">
+              
+              <div class="apoth-card-badges">
+                <span class="apoth-badge apoth-badge-gold">RARE FIND</span>
+                <span class="apoth-badge apoth-badge-discount">-25%</span>
+              </div>
+
+              <button type="button" class="apoth-wishlist-btn" data-id="apoth-05" title="Add to Wishlist" aria-label="Add Amazonian Rain Revive to Wishlist">
+                <i class="fa-regular fa-heart"></i>
+              </button>
+            </div>
+
+            <div class="apoth-card-body">
+              <div class="apoth-card-meta">
+                <span class="apoth-card-category">Exotic Formulations</span>
+                <span class="apoth-card-brand">Aura BioCare</span>
+              </div>
+
+              <h3 class="apoth-card-title">
+                Amazonian Rain Revive
+              </h3>
+
+              <div class="apoth-card-rating">
+                <span class="stars-gold"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></span>
+                <span class="rating-val">4.9</span>
+                <span class="reviews-count">(68)</span>
+              </div>
+
+              <p class="apoth-card-desc">Rare biodynamic Amazonian botanical concentrate featuring wildcrafted Camu...</p>
+
+              <div class="apoth-card-pricing">
+                <span class="apoth-price-current">₹899</span>
+                <span class="apoth-price-orig">₹1,199</span>
+                <span class="apoth-save-pill">Save ₹300</span>
+              </div>
+
+              <div class="apoth-card-footer">
+                <span class="apoth-stock-indicator in-stock">
+                  <span class="stock-dot"></span>
+                  <span>12 in stock</span>
+                </span>
+
+                <button type="button" class="btn-shop-add-cart" data-id="apoth-05" data-name="Amazonian Rain Revive" data-price="899" data-image="assets/amazonian-rain-revive.webp">
+                  <i class="fa-solid fa-cart-plus"></i> ADD
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="apoth-shop-card" data-aos="fade-up" data-aos-delay="300" data-id="apoth-06">
+            <div class="apoth-card-media">
+              <img src="assets/himalayan-peak-vitality.webp" alt="Himalayan Peak Vitality" class="apoth-card-img" loading="lazy">
+              
+              <div class="apoth-card-badges">
+                <span class="apoth-badge apoth-badge-gold">HIGH ALTITUDE</span>
+                <span class="apoth-badge apoth-badge-discount">-25%</span>
+              </div>
+
+              <button type="button" class="apoth-wishlist-btn" data-id="apoth-06" title="Add to Wishlist" aria-label="Add Himalayan Peak Vitality to Wishlist">
+                <i class="fa-regular fa-heart"></i>
+              </button>
+            </div>
+
+            <div class="apoth-card-body">
+              <div class="apoth-card-meta">
+                <span class="apoth-card-category">Exotic Formulations</span>
+                <span class="apoth-card-brand">Himalayan Herbal</span>
+              </div>
+
+              <h3 class="apoth-card-title">
+                Himalayan Peak Vitality
+              </h3>
+
+              <div class="apoth-card-rating">
+                <span class="stars-gold"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>
+                <span class="rating-val">5.0</span>
+                <span class="reviews-count">(154)</span>
+              </div>
+
+              <p class="apoth-card-desc">Gold-grade purified Himalayan Shilajit resin enriched with wild cordyceps a...</p>
+
+              <div class="apoth-card-pricing">
+                <span class="apoth-price-current">₹1,199</span>
+                <span class="apoth-price-orig">₹1,599</span>
+                <span class="apoth-save-pill">Save ₹400</span>
+              </div>
+
+              <div class="apoth-card-footer">
+                <span class="apoth-stock-indicator low-stock">
+                  <span class="stock-dot"></span>
+                  <span>8 in stock</span>
+                </span>
+
+                <button type="button" class="btn-shop-add-cart" data-id="apoth-06" data-name="Himalayan Peak Vitality" data-price="1199" data-image="assets/himalayan-peak-vitality.webp">
+                  <i class="fa-solid fa-cart-plus"></i> ADD
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="apoth-shop-card" data-aos="fade-up" data-aos-delay="50" data-id="apoth-07">
+            <div class="apoth-card-media">
+              <img src="assets/exotic-adaptogen.webp" alt="Golden Ashwagandha Adaptogen Tonic" class="apoth-card-img" loading="lazy">
+              
+              <div class="apoth-card-badges">
+                <span class="apoth-badge apoth-badge-gold">ADAPTOGEN</span>
+                <span class="apoth-badge apoth-badge-discount">-24%</span>
+              </div>
+
+              <button type="button" class="apoth-wishlist-btn" data-id="apoth-07" title="Add to Wishlist" aria-label="Add Golden Ashwagandha Adaptogen Tonic to Wishlist">
+                <i class="fa-regular fa-heart"></i>
+              </button>
+            </div>
+
+            <div class="apoth-card-body">
+              <div class="apoth-card-meta">
+                <span class="apoth-card-category">Herbal Tinctures</span>
+                <span class="apoth-card-brand">Apothecary Sanctuary</span>
+              </div>
+
+              <h3 class="apoth-card-title">
+                Golden Ashwagandha Adaptogen Tonic
+              </h3>
+
+              <div class="apoth-card-rating">
+                <span class="stars-gold"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></span>
+                <span class="rating-val">4.9</span>
+                <span class="reviews-count">(77)</span>
+              </div>
+
+              <p class="apoth-card-desc">Full-spectrum KSM-66 organic Ashwagandha root dual-extracted with holy basi...</p>
+
+              <div class="apoth-card-pricing">
+                <span class="apoth-price-current">₹679</span>
+                <span class="apoth-price-orig">₹899</span>
+                <span class="apoth-save-pill">Save ₹220</span>
+              </div>
+
+              <div class="apoth-card-footer">
+                <span class="apoth-stock-indicator in-stock">
+                  <span class="stock-dot"></span>
+                  <span>22 in stock</span>
+                </span>
+
+                <button type="button" class="btn-shop-add-cart" data-id="apoth-07" data-name="Golden Ashwagandha Adaptogen Tonic" data-price="679" data-image="assets/exotic-adaptogen.webp">
+                  <i class="fa-solid fa-cart-plus"></i> ADD
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="apoth-shop-card" data-aos="fade-up" data-aos-delay="100" data-id="apoth-08">
+            <div class="apoth-card-media">
+              <img src="assets/exotic-hair-serum.webp" alt="Botanical Scalp & Hair Nectar" class="apoth-card-img" loading="lazy">
+              
+              <div class="apoth-card-badges">
+                <span class="apoth-badge apoth-badge-gold">ORGANIC</span>
+                <span class="apoth-badge apoth-badge-discount">-27%</span>
+              </div>
+
+              <button type="button" class="apoth-wishlist-btn" data-id="apoth-08" title="Add to Wishlist" aria-label="Add Botanical Scalp & Hair Nectar to Wishlist">
+                <i class="fa-regular fa-heart"></i>
+              </button>
+            </div>
+
+            <div class="apoth-card-body">
+              <div class="apoth-card-meta">
+                <span class="apoth-card-category">Botanical Skincare</span>
+                <span class="apoth-card-brand">Sanctuary Botanicals</span>
+              </div>
+
+              <h3 class="apoth-card-title">
+                Botanical Scalp & Hair Nectar
+              </h3>
+
+              <div class="apoth-card-rating">
+                <span class="stars-gold"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></span>
+                <span class="rating-val">4.8</span>
+                <span class="reviews-count">(63)</span>
+              </div>
+
+              <p class="apoth-card-desc">Potent botanical infusion of rosemary essential oil, bhringraj herb, and co...</p>
+
+              <div class="apoth-card-pricing">
+                <span class="apoth-price-current">₹549</span>
+                <span class="apoth-price-orig">₹749</span>
+                <span class="apoth-save-pill">Save ₹200</span>
+              </div>
+
+              <div class="apoth-card-footer">
+                <span class="apoth-stock-indicator in-stock">
+                  <span class="stock-dot"></span>
+                  <span>17 in stock</span>
+                </span>
+
+                <button type="button" class="btn-shop-add-cart" data-id="apoth-08" data-name="Botanical Scalp & Hair Nectar" data-price="549" data-image="assets/exotic-hair-serum.webp">
+                  <i class="fa-solid fa-cart-plus"></i> ADD
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="apoth-shop-card" data-aos="fade-up" data-aos-delay="150" data-id="apoth-09">
+            <div class="apoth-card-media">
+              <img src="assets/product-herbal-jars.webp" alt="Organic Dried Herbal Infusion Jars" class="apoth-card-img" loading="lazy">
+              
+              <div class="apoth-card-badges">
+                <span class="apoth-badge apoth-badge-gold">HAND HARVESTED</span>
+                <span class="apoth-badge apoth-badge-discount">-28%</span>
+              </div>
+
+              <button type="button" class="apoth-wishlist-btn" data-id="apoth-09" title="Add to Wishlist" aria-label="Add Organic Dried Herbal Infusion Jars to Wishlist">
+                <i class="fa-regular fa-heart"></i>
+              </button>
+            </div>
+
+            <div class="apoth-card-body">
+              <div class="apoth-card-meta">
+                <span class="apoth-card-category">Organic Teas</span>
+                <span class="apoth-card-brand">Apothecary Sanctuary</span>
+              </div>
+
+              <h3 class="apoth-card-title">
+                Organic Dried Herbal Infusion Jars
+              </h3>
+
+              <div class="apoth-card-rating">
+                <span class="stars-gold"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></span>
+                <span class="rating-val">4.9</span>
+                <span class="reviews-count">(52)</span>
+              </div>
+
+              <p class="apoth-card-desc">Curated apothecary jar of hand-dried whole chamomile heads, organic rosehip...</p>
+
+              <div class="apoth-card-pricing">
+                <span class="apoth-price-current">₹429</span>
+                <span class="apoth-price-orig">₹599</span>
+                <span class="apoth-save-pill">Save ₹170</span>
+              </div>
+
+              <div class="apoth-card-footer">
+                <span class="apoth-stock-indicator in-stock">
+                  <span class="stock-dot"></span>
+                  <span>26 in stock</span>
+                </span>
+
+                <button type="button" class="btn-shop-add-cart" data-id="apoth-09" data-name="Organic Dried Herbal Infusion Jars" data-price="429" data-image="assets/product-herbal-jars.webp">
+                  <i class="fa-solid fa-cart-plus"></i> ADD
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="apoth-shop-card" data-aos="fade-up" data-aos-delay="200" data-id="apoth-10">
+            <div class="apoth-card-media">
+              <img src="assets/product-amber-extract.webp" alt="Apothecary Amber Flask Extract" class="apoth-card-img" loading="lazy">
+              
+              <div class="apoth-card-badges">
+                <span class="apoth-badge apoth-badge-gold">ARTISAN BATCH</span>
+                <span class="apoth-badge apoth-badge-discount">-26%</span>
+              </div>
+
+              <button type="button" class="apoth-wishlist-btn" data-id="apoth-10" title="Add to Wishlist" aria-label="Add Apothecary Amber Flask Extract to Wishlist">
+                <i class="fa-regular fa-heart"></i>
+              </button>
+            </div>
+
+            <div class="apoth-card-body">
+              <div class="apoth-card-meta">
+                <span class="apoth-card-category">Elixirs & Tonics</span>
+                <span class="apoth-card-brand">Apothecary Sanctuary</span>
+              </div>
+
+              <h3 class="apoth-card-title">
+                Apothecary Amber Flask Extract
+              </h3>
+
+              <div class="apoth-card-rating">
+                <span class="stars-gold"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>
+                <span class="rating-val">5.0</span>
+                <span class="reviews-count">(41)</span>
+              </div>
+
+              <p class="apoth-card-desc">Limited-edition artisan apothecary compounding featuring wild forest chaga,...</p>
+
+              <div class="apoth-card-pricing">
+                <span class="apoth-price-current">₹849</span>
+                <span class="apoth-price-orig">₹1,150</span>
+                <span class="apoth-save-pill">Save ₹301</span>
+              </div>
+
+              <div class="apoth-card-footer">
+                <span class="apoth-stock-indicator in-stock">
+                  <span class="stock-dot"></span>
+                  <span>14 in stock</span>
+                </span>
+
+                <button type="button" class="btn-shop-add-cart" data-id="apoth-10" data-name="Apothecary Amber Flask Extract" data-price="849" data-image="assets/product-amber-extract.webp">
+                  <i class="fa-solid fa-cart-plus"></i> ADD
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="apoth-shop-card" data-aos="fade-up" data-aos-delay="250" data-id="apoth-11">
+            <div class="apoth-card-media">
+              <img src="assets/product-lymphatic-drops.webp" alt="Lymphatic Linen Restorative Drops" class="apoth-card-img" loading="lazy">
+              
+              <div class="apoth-card-badges">
+                <span class="apoth-badge apoth-badge-gold">BESTSELLER</span>
+                <span class="apoth-badge apoth-badge-discount">-25%</span>
+              </div>
+
+              <button type="button" class="apoth-wishlist-btn" data-id="apoth-11" title="Add to Wishlist" aria-label="Add Lymphatic Linen Restorative Drops to Wishlist">
+                <i class="fa-regular fa-heart"></i>
+              </button>
+            </div>
+
+            <div class="apoth-card-body">
+              <div class="apoth-card-meta">
+                <span class="apoth-card-category">Botanical Skincare</span>
+                <span class="apoth-card-brand">Sanctuary Botanicals</span>
+              </div>
+
+              <h3 class="apoth-card-title">
+                Lymphatic Linen Restorative Drops
+              </h3>
+
+              <div class="apoth-card-rating">
+                <span class="stars-gold"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></span>
+                <span class="rating-val">4.9</span>
+                <span class="reviews-count">(88)</span>
+              </div>
+
+              <p class="apoth-card-desc">Therapeutic botanical oil blend for facial massage and gua sha, combining c...</p>
+
+              <div class="apoth-card-pricing">
+                <span class="apoth-price-current">₹599</span>
+                <span class="apoth-price-orig">₹799</span>
+                <span class="apoth-save-pill">Save ₹200</span>
+              </div>
+
+              <div class="apoth-card-footer">
+                <span class="apoth-stock-indicator in-stock">
+                  <span class="stock-dot"></span>
+                  <span>20 in stock</span>
+                </span>
+
+                <button type="button" class="btn-shop-add-cart" data-id="apoth-11" data-name="Lymphatic Linen Restorative Drops" data-price="599" data-image="assets/product-lymphatic-drops.webp">
+                  <i class="fa-solid fa-cart-plus"></i> ADD
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="apoth-shop-card" data-aos="fade-up" data-aos-delay="300" data-id="apoth-12">
+            <div class="apoth-card-media">
+              <img src="assets/product-ceremonial-tea.webp" alt="Ceremonial Chamomile Calm Tea" class="apoth-card-img" loading="lazy">
+              
+              <div class="apoth-card-badges">
+                <span class="apoth-badge apoth-badge-gold">HERBAL CLASSIC</span>
+                <span class="apoth-badge apoth-badge-discount">-25%</span>
+              </div>
+
+              <button type="button" class="apoth-wishlist-btn" data-id="apoth-12" title="Add to Wishlist" aria-label="Add Ceremonial Chamomile Calm Tea to Wishlist">
+                <i class="fa-regular fa-heart"></i>
+              </button>
+            </div>
+
+            <div class="apoth-card-body">
+              <div class="apoth-card-meta">
+                <span class="apoth-card-category">Organic Teas</span>
+                <span class="apoth-card-brand">Apothecary Sanctuary</span>
+              </div>
+
+              <h3 class="apoth-card-title">
+                Ceremonial Chamomile Calm Tea
+              </h3>
+
+              <div class="apoth-card-rating">
+                <span class="stars-gold"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></span>
+                <span class="rating-val">4.8</span>
+                <span class="reviews-count">(73)</span>
+              </div>
+
+              <p class="apoth-card-desc">Premium single-origin Egyptian chamomile flowers offering sweet apple-like...</p>
+
+              <div class="apoth-card-pricing">
+                <span class="apoth-price-current">₹389</span>
+                <span class="apoth-price-orig">₹520</span>
+                <span class="apoth-save-pill">Save ₹131</span>
+              </div>
+
+              <div class="apoth-card-footer">
+                <span class="apoth-stock-indicator in-stock">
+                  <span class="stock-dot"></span>
+                  <span>30 in stock</span>
+                </span>
+
+                <button type="button" class="btn-shop-add-cart" data-id="apoth-12" data-name="Ceremonial Chamomile Calm Tea" data-price="389" data-image="assets/product-ceremonial-tea.webp">
+                  <i class="fa-solid fa-cart-plus"></i> ADD
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="apoth-shop-card" data-aos="fade-up" data-aos-delay="50" data-id="apoth-13">
+            <div class="apoth-card-media">
+              <img src="assets/product-vitamin-c.webp" alt="Vitamin C 500mg Zinc Complex" class="apoth-card-img" loading="lazy">
+              
+              <div class="apoth-card-badges">
+                <span class="apoth-badge apoth-badge-gold">HIGH POTENCY</span>
+                <span class="apoth-badge apoth-badge-discount">-29%</span>
+              </div>
+
+              <button type="button" class="apoth-wishlist-btn" data-id="apoth-13" title="Add to Wishlist" aria-label="Add Vitamin C 500mg Zinc Complex to Wishlist">
+                <i class="fa-regular fa-heart"></i>
+              </button>
+            </div>
+
+            <div class="apoth-card-body">
+              <div class="apoth-card-meta">
+                <span class="apoth-card-category">Vitamins & Minerals</span>
+                <span class="apoth-card-brand">Aura BioCare</span>
+              </div>
+
+              <h3 class="apoth-card-title">
+                Vitamin C 500mg Zinc Complex
+              </h3>
+
+              <div class="apoth-card-rating">
+                <span class="stars-gold"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></span>
+                <span class="rating-val">4.9</span>
+                <span class="reviews-count">(145)</span>
+              </div>
+
+              <p class="apoth-card-desc">Clinically buffered non-acidic Vitamin C combined with highly bioavailable...</p>
+
+              <div class="apoth-card-pricing">
+                <span class="apoth-price-current">₹499</span>
+                <span class="apoth-price-orig">₹699</span>
+                <span class="apoth-save-pill">Save ₹200</span>
+              </div>
+
+              <div class="apoth-card-footer">
+                <span class="apoth-stock-indicator in-stock">
+                  <span class="stock-dot"></span>
+                  <span>28 in stock</span>
+                </span>
+
+                <button type="button" class="btn-shop-add-cart" data-id="apoth-13" data-name="Vitamin C 500mg Zinc Complex" data-price="499" data-image="assets/product-vitamin-c.webp">
+                  <i class="fa-solid fa-cart-plus"></i> ADD
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="apoth-shop-card" data-aos="fade-up" data-aos-delay="100" data-id="apoth-14">
+            <div class="apoth-card-media">
+              <img src="assets/product-omega3.webp" alt="Omega-3 Wild Deep-Sea Oil 1000mg" class="apoth-card-img" loading="lazy">
+              
+              <div class="apoth-card-badges">
+                <span class="apoth-badge apoth-badge-gold">PURIFIED</span>
+                <span class="apoth-badge apoth-badge-discount">-25%</span>
+              </div>
+
+              <button type="button" class="apoth-wishlist-btn" data-id="apoth-14" title="Add to Wishlist" aria-label="Add Omega-3 Wild Deep-Sea Oil 1000mg to Wishlist">
+                <i class="fa-regular fa-heart"></i>
+              </button>
+            </div>
+
+            <div class="apoth-card-body">
+              <div class="apoth-card-meta">
+                <span class="apoth-card-category">Vitamins & Minerals</span>
+                <span class="apoth-card-brand">Nordic Purity</span>
+              </div>
+
+              <h3 class="apoth-card-title">
+                Omega-3 Wild Deep-Sea Oil 1000mg
+              </h3>
+
+              <div class="apoth-card-rating">
+                <span class="stars-gold"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>
+                <span class="rating-val">5.0</span>
+                <span class="reviews-count">(162)</span>
+              </div>
+
+              <p class="apoth-card-desc">Triple-molecular distilled deep-sea fish oil delivering 600mg EPA and 400mg...</p>
+
+              <div class="apoth-card-pricing">
+                <span class="apoth-price-current">₹899</span>
+                <span class="apoth-price-orig">₹1,199</span>
+                <span class="apoth-save-pill">Save ₹300</span>
+              </div>
+
+              <div class="apoth-card-footer">
+                <span class="apoth-stock-indicator in-stock">
+                  <span class="stock-dot"></span>
+                  <span>16 in stock</span>
+                </span>
+
+                <button type="button" class="btn-shop-add-cart" data-id="apoth-14" data-name="Omega-3 Wild Deep-Sea Oil 1000mg" data-price="899" data-image="assets/product-omega3.webp">
+                  <i class="fa-solid fa-cart-plus"></i> ADD
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="apoth-shop-card" data-aos="fade-up" data-aos-delay="150" data-id="apoth-15">
+            <div class="apoth-card-media">
+              <img src="assets/product-multivitamin.webp" alt="Multivitamin Botanical Synergy" class="apoth-card-img" loading="lazy">
+              
+              <div class="apoth-card-badges">
+                <span class="apoth-badge apoth-badge-gold">DAILY ESSENTIAL</span>
+                <span class="apoth-badge apoth-badge-discount">-28%</span>
+              </div>
+
+              <button type="button" class="apoth-wishlist-btn" data-id="apoth-15" title="Add to Wishlist" aria-label="Add Multivitamin Botanical Synergy to Wishlist">
+                <i class="fa-regular fa-heart"></i>
+              </button>
+            </div>
+
+            <div class="apoth-card-body">
+              <div class="apoth-card-meta">
+                <span class="apoth-card-category">Vitamins & Minerals</span>
+                <span class="apoth-card-brand">Aura BioCare</span>
+              </div>
+
+              <h3 class="apoth-card-title">
+                Multivitamin Botanical Synergy
+              </h3>
+
+              <div class="apoth-card-rating">
+                <span class="stars-gold"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></span>
+                <span class="rating-val">4.8</span>
+                <span class="reviews-count">(98)</span>
+              </div>
+
+              <p class="apoth-card-desc">Complete daily whole-food fermented multivitamin containing 24 essential vi...</p>
+
+              <div class="apoth-card-pricing">
+                <span class="apoth-price-current">₹649</span>
+                <span class="apoth-price-orig">₹899</span>
+                <span class="apoth-save-pill">Save ₹250</span>
+              </div>
+
+              <div class="apoth-card-footer">
+                <span class="apoth-stock-indicator in-stock">
+                  <span class="stock-dot"></span>
+                  <span>25 in stock</span>
+                </span>
+
+                <button type="button" class="btn-shop-add-cart" data-id="apoth-15" data-name="Multivitamin Botanical Synergy" data-price="649" data-image="assets/product-multivitamin.webp">
+                  <i class="fa-solid fa-cart-plus"></i> ADD
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="apoth-shop-card" data-aos="fade-up" data-aos-delay="200" data-id="apoth-16">
+            <div class="apoth-card-media">
+              <img src="assets/product-forest-balm.webp" alt="Bio-Active Forest Herbal Balm" class="apoth-card-img" loading="lazy">
+              
+              <div class="apoth-card-badges">
+                <span class="apoth-badge apoth-badge-gold">ORGANIC SALVE</span>
+                <span class="apoth-badge apoth-badge-discount">-24%</span>
+              </div>
+
+              <button type="button" class="apoth-wishlist-btn" data-id="apoth-16" title="Add to Wishlist" aria-label="Add Bio-Active Forest Herbal Balm to Wishlist">
+                <i class="fa-regular fa-heart"></i>
+              </button>
+            </div>
+
+            <div class="apoth-card-body">
+              <div class="apoth-card-meta">
+                <span class="apoth-card-category">Herbal Tinctures</span>
+                <span class="apoth-card-brand">Apothecary Sanctuary</span>
+              </div>
+
+              <h3 class="apoth-card-title">
+                Bio-Active Forest Herbal Balm
+              </h3>
+
+              <div class="apoth-card-rating">
+                <span class="stars-gold"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></span>
+                <span class="rating-val">4.9</span>
+                <span class="reviews-count">(65)</span>
+              </div>
+
+              <p class="apoth-card-desc">Warming handcrafted herbal salve infused with arnica montana, wild wintergr...</p>
+
+              <div class="apoth-card-pricing">
+                <span class="apoth-price-current">₹379</span>
+                <span class="apoth-price-orig">₹499</span>
+                <span class="apoth-save-pill">Save ₹120</span>
+              </div>
+
+              <div class="apoth-card-footer">
+                <span class="apoth-stock-indicator in-stock">
+                  <span class="stock-dot"></span>
+                  <span>22 in stock</span>
+                </span>
+
+                <button type="button" class="btn-shop-add-cart" data-id="apoth-16" data-name="Bio-Active Forest Herbal Balm" data-price="379" data-image="assets/product-forest-balm.webp">
+                  <i class="fa-solid fa-cart-plus"></i> ADD
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="apoth-shop-card" data-aos="fade-up" data-aos-delay="250" data-id="apoth-17">
+            <div class="apoth-card-media">
+              <img src="assets/product-thermometer.webp" alt="Clinical Infrared Sanctuary Thermometer" class="apoth-card-img" loading="lazy">
+              
+              <div class="apoth-card-badges">
+                <span class="apoth-badge apoth-badge-gold">CLINICAL GRADE</span>
+                <span class="apoth-badge apoth-badge-discount">-24%</span>
+              </div>
+
+              <button type="button" class="apoth-wishlist-btn" data-id="apoth-17" title="Add to Wishlist" aria-label="Add Clinical Infrared Sanctuary Thermometer to Wishlist">
+                <i class="fa-regular fa-heart"></i>
+              </button>
+            </div>
+
+            <div class="apoth-card-body">
+              <div class="apoth-card-meta">
+                <span class="apoth-card-category">Medical Equipment</span>
+                <span class="apoth-card-brand">Apothecary Clinical</span>
+              </div>
+
+              <h3 class="apoth-card-title">
+                Clinical Infrared Sanctuary Thermometer
+              </h3>
+
+              <div class="apoth-card-rating">
+                <span class="stars-gold"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></span>
+                <span class="rating-val">4.9</span>
+                <span class="reviews-count">(44)</span>
+              </div>
+
+              <p class="apoth-card-desc">Non-contact medical-grade infrared clinical forehead thermometer providing...</p>
+
+              <div class="apoth-card-pricing">
+                <span class="apoth-price-current">₹1,899</span>
+                <span class="apoth-price-orig">₹2,499</span>
+                <span class="apoth-save-pill">Save ₹600</span>
+              </div>
+
+              <div class="apoth-card-footer">
+                <span class="apoth-stock-indicator in-stock">
+                  <span class="stock-dot"></span>
+                  <span>11 in stock</span>
+                </span>
+
+                <button type="button" class="btn-shop-add-cart" data-id="apoth-17" data-name="Clinical Infrared Sanctuary Thermometer" data-price="1899" data-image="assets/product-thermometer.webp">
+                  <i class="fa-solid fa-cart-plus"></i> ADD
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="apoth-shop-card" data-aos="fade-up" data-aos-delay="300" data-id="apoth-18">
+            <div class="apoth-card-media">
+              <img src="assets/product-oximeter.webp" alt="Precision Pulse Oximeter & SpO2 Monitor" class="apoth-card-img" loading="lazy">
+              
+              <div class="apoth-card-badges">
+                <span class="apoth-badge apoth-badge-gold">BESTSELLER</span>
+                <span class="apoth-badge apoth-badge-discount">-33%</span>
+              </div>
+
+              <button type="button" class="apoth-wishlist-btn" data-id="apoth-18" title="Add to Wishlist" aria-label="Add Precision Pulse Oximeter & SpO2 Monitor to Wishlist">
+                <i class="fa-regular fa-heart"></i>
+              </button>
+            </div>
+
+            <div class="apoth-card-body">
+              <div class="apoth-card-meta">
+                <span class="apoth-card-category">Medical Equipment</span>
+                <span class="apoth-card-brand">Apothecary Clinical</span>
+              </div>
+
+              <h3 class="apoth-card-title">
+                Precision Pulse Oximeter & SpO2 Monitor
+              </h3>
+
+              <div class="apoth-card-rating">
+                <span class="stars-gold"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>
+                <span class="rating-val">5.0</span>
+                <span class="reviews-count">(89)</span>
+              </div>
+
+              <p class="apoth-card-desc">Hospital-accurate fingertip pulse oximeter with multi-directional dual-colo...</p>
+
+              <div class="apoth-card-pricing">
+                <span class="apoth-price-current">₹999</span>
+                <span class="apoth-price-orig">₹1,499</span>
+                <span class="apoth-save-pill">Save ₹500</span>
+              </div>
+
+              <div class="apoth-card-footer">
+                <span class="apoth-stock-indicator in-stock">
+                  <span class="stock-dot"></span>
+                  <span>14 in stock</span>
+                </span>
+
+                <button type="button" class="btn-shop-add-cart" data-id="apoth-18" data-name="Precision Pulse Oximeter & SpO2 Monitor" data-price="999" data-image="assets/product-oximeter.webp">
+                  <i class="fa-solid fa-cart-plus"></i> ADD
+                </button>
+              </div>
+            </div>
+          </article>
+          </div>
+
+        </main>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mid-Page Editorial Spotlight Banner -->
+  <section class="shop-spotlight-section">
+    <div class="container">
+      <div class="shop-spotlight-card" data-aos="fade-up">
+        <div class="spotlight-content">
+          <span class="spotlight-badge">Master Herbal Compounding</span>
+          <h2 class="spotlight-title">Bespoke Apothecary Formulations Crafted by Season</h2>
+          <p class="spotlight-desc">
+            Unlike mass-produced pharmaceuticals, each of our herbal remedies begins in pristine soil, undergoes dual-temperature solvent extraction, and matures in light-blocking dark amber glass to preserve delicate volatile terpenes and active flavonoids.
+          </p>
+          <div class="spotlight-features-row">
+            <div class="spotlight-feat-item">
+              <i class="fa-solid fa-check"></i>
+              <span>Amber UV-Proof Glass</span>
+            </div>
+            <div class="spotlight-feat-item">
+              <i class="fa-solid fa-check"></i>
+              <span>Dual-Phased Extraction</span>
+            </div>
+            <div class="spotlight-feat-item">
+              <i class="fa-solid fa-check"></i>
+              <span>Batch Verified COA</span>
+            </div>
+          </div>
+          <!-- <a href="Contact.html" class="btn btn-gold btn-pill">Consult a Pharmacist</a> -->
+        </div>
+        <div class="spotlight-img-wrap">
+          <img src="assets/shop-spotlight-apothecary.webp" alt="Artisan Apothecary Bottles" class="spotlight-img" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust & Guarantees Strip -->
+  <section class="shop-trust-section">
+    <div class="container">
+      <div class="trust-section-grid">
+        <div class="trust-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="trust-card-icon">
+            <i class="fa-solid fa-certificate"></i>
+          </div>
+          <h4 class="trust-card-title">Potency Guaranteed</h4>
+          <p class="trust-card-desc">Every batch is verified for bioactive purity and active herbal phytochemical levels.</p>
+        </div>
+        <div class="trust-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="trust-card-icon">
+            <i class="fa-solid fa-earth-americas"></i>
+          </div>
+          <h4 class="trust-card-title">Sustainably Wildcrafted</h4>
+          <p class="trust-card-desc">Harvested in harmony with biodynamic moon cycles from certified ethical growers.</p>
+        </div>
+        <div class="trust-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="trust-card-icon">
+            <i class="fa-solid fa-recycle"></i>
+          </div>
+          <h4 class="trust-card-title">Zero Plastic Bottles</h4>
+          <p class="trust-card-desc">Packaged exclusively in 100% recyclable, medical-grade pharmaceutical amber glass.</p>
+        </div>
+        <div class="trust-card" data-aos="fade-up" data-aos-delay="400">
+          <div class="trust-card-icon">
+            <i class="fa-solid fa-truck-fast"></i>
+          </div>
+          <h4 class="trust-card-title">Express Dispatch</h4>
+          <p class="trust-card-desc">Same-day preparation with temperature-controlled courier delivery across India.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Mobile Filters Backdrop Overlay -->
+  <div class="mobile-filters-overlay" id="mobile-filters-overlay"></div>
+
+  <!-- FOOTER (Exact Match: Dark Teal with 4 Columns) -->
+  <footer class="main-footer">
+    <div class="container">
+      <div class="footer-columns-grid">
+        <!-- Col 1: Brand & Bio -->
+        <div>
+          <a href="index.html" class="brand-logo-link footer-brand-logo" aria-label="Stackly Home">
+            <img src="assets/white.webp" alt="Stackly Pharmacy Logo" class="brand-logo-img">
+          </a>
+          <p class="footer-bio-text">
+            Bridging time-honored herbal traditions with modern clinical precision for your holistic healing journey.
+          </p>
+          <div class="footer-social-links">
+            <a href="404.html" class="footer-social-icon"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="404.html" class="footer-social-icon"><i class="fa-brands fa-instagram"></i></a>
+            <a href="404.html" class="footer-social-icon"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="404.html" class="footer-social-icon"><i class="fa-brands fa-linkedin-in"></i></a>
+          </div>
+        </div>
+
+        <!-- Col 2: Quick Links -->
+        <div>
+          <h4 class="footer-col-heading">Quick Links</h4>
+          <ul class="footer-nav-list">
+            <li class="footer-nav-item"><a href="index.html">Home</a></li>
+            <li class="footer-nav-item"><a href="About.html">About</a></li>
+            <li class="footer-nav-item"><a href="Shop.html">Shop</a></li>
+            <li class="footer-nav-item"><a href="Services.html">Services</a></li>
+            <li class="footer-nav-item"><a href="Blog.html">Blog</a></li>
+            <li class="footer-nav-item"><a href="Contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Specialties -->
+        <div>
+          <h4 class="footer-col-heading">Specialties</h4>
+          <ul class="footer-nav-list">
+            <li class="footer-nav-item"><a href="404.html">Prescription Dispensing</a></li>
+            <li class="footer-nav-item"><a href="404.html">Herbal Compounding</a></li>
+            <li class="footer-nav-item"><a href="404.html">Diagnostic Testing</a></li>
+            <li class="footer-nav-item"><a href="404.html">Chronic Care Pathways</a></li>
+            <li class="footer-nav-item"><a href="404.html">Cold-Chain Delivery</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Visit Us -->
+        <div>
+          <h4 class="footer-col-heading">Visit Us</h4>
+          <div class="footer-contact-items">
+            <div class="footer-contact-item">
+              <i class="fa-solid fa-location-dot"></i>
+              <span>MMR Complex, Chinna Thirupathi, near Chinna Muniyappan Kovil, Salem, Tamil Nadu 636008</span>
+            </div>
+            <div class="footer-contact-item">
+              <i class="fa-solid fa-phone"></i>
+              <span>+91 9876543210</span>
+            </div>
+            <div class="footer-contact-item">
+              <i class="fa-solid fa-envelope"></i>
+              <span>info@stackly.com</span>
+            </div>
+            <div class="footer-contact-item">
+              <i class="fa-solid fa-clock"></i>
+              <span>Mon - Sat: 8:00 AM - 8:00 PM</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        © 2026 Apothecary & Natural Healing. All rights reserved. Licensed Healthcare Dispenser.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="js/inventory.js"></script>
+  <script src="js/notifications.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/shop.js"></script>
+</body>
+</html>
