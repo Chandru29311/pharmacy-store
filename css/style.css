@@ -8559,3 +8559,280 @@ button {
     display: none;
   }
 }
+
+/* ==========================================================================
+   APOTHECARY SANCTUARY PRELOADER (3-Second Precision Experience)
+   ========================================================================== */
+.apothecary-preloader {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 999999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #071920;
+  overflow: hidden;
+  user-select: none;
+}
+
+.preloader-backdrop {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 40%, #174554 0%, #0E2E39 52%, #071920 100%);
+  z-index: 1;
+}
+
+.preloader-ambient-glow {
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.22) 0%, rgba(32, 132, 163, 0.05) 60%, transparent 100%);
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  filter: blur(60px);
+  animation: preloaderPulseGlow 4s ease-in-out infinite alternate;
+}
+
+.preloader-ambient-glow-2 {
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(122, 214, 239, 0.16) 0%, transparent 70%);
+  bottom: 20%;
+  right: 25%;
+  filter: blur(50px);
+  animation: preloaderPulseGlow 3s ease-in-out 1s infinite alternate;
+}
+
+@keyframes preloaderPulseGlow {
+  0% { transform: translate(-50%, -50%) scale(0.9); opacity: 0.6; }
+  100% { transform: translate(-50%, -50%) scale(1.15); opacity: 1; }
+}
+
+.preloader-card {
+  position: relative;
+  z-index: 2;
+  width: 90%;
+  max-width: 450px;
+  background: rgba(14, 46, 57, 0.72);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(122, 214, 239, 0.24);
+  border-radius: 28px;
+  padding: 3rem 2.5rem 2.4rem;
+  box-shadow: 0 30px 80px rgba(4, 15, 20, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.preloader-emblem-wrap {
+  position: relative;
+  width: 104px;
+  height: 104px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.75rem;
+}
+
+.preloader-orbit-ring {
+  position: absolute;
+  border-radius: 50%;
+}
+
+.preloader-orbit-ring.ring-outer {
+  inset: -6px;
+  border: 2px dashed rgba(122, 214, 239, 0.38);
+  animation: preloaderSpin 8s linear infinite;
+}
+
+.preloader-orbit-ring.ring-inner {
+  inset: 4px;
+  border: 2px solid transparent;
+  border-top-color: #38BDF8;
+  border-right-color: #7AD6EF;
+  animation: preloaderSpinReverse 3.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@keyframes preloaderSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes preloaderSpinReverse {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+.preloader-emblem-core {
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #1A4D5E 0%, #0E333F 100%);
+  border: 1px solid rgba(122, 214, 239, 0.4);
+  box-shadow: 0 0 25px rgba(56, 189, 248, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.preloader-logo-img {
+  width: 48px;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
+}
+
+.preloader-leaf-pulse {
+  position: absolute;
+  bottom: -4px;
+  right: -4px;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #38BDF8;
+  color: #071920;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.72rem;
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.6);
+  animation: preloaderLeafPop 2s ease-in-out infinite;
+}
+
+@keyframes preloaderLeafPop {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.18); }
+}
+
+.preloader-text-group {
+  margin-bottom: 2rem;
+}
+
+.preloader-eyebrow {
+  display: inline-block;
+  font-family: var(--font-primary, sans-serif);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  color: #7AD6EF;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.preloader-title {
+  font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.65rem;
+}
+
+.preloader-phase-text {
+  font-family: var(--font-primary, sans-serif);
+  font-size: 0.86rem;
+  color: #D3ECF3;
+  margin: 0;
+  min-height: 1.35rem;
+  font-weight: 400;
+  transition: opacity 0.25s ease;
+}
+
+.preloader-progress-container {
+  width: 100%;
+}
+
+.preloader-progress-track {
+  width: 100%;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid rgba(122, 214, 239, 0.15);
+}
+
+.preloader-progress-fill {
+  width: 0%;
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #186077 0%, #2084A3 40%, #38BDF8 80%, #7AD6EF 100%);
+  box-shadow: 0 0 16px rgba(56, 189, 248, 0.6);
+  position: relative;
+  transition: width 0.08s linear;
+}
+
+.preloader-progress-shimmer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  animation: preloaderShimmer 1.4s infinite;
+}
+
+@keyframes preloaderShimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.preloader-counter-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0.85rem;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.82rem;
+}
+
+.preloader-license-tag {
+  color: rgba(211, 236, 243, 0.72);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.76rem;
+}
+
+.preloader-license-tag i {
+  color: #7AD6EF;
+}
+
+.preloader-percentage {
+  color: #7AD6EF;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  font-variant-numeric: tabular-nums;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 480px) {
+  .preloader-card {
+    padding: 2.25rem 1.4rem 1.8rem;
+    border-radius: 24px;
+  }
+  .preloader-title {
+    font-size: 1.45rem;
+  }
+  .preloader-emblem-wrap {
+    width: 90px;
+    height: 90px;
+    margin-bottom: 1.4rem;
+  }
+  .preloader-emblem-core {
+    width: 66px;
+    height: 66px;
+  }
+  .preloader-logo-img {
+    width: 40px;
+  }
+}

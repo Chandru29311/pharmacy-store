@@ -433,20 +433,79 @@ function handlePreloader() {
   const preloader = document.getElementById("preloader");
   if (!preloader) return;
 
-  window.addEventListener("load", () => {
-    if (window.gsap) {
+  // Prevent scroll during initial 3-second synthesis sequence
+  document.body.style.overflow = "hidden";
+
+  const progressBar = document.getElementById("preloader-progress-bar");
+  const percentText = document.getElementById("preloader-percent");
+  const statusText = document.getElementById("preloader-status");
+
+  const phases = [
+    { at: 0, text: "Synthesizing Bio-Active Formulations..." },
+    { at: 850, text: "Cold-Extracting Standardized Phytochemicals..." },
+    { at: 1750, text: "Verifying Pharmacopeia Rigor & Purity..." },
+    { at: 2450, text: "Harmonizing Clinical Sanctuary..." }
+  ];
+
+  const startTime = performance.now();
+  const duration = 3000; // Exact 3 seconds of formulation time
+
+  function updatePreloader(now) {
+    const elapsed = Math.min(now - startTime, duration);
+    const progress = Math.min(elapsed / duration, 1);
+    const percent = Math.round(progress * 100);
+
+    if (progressBar) {
+      progressBar.style.width = percent + "%";
+    }
+    if (percentText) {
+      percentText.textContent = percent + "%";
+    }
+
+    if (statusText) {
+      for (let i = phases.length - 1; i >= 0; i--) {
+        if (elapsed >= phases[i].at) {
+          if (statusText.textContent !== phases[i].text) {
+            statusText.textContent = phases[i].text;
+          }
+          break;
+        }
+      }
+    }
+
+    if (elapsed < duration) {
+      requestAnimationFrame(updatePreloader);
+    } else {
+      finishPreloader();
+    }
+  }
+
+  function finishPreloader() {
+    document.body.style.overflow = "";
+
+    if (typeof gsap !== "undefined") {
       gsap.to(preloader, {
         opacity: 0,
+        scale: 1.03,
         duration: 0.6,
-        delay: 0.2,
+        ease: "power2.inOut",
         onComplete: () => {
           preloader.style.display = "none";
+          preloader.setAttribute("aria-hidden", "true");
         }
       });
     } else {
-      preloader.style.display = "none";
+      preloader.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+      preloader.style.opacity = "0";
+      preloader.style.transform = "scale(1.03)";
+      setTimeout(() => {
+        preloader.style.display = "none";
+        preloader.setAttribute("aria-hidden", "true");
+      }, 600);
     }
-  });
+  }
+
+  requestAnimationFrame(updatePreloader);
 }
 
 /**
