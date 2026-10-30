@@ -333,6 +333,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  // Lenis smooth scroll
+  initLenisSmoothScroll();
+
   // Preloader removal
   handlePreloader();
 
@@ -435,6 +438,9 @@ function handlePreloader() {
 
   // Prevent scroll during initial 3-second synthesis sequence
   document.body.style.overflow = "hidden";
+  if (window.lenis) {
+    window.lenis.stop();
+  }
 
   const progressBar = document.getElementById("preloader-progress-bar");
   const percentText = document.getElementById("preloader-percent");
@@ -482,6 +488,9 @@ function handlePreloader() {
 
   function finishPreloader() {
     document.body.style.overflow = "";
+    if (window.lenis) {
+      window.lenis.start();
+    }
 
     if (typeof gsap !== "undefined") {
       gsap.to(preloader, {
@@ -492,6 +501,9 @@ function handlePreloader() {
         onComplete: () => {
           preloader.style.display = "none";
           preloader.setAttribute("aria-hidden", "true");
+          if (typeof ScrollTrigger !== "undefined") {
+            ScrollTrigger.refresh();
+          }
         }
       });
     } else {
@@ -501,11 +513,78 @@ function handlePreloader() {
       setTimeout(() => {
         preloader.style.display = "none";
         preloader.setAttribute("aria-hidden", "true");
+        if (typeof ScrollTrigger !== "undefined") {
+          ScrollTrigger.refresh();
+        }
       }, 600);
     }
   }
 
   requestAnimationFrame(updatePreloader);
+}
+
+/**
+ * Lenis Smooth Scroll Configuration
+ * Creates an ultra-smooth, hardware-accelerated momentum scroll
+ * perfectly synchronized with GSAP ScrollTrigger, AOS (mirror: true), and sticky header navigation.
+ */
+let lenisInstance = null;
+
+function initLenisSmoothScroll() {
+  if (typeof Lenis === "undefined") return;
+  if (lenisInstance) return;
+
+  // Respect user preference for reduced motion
+  const prefersReduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (prefersReduced) return;
+
+  lenisInstance = new Lenis({
+    duration: 1.2,
+    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    orientation: "vertical",
+    gestureOrientation: "vertical",
+    smoothWheel: true,
+    wheelMultiplier: 1,
+    touchMultiplier: 1.2,
+    infinite: false
+  });
+
+  window.lenis = lenisInstance;
+
+  // Synchronize Lenis with GSAP ticker & lagSmoothing for 100% framerate sync
+  if (typeof gsap !== "undefined") {
+    gsap.ticker.add((time) => {
+      lenisInstance.raf(time * 1000);
+    });
+    gsap.ticker.lagSmoothing(0);
+  } else {
+    function raf(time) {
+      lenisInstance.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+  }
+
+  // Update ScrollTrigger on every Lenis scroll event
+  if (typeof ScrollTrigger !== "undefined") {
+    lenisInstance.on("scroll", () => {
+      ScrollTrigger.update();
+    });
+  }
+
+  // Handle in-page anchor links with Lenis smooth scrolling (accounting for sticky nav)
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener("click", function (e) {
+      const targetId = this.getAttribute("href");
+      if (targetId && targetId.length > 1 && !targetId.includes("/")) {
+        const targetEl = document.querySelector(targetId);
+        if (targetEl) {
+          e.preventDefault();
+          lenisInstance.scrollTo(targetEl, { offset: -76 });
+        }
+      }
+    });
+  });
 }
 
 /**

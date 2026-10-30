@@ -106,7 +106,7 @@
 
   <!-- Mobile Off-Canvas Menu Drawer -->
   <div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
-  <aside class="mobile-menu-drawer" id="mobile-menu">
+  <aside class="mobile-menu-drawer" id="mobile-menu" data-lenis-prevent>
     <div class="mobile-menu-header">
       <a href="index.html" class="brand-logo-link" aria-label="Stackly Home">
         <img src="assets/white.webp" alt="Stackly Pharmacy Logo" class="brand-logo-img">
@@ -130,7 +130,7 @@
 
   <!-- Interactive Slide-in Cart Drawer -->
   <div class="cart-overlay" id="cart-overlay"></div>
-  <div class="cart-drawer" id="cart-drawer">
+  <div class="cart-drawer" id="cart-drawer" data-lenis-prevent>
     <div class="cart-drawer-header">
       <h3 class="cart-drawer-title">Apothecary Basket <span id="cart-drawer-count">(0)</span></h3>
       <button class="nav-icon-btn" id="cart-drawer-close" style="color: var(--color-text-dark);">
@@ -619,7 +619,7 @@
       </div>
 
       <div class="footer-bottom-bar">
-        © 2026 Apothecary & Natural Healing. All rights reserved. Licensed Healthcare Dispenser.
+        © 2026 Stackly. All rights reserved. Licensed Healthcare Dispenser.
       </div>
     </div>
   </footer>
@@ -630,6 +630,7 @@
   <script src="js/orders.js"></script>
   <script src="js/notifications.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
   <script src="js/main.js"></script>
   <script>
     // Running number animation with mirror: true for Impact Metrics
